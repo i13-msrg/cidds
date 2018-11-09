@@ -139,7 +139,8 @@ class Tangle(object):
                                    arrows=True)
             plt.xlabel('Time')
             plt.yticks([])
-            plt.show()
+            # plt.show()
+            return plt
 
 
 class Transaction(object):

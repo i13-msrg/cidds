@@ -2,220 +2,64 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4c672379-96e4-4d39-a392-b1382b8d020b" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/base/Orchestrator.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/simulator/urls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/utils/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CIDDS/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/CIDDS/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/about-us.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/about-us.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/blog.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/blog.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/contact.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/contact.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/css/_about.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/_about.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/css/_about.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/_about.css.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/css/_event.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/_event.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/css/_event.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/_event.css.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/css/_feature.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/_feature.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/css/_feature.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/_feature.css.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/css/_footer.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/_footer.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/css/_footer.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/_footer.css.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/css/_price.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/_price.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/css/_price.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/_price.css.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/css/_projects.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/_projects.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/css/_projects.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/_projects.css.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/css/_service.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/_service.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/css/_service.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/_service.css.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/css/_team.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/_team.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/css/_team.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/_team.css.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/css/_testimonials.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/_testimonials.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/css/_testimonials.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/_testimonials.css.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/css/_work.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/_work.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/css/_work.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/_work.css.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/css/bootstrap.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/bootstrap.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/css/breadcrumb.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/breadcrumb.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/css/breadcrumb.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/breadcrumb.css.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/css/font-awesome.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/font-awesome.min.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/css/responsive.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/responsive.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/css/style.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/style.css.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/elements.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/elements.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/fonts/FontAwesome.otf" beforeDir="false" afterPath="$PROJECT_DIR$/static/fonts/FontAwesome.otf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/fonts/fontawesome-webfont.eot" beforeDir="false" afterPath="$PROJECT_DIR$/static/fonts/fontawesome-webfont.eot" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/fonts/fontawesome-webfont.svg" beforeDir="false" afterPath="$PROJECT_DIR$/static/fonts/fontawesome-webfont.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/fonts/fontawesome-webfont.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/static/fonts/fontawesome-webfont.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/fonts/fontawesome-webfont.woff" beforeDir="false" afterPath="$PROJECT_DIR$/static/fonts/fontawesome-webfont.woff" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/fonts/fontawesome-webfont.woff2" beforeDir="false" afterPath="$PROJECT_DIR$/static/fonts/fontawesome-webfont.woff2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/img/banner/banner-2.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/static/img/banner/banner-2.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/img/banner/banner-map.png" beforeDir="false" afterPath="$PROJECT_DIR$/static/img/banner/banner-map.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/img/banner/banner.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/static/img/banner/banner.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/img/banner/home-banner.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/static/img/banner/home-banner.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/img/banner/home-left-1.png" beforeDir="false" afterPath="$PROJECT_DIR$/static/img/banner/home-left-1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/img/blog/add.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/static/img/blog/add.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/img/blog/author.png" beforeDir="false" afterPath="$PROJECT_DIR$/static/img/blog/author.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/img/blog/c1.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/static/img/blog/c1.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/img/blog/c2.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/static/img/blog/c2.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/img/blog/c3.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/static/img/blog/c3.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/img/blog/c4.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/static/img/blog/c4.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/img/blog/c5.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/static/img/blog/c5.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/img/blog/c6.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/static/img/blog/c6.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/img/blog/cat-post/cat-post-1.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/static/img/blog/cat-post/cat-post-1.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/img/blog/cat-post/cat-post-2.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/static/img/blog/cat-post/cat-post-2.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/img/blog/cat-post/cat-post-3.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/static/img/blog/cat-post/cat-post-3.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/img/blog/causes/causes-1.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/static/img/blog/causes/causes-1.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/img/blog/causes/causes-2.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/static/img/blog/causes/causes-2.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/img/blog/causes/causes-3.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/static/img/blog/causes/causes-3.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/img/blog/feature-img1.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/static/img/blog/feature-img1.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/img/blog/home-blog/home-blog-1.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/static/img/blog/home-blog/home-blog-1.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/img/blog/home-blog/home-blog-2.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/static/img/blog/home-blog/home-blog-2.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/img/blog/home-blog/home-blog-3.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/static/img/blog/home-blog/home-blog-3.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/img/blog/main-blog/m-blog-1.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/static/img/blog/main-blog/m-blog-1.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/img/blog/main-blog/m-blog-2.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/static/img/blog/main-blog/m-blog-2.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/img/blog/main-blog/m-blog-3.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/static/img/blog/main-blog/m-blog-3.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/img/blog/main-blog/m-blog-4.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/static/img/blog/main-blog/m-blog-4.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/img/blog/main-blog/m-blog-5.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/static/img/blog/main-blog/m-blog-5.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/img/blog/next.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/static/img/blog/next.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/img/blog/popular-post/post1.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/static/img/blog/popular-post/post1.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/img/blog/popular-post/post2.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/static/img/blog/popular-post/post2.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/img/blog/popular-post/post3.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/static/img/blog/popular-post/post3.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/img/blog/popular-post/post4.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/static/img/blog/popular-post/post4.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/img/blog/post-img1.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/static/img/blog/post-img1.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/img/blog/post-img2.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/static/img/blog/post-img2.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/img/blog/prev.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/static/img/blog/prev.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/img/browser.png" beforeDir="false" afterPath="$PROJECT_DIR$/static/img/browser.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/img/chart.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/static/img/chart.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/img/elements/_DS_Store" beforeDir="false" afterPath="$PROJECT_DIR$/static/img/elements/_DS_Store" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/img/elements/a.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/static/img/elements/a.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/img/elements/a2.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/static/img/elements/a2.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/img/elements/d.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/static/img/elements/d.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/img/elements/disabled-check.png" beforeDir="false" afterPath="$PROJECT_DIR$/static/img/elements/disabled-check.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/img/elements/disabled-radio.png" beforeDir="false" afterPath="$PROJECT_DIR$/static/img/elements/disabled-radio.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/img/elements/f1.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/static/img/elements/f1.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/img/elements/f2.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/static/img/elements/f2.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/img/elements/f3.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/static/img/elements/f3.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/img/elements/f4.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/static/img/elements/f4.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/img/elements/f5.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/static/img/elements/f5.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/img/elements/f6.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/static/img/elements/f6.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/img/elements/f7.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/static/img/elements/f7.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/img/elements/f8.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/static/img/elements/f8.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/img/elements/g1.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/static/img/elements/g1.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/img/elements/g2.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/static/img/elements/g2.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/img/elements/g3.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/static/img/elements/g3.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/img/elements/g4.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/static/img/elements/g4.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/img/elements/g5.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/static/img/elements/g5.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/img/elements/g6.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/static/img/elements/g6.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/img/elements/g7.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/static/img/elements/g7.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/img/elements/g8.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/static/img/elements/g8.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/img/elements/primary-check.png" beforeDir="false" afterPath="$PROJECT_DIR$/static/img/elements/primary-check.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/img/elements/primary-radio.png" beforeDir="false" afterPath="$PROJECT_DIR$/static/img/elements/primary-radio.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/img/elements/success-check.png" beforeDir="false" afterPath="$PROJECT_DIR$/static/img/elements/success-check.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/img/elements/success-radio.png" beforeDir="false" afterPath="$PROJECT_DIR$/static/img/elements/success-radio.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/img/elements/user1.png" beforeDir="false" afterPath="$PROJECT_DIR$/static/img/elements/user1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/img/elements/user2.png" beforeDir="false" afterPath="$PROJECT_DIR$/static/img/elements/user2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/img/favicon.png" beforeDir="false" afterPath="$PROJECT_DIR$/static/img/favicon.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/img/instagram/Image-01.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/static/img/instagram/Image-01.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/img/instagram/Image-02.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/static/img/instagram/Image-02.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/img/instagram/Image-03.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/static/img/instagram/Image-03.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/img/instagram/Image-04.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/static/img/instagram/Image-04.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/img/instagram/Image-05.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/static/img/instagram/Image-05.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/img/instagram/Image-06.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/static/img/instagram/Image-06.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/img/instagram/Image-07.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/static/img/instagram/Image-07.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/img/instagram/Image-08.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/static/img/instagram/Image-08.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/img/logo.png" beforeDir="false" afterPath="$PROJECT_DIR$/static/img/logo.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/img/team/team-1.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/static/img/team/team-1.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/img/team/team-2.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/static/img/team/team-2.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/img/team/team-3.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/static/img/team/team-3.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/img/team/team-4.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/static/img/team/team-4.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/img/testimonials/testi-1.png" beforeDir="false" afterPath="$PROJECT_DIR$/static/img/testimonials/testi-1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/img/testimonials/testi-2.png" beforeDir="false" afterPath="$PROJECT_DIR$/static/img/testimonials/testi-2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/img/testimonials/testi-bg.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/static/img/testimonials/testi-bg.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CIDDS/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/CIDDS/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CIDDS/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/CIDDS/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/Tangle.py" beforeDir="false" afterPath="$PROJECT_DIR$/base/Tangle.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/sim.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/simulator/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/simulator/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/static/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/about-us.html" beforeDir="false" afterPath="$PROJECT_DIR$/static/about-us.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/blog.html" beforeDir="false" afterPath="$PROJECT_DIR$/static/blog.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/contact.html" beforeDir="false" afterPath="$PROJECT_DIR$/static/contact.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/contact_process.php" beforeDir="false" afterPath="$PROJECT_DIR$/static/contact_process.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/elements.html" beforeDir="false" afterPath="$PROJECT_DIR$/static/elements.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/js/bootstrap.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/bootstrap.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/js/contact.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/contact.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/js/custom.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/custom.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/js/gmaps.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/gmaps.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/js/jquery-3.2.1.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/jquery-3.2.1.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/js/jquery.ajaxchimp.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/jquery.ajaxchimp.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/js/jquery.form.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/jquery.form.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/js/jquery.validate.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/jquery.validate.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/js/mail-script.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/mail-script.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/js/popper.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/popper.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/js/stellar.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/stellar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/js/theme.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/theme.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/nexus-doc/_DS_Store" beforeDir="false" afterPath="$PROJECT_DIR$/static/nexus-doc/_DS_Store" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/nexus-doc/css/_DS_Store" beforeDir="false" afterPath="$PROJECT_DIR$/static/nexus-doc/css/_DS_Store" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/nexus-doc/css/font-awesome.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/nexus-doc/css/font-awesome.min.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/nexus-doc/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/nexus-doc/css/main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/nexus-doc/css/normalize.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/nexus-doc/css/normalize.min.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/nexus-doc/fonts/FontAwesome.otf" beforeDir="false" afterPath="$PROJECT_DIR$/static/nexus-doc/fonts/FontAwesome.otf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/nexus-doc/fonts/_DS_Store" beforeDir="false" afterPath="$PROJECT_DIR$/static/nexus-doc/fonts/_DS_Store" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/nexus-doc/fonts/fontawesome-webfont.eot" beforeDir="false" afterPath="$PROJECT_DIR$/static/nexus-doc/fonts/fontawesome-webfont.eot" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/nexus-doc/fonts/fontawesome-webfont.svg" beforeDir="false" afterPath="$PROJECT_DIR$/static/nexus-doc/fonts/fontawesome-webfont.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/nexus-doc/fonts/fontawesome-webfont.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/static/nexus-doc/fonts/fontawesome-webfont.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/nexus-doc/fonts/fontawesome-webfont.woff" beforeDir="false" afterPath="$PROJECT_DIR$/static/nexus-doc/fonts/fontawesome-webfont.woff" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/nexus-doc/img/logo.png" beforeDir="false" afterPath="$PROJECT_DIR$/static/nexus-doc/img/logo.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/nexus-doc/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/static/nexus-doc/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/nexus-doc/js/_DS_Store" beforeDir="false" afterPath="$PROJECT_DIR$/static/nexus-doc/js/_DS_Store" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/nexus-doc/js/custom.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/nexus-doc/js/custom.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/nexus-doc/js/jquery-1.11.0.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/nexus-doc/js/jquery-1.11.0.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/nexus-doc/js/jquery.nav.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/nexus-doc/js/jquery.nav.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/nexus-doc/syntax-highlighter/_DS_Store" beforeDir="false" afterPath="$PROJECT_DIR$/static/nexus-doc/syntax-highlighter/_DS_Store" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/nexus-doc/syntax-highlighter/scripts/shAutoloader.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/nexus-doc/syntax-highlighter/scripts/shAutoloader.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/nexus-doc/syntax-highlighter/scripts/shBrushAS3.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/nexus-doc/syntax-highlighter/scripts/shBrushAS3.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/nexus-doc/syntax-highlighter/scripts/shBrushAppleScript.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/nexus-doc/syntax-highlighter/scripts/shBrushAppleScript.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/nexus-doc/syntax-highlighter/scripts/shBrushBash.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/nexus-doc/syntax-highlighter/scripts/shBrushBash.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/nexus-doc/syntax-highlighter/scripts/shBrushCSharp.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/nexus-doc/syntax-highlighter/scripts/shBrushCSharp.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/nexus-doc/syntax-highlighter/scripts/shBrushColdFusion.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/nexus-doc/syntax-highlighter/scripts/shBrushColdFusion.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/nexus-doc/syntax-highlighter/scripts/shBrushCpp.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/nexus-doc/syntax-highlighter/scripts/shBrushCpp.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/nexus-doc/syntax-highlighter/scripts/shBrushCss.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/nexus-doc/syntax-highlighter/scripts/shBrushCss.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/nexus-doc/syntax-highlighter/scripts/shBrushDelphi.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/nexus-doc/syntax-highlighter/scripts/shBrushDelphi.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/nexus-doc/syntax-highlighter/scripts/shBrushDiff.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/nexus-doc/syntax-highlighter/scripts/shBrushDiff.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/nexus-doc/syntax-highlighter/scripts/shBrushErlang.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/nexus-doc/syntax-highlighter/scripts/shBrushErlang.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/nexus-doc/syntax-highlighter/scripts/shBrushGroovy.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/nexus-doc/syntax-highlighter/scripts/shBrushGroovy.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/nexus-doc/syntax-highlighter/scripts/shBrushJScript.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/nexus-doc/syntax-highlighter/scripts/shBrushJScript.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/nexus-doc/syntax-highlighter/scripts/shBrushJava.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/nexus-doc/syntax-highlighter/scripts/shBrushJava.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/nexus-doc/syntax-highlighter/scripts/shBrushJavaFX.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/nexus-doc/syntax-highlighter/scripts/shBrushJavaFX.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/nexus-doc/syntax-highlighter/scripts/shBrushPerl.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/nexus-doc/syntax-highlighter/scripts/shBrushPerl.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/nexus-doc/syntax-highlighter/scripts/shBrushPhp.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/nexus-doc/syntax-highlighter/scripts/shBrushPhp.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/nexus-doc/syntax-highlighter/scripts/shBrushPlain.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/nexus-doc/syntax-highlighter/scripts/shBrushPlain.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/nexus-doc/syntax-highlighter/scripts/shBrushPowerShell.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/nexus-doc/syntax-highlighter/scripts/shBrushPowerShell.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/nexus-doc/syntax-highlighter/scripts/shBrushPython.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/nexus-doc/syntax-highlighter/scripts/shBrushPython.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/nexus-doc/syntax-highlighter/scripts/shBrushRuby.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/nexus-doc/syntax-highlighter/scripts/shBrushRuby.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/nexus-doc/syntax-highlighter/scripts/shBrushSass.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/nexus-doc/syntax-highlighter/scripts/shBrushSass.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/nexus-doc/syntax-highlighter/scripts/shBrushScala.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/nexus-doc/syntax-highlighter/scripts/shBrushScala.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/nexus-doc/syntax-highlighter/scripts/shBrushSql.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/nexus-doc/syntax-highlighter/scripts/shBrushSql.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/nexus-doc/syntax-highlighter/scripts/shBrushVb.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/nexus-doc/syntax-highlighter/scripts/shBrushVb.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/nexus-doc/syntax-highlighter/scripts/shBrushXml.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/nexus-doc/syntax-highlighter/scripts/shBrushXml.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/nexus-doc/syntax-highlighter/scripts/shCore.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/nexus-doc/syntax-highlighter/scripts/shCore.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/nexus-doc/syntax-highlighter/scripts/shLegacy.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/nexus-doc/syntax-highlighter/scripts/shLegacy.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/nexus-doc/syntax-highlighter/styles/shCore.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/nexus-doc/syntax-highlighter/styles/shCore.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/nexus-doc/syntax-highlighter/styles/shCoreDefault.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/nexus-doc/syntax-highlighter/styles/shCoreDefault.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/nexus-doc/syntax-highlighter/styles/shCoreDjango.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/nexus-doc/syntax-highlighter/styles/shCoreDjango.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/nexus-doc/syntax-highlighter/styles/shCoreEclipse.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/nexus-doc/syntax-highlighter/styles/shCoreEclipse.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/nexus-doc/syntax-highlighter/styles/shCoreEmacs.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/nexus-doc/syntax-highlighter/styles/shCoreEmacs.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/nexus-doc/syntax-highlighter/styles/shCoreFadeToGrey.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/nexus-doc/syntax-highlighter/styles/shCoreFadeToGrey.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/nexus-doc/syntax-highlighter/styles/shCoreMDUltra.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/nexus-doc/syntax-highlighter/styles/shCoreMDUltra.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/nexus-doc/syntax-highlighter/styles/shCoreMidnight.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/nexus-doc/syntax-highlighter/styles/shCoreMidnight.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/nexus-doc/syntax-highlighter/styles/shCoreRDark.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/nexus-doc/syntax-highlighter/styles/shCoreRDark.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/nexus-doc/syntax-highlighter/styles/shThemeDefault.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/nexus-doc/syntax-highlighter/styles/shThemeDefault.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/nexus-doc/syntax-highlighter/styles/shThemeDjango.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/nexus-doc/syntax-highlighter/styles/shThemeDjango.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/nexus-doc/syntax-highlighter/styles/shThemeEclipse.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/nexus-doc/syntax-highlighter/styles/shThemeEclipse.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/nexus-doc/syntax-highlighter/styles/shThemeEmacs.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/nexus-doc/syntax-highlighter/styles/shThemeEmacs.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/nexus-doc/syntax-highlighter/styles/shThemeFadeToGrey.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/nexus-doc/syntax-highlighter/styles/shThemeFadeToGrey.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/nexus-doc/syntax-highlighter/styles/shThemeMDUltra.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/nexus-doc/syntax-highlighter/styles/shThemeMDUltra.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/nexus-doc/syntax-highlighter/styles/shThemeMidnight.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/nexus-doc/syntax-highlighter/styles/shThemeMidnight.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/nexus-doc/syntax-highlighter/styles/shThemeRDark.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/nexus-doc/syntax-highlighter/styles/shThemeRDark.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/price.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/price.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/scss/_blog.scss" beforeDir="false" afterPath="$PROJECT_DIR$/static/scss/_blog.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/scss/_button.scss" beforeDir="false" afterPath="$PROJECT_DIR$/static/scss/_button.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/scss/_contact.scss" beforeDir="false" afterPath="$PROJECT_DIR$/static/scss/_contact.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/scss/_elements.scss" beforeDir="false" afterPath="$PROJECT_DIR$/static/scss/_elements.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/scss/_feature.scss" beforeDir="false" afterPath="$PROJECT_DIR$/static/scss/_feature.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/scss/_footer.scss" beforeDir="false" afterPath="$PROJECT_DIR$/static/scss/_footer.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/scss/_header.scss" beforeDir="false" afterPath="$PROJECT_DIR$/static/scss/_header.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/scss/_predefine.scss" beforeDir="false" afterPath="$PROJECT_DIR$/static/scss/_predefine.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/scss/_price.scss" beforeDir="false" afterPath="$PROJECT_DIR$/static/scss/_price.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/scss/_testimonials.scss" beforeDir="false" afterPath="$PROJECT_DIR$/static/scss/_testimonials.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/scss/_variables.scss" beforeDir="false" afterPath="$PROJECT_DIR$/static/scss/_variables.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/scss/breadcrumb.scss" beforeDir="false" afterPath="$PROJECT_DIR$/static/scss/breadcrumb.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/scss/style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/static/scss/style.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/services.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/services.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/single-blog.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/single-blog.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/prepros-6.config" beforeDir="false" afterPath="$PROJECT_DIR$/static/prepros-6.config" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/price.html" beforeDir="false" afterPath="$PROJECT_DIR$/static/price.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/services.html" beforeDir="false" afterPath="$PROJECT_DIR$/static/services.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/single-blog.html" beforeDir="false" afterPath="$PROJECT_DIR$/static/single-blog.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/vendors/animate-css/animate.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/vendors/animate-css/animate.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/vendors/animate-css/wow.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/vendors/animate-css/wow.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/vendors/bootstrap-datepicker/bootstrap-datetimepicker.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/vendors/bootstrap-datepicker/bootstrap-datetimepicker.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/vendors/bootstrap-datepicker/bootstrap-datetimepicker.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/vendors/bootstrap-datepicker/bootstrap-datetimepicker.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/vendors/bootstrap-datepicker/bootstrap-select.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/vendors/bootstrap-datepicker/bootstrap-select.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/vendors/bootstrap-datepicker/bootstrap-select.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/vendors/bootstrap-datepicker/bootstrap-select.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/vendors/counter-up/jquery.counterup.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/vendors/counter-up/jquery.counterup.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/vendors/counter-up/jquery.waypoints.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/vendors/counter-up/jquery.waypoints.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/vendors/flaticon/Flaticon.eot" beforeDir="false" afterPath="$PROJECT_DIR$/static/vendors/flaticon/Flaticon.eot" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/vendors/flaticon/Flaticon.svg" beforeDir="false" afterPath="$PROJECT_DIR$/static/vendors/flaticon/Flaticon.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/vendors/flaticon/Flaticon.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/static/vendors/flaticon/Flaticon.ttf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/vendors/flaticon/Flaticon.woff" beforeDir="false" afterPath="$PROJECT_DIR$/static/vendors/flaticon/Flaticon.woff" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/vendors/flaticon/_flaticon.scss" beforeDir="false" afterPath="$PROJECT_DIR$/static/vendors/flaticon/_flaticon.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/vendors/flaticon/flaticon.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/vendors/flaticon/flaticon.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/vendors/flipclock/timer.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/vendors/flipclock/timer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/vendors/isotope/imagesloaded.pkgd.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/vendors/isotope/imagesloaded.pkgd.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/vendors/isotope/isotope-min.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/vendors/isotope/isotope-min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/vendors/jquery-ui/jquery-ui.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/vendors/jquery-ui/jquery-ui.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/vendors/jquery-ui/jquery-ui.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/vendors/jquery-ui/jquery-ui.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/vendors/lightbox/simpleLightbox.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/vendors/lightbox/simpleLightbox.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/vendors/lightbox/simpleLightbox.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/vendors/lightbox/simpleLightbox.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/vendors/linericon/fonts/Linearicons-Free.eot" beforeDir="false" afterPath="$PROJECT_DIR$/static/vendors/linericon/fonts/Linearicons-Free.eot" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/vendors/linericon/fonts/Linearicons-Free.svg" beforeDir="false" afterPath="$PROJECT_DIR$/static/vendors/linericon/fonts/Linearicons-Free.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/vendors/linericon/fonts/Linearicons-Free.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/static/vendors/linericon/fonts/Linearicons-Free.ttf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/vendors/linericon/fonts/Linearicons-Free.woff" beforeDir="false" afterPath="$PROJECT_DIR$/static/vendors/linericon/fonts/Linearicons-Free.woff" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/vendors/linericon/fonts/Linearicons-Free.woff2" beforeDir="false" afterPath="$PROJECT_DIR$/static/vendors/linericon/fonts/Linearicons-Free.woff2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/vendors/linericon/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/vendors/linericon/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/vendors/nice-select/css/nice-select.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/vendors/nice-select/css/nice-select.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/vendors/nice-select/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/vendors/nice-select/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/vendors/nice-select/js/jquery.nice-select.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/vendors/nice-select/js/jquery.nice-select.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/vendors/nice-select/js/jquery.nice-select.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/vendors/nice-select/js/jquery.nice-select.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/vendors/owl-carousel/assets/ajax-loader.gif" beforeDir="false" afterPath="$PROJECT_DIR$/static/vendors/owl-carousel/assets/ajax-loader.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/vendors/owl-carousel/assets/animated.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/vendors/owl-carousel/assets/animated.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/vendors/owl-carousel/assets/owl.carousel.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/vendors/owl-carousel/assets/owl.carousel.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/vendors/owl-carousel/owl.carousel.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/vendors/owl-carousel/owl.carousel.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/vendors/owl-carousel/owl.carousel.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/vendors/owl-carousel/owl.carousel.min.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -233,8 +77,8 @@
     <session id="-1582654578">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="8" />
-          <entry key="project.open.time.1" value="1" />
+          <entry key="project.closed" value="10" />
+          <entry key="project.open.time.1" value="2" />
           <entry key="project.open.time.13" value="1" />
           <entry key="project.open.time.18" value="1" />
           <entry key="project.open.time.19" value="1" />
@@ -243,54 +87,44 @@
           <entry key="project.open.time.4" value="1" />
           <entry key="project.open.time.55" value="1" />
           <entry key="project.open.time.6" value="1" />
-          <entry key="project.opened" value="9" />
+          <entry key="project.opened" value="10" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="html" value="1" />
-          <entry key="py" value="5" />
+          <entry key="html" value="2" />
+          <entry key="py" value="19" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="HTML" value="1" />
-          <entry key="Python" value="5" />
+          <entry key="HTML" value="2" />
+          <entry key="Python" value="19" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="py" value="62" />
+          <entry key="dummy" value="16" />
+          <entry key="html" value="95" />
+          <entry key="py" value="715" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Python" value="62" />
+          <entry key="HTML" value="95" />
+          <entry key="PLAIN_TEXT" value="16" />
+          <entry key="Python" value="715" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/CIDDS/settings.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1380">
-              <caret line="92" column="5" lean-forward="true" selection-start-line="92" selection-start-column="5" selection-end-line="92" selection-end-column="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/__init__.py">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/CIDDS/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="3" column="59" selection-start-line="3" selection-start-column="59" selection-end-line="3" selection-end-column="59" />
+            <state relative-caret-position="435">
+              <caret line="29" lean-forward="true" selection-start-line="29" selection-end-line="29" />
               <folding>
                 <element signature="e#629#661#0" expanded="true" />
               </folding>
@@ -299,22 +133,50 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/index.html">
+        <entry file="file://$PROJECT_DIR$/static/contact.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="16" column="45" selection-start-line="16" selection-start-column="45" selection-end-line="16" selection-end-column="45" />
+            <state relative-caret-position="155">
+              <caret line="139" column="18" lean-forward="true" selection-start-line="139" selection-start-column="18" selection-end-line="139" selection-end-column="18" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/CIDDS/views.py">
+        <entry file="file://$PROJECT_DIR$/simulator/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="3" column="15" selection-start-line="3" selection-start-column="15" selection-end-line="3" selection-end-column="15" />
+            <state relative-caret-position="435">
+              <caret line="29" selection-start-line="29" selection-end-line="29" />
               <folding>
-                <marker date="1541438293565" expanded="true" signature="73:74" ph="..." />
+                <element signature="e#0#9#0" expanded="true" />
+                <marker date="1541616317652" expanded="true" signature="318:1277" ph="..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/venv/lib/python3.7/site-packages/matplotlib/pyplot.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="15">
+              <caret line="686" column="4" selection-start-line="686" selection-start-column="4" selection-end-line="686" selection-end-column="4" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/venv/lib/python3.7/site-packages/django/http/response.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="145">
+              <caret line="431" column="46" selection-start-line="431" selection-start-column="41" selection-end-line="431" selection-end-column="46" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/venv/lib/python3.7/site-packages/django/views/generic/base.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="840">
+              <caret line="66" column="32" lean-forward="true" selection-start-line="66" selection-start-column="32" selection-end-line="66" selection-end-column="32" />
             </state>
           </provider>
         </entry>
@@ -322,8 +184,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/base/Tangle.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
-              <caret line="31" column="44" selection-start-line="31" selection-start-column="44" selection-end-line="31" selection-end-column="44" />
+            <state relative-caret-position="2130">
+              <caret line="142" column="22" lean-forward="true" selection-start-line="142" selection-start-column="22" selection-end-line="142" selection-end-column="22" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
               </folding>
@@ -332,12 +194,31 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/base/sim.py">
+        <entry file="file://$PROJECT_DIR$/venv/lib/python3.7/site-packages/django/core/handlers/base.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="27" selection-start-line="27" selection-end-line="27" />
+            <state relative-caret-position="162">
+              <caret line="123" selection-start-line="123" selection-end-line="123" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/simulator/urls.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="30">
+              <caret line="2" selection-start-line="2" selection-end-line="2" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/base/Orchestrator.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="300">
+              <caret line="20" column="20" lean-forward="true" selection-start-line="20" selection-start-column="20" selection-end-line="20" selection-end-column="20" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
+                <marker date="1541616267162" expanded="true" signature="115:117" ph="..." />
               </folding>
             </state>
           </provider>
@@ -355,6 +236,8 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>info.privacy_polic</find>
+      <find>nexus</find>
+      <find>mimet</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -363,12 +246,16 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/base/Tangle.py" />
         <option value="$PROJECT_DIR$/base/sim.oy.py" />
-        <option value="$PROJECT_DIR$/base/sim.py" />
         <option value="$PROJECT_DIR$/CIDDS/views.py" />
-        <option value="$PROJECT_DIR$/CIDDS/urls.py" />
         <option value="$PROJECT_DIR$/CIDDS/settings.py" />
+        <option value="$PROJECT_DIR$/templates/index.html" />
+        <option value="$PROJECT_DIR$/simulator/urls.py" />
+        <option value="$PROJECT_DIR$/base/sim.py" />
+        <option value="$PROJECT_DIR$/base/Tangle.py" />
+        <option value="$PROJECT_DIR$/base/Orchestrator.py" />
+        <option value="$PROJECT_DIR$/simulator/views.py" />
+        <option value="$PROJECT_DIR$/CIDDS/urls.py" />
       </list>
     </option>
   </component>
@@ -379,10 +266,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" fullScreen="true">
-    <option name="x" value="-960" />
-    <option name="y" value="-1440" />
-    <option name="width" value="1110" />
-    <option name="height" value="1440" />
+    <option name="width" value="1440" />
+    <option name="height" value="900" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -403,6 +288,11 @@
             <path>
               <item name="CIDDS" type="b2602c69:ProjectViewProjectNode" />
               <item name="CIDDS" type="462c0819:PsiDirectoryNode" />
+              <item name="base" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CIDDS" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CIDDS" type="462c0819:PsiDirectoryNode" />
               <item name="CIDDS" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -413,7 +303,7 @@
             <path>
               <item name="CIDDS" type="b2602c69:ProjectViewProjectNode" />
               <item name="CIDDS" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -429,6 +319,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/templates" />
       <recent name="$PROJECT_DIR$/static" />
     </key>
   </component>
@@ -458,7 +349,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/base/sim.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/base/Orchestrator.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -521,30 +412,38 @@
     </task>
     <servers />
   </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
   <component name="ToolWindowManager">
-    <frame x="-960" y="-1440" width="1714" height="1440" extended-state="0" />
-    <editor active="true" />
+    <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22129187" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26824033" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.8987952" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.56050956" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.37831324" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.329927" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="11" visible="true" weight="0.046715327" />
-      <window_info anchor="bottom" id="Python Console" order="12" />
+      <window_info anchor="bottom" id="Terminal" order="11" weight="0.24840765" />
+      <window_info anchor="bottom" id="Python Console" order="12" weight="0.329927" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="SciView" order="3" weight="0.07474985" />
+      <window_info anchor="right" id="SciView" order="3" visible="true" weight="0.07439199" />
       <window_info anchor="right" id="Database" order="4" />
     </layout>
   </component>
@@ -554,62 +453,159 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/simulator/views.py</url>
+          <line>17</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="debuggerHistoryManager">
+    <expressions id="evaluateExpression">
+      <expression>
+        <expression-string>plot</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+    </expressions>
+  </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/base/sim.oy.py" />
-    <entry file="file://$PROJECT_DIR$/templates/__init__.py">
+    <entry file="file://$PROJECT_DIR$/static/__init__.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="45" selection-start-line="16" selection-start-column="45" selection-end-line="16" selection-end-column="45" />
+        <state relative-caret-position="197">
+          <caret line="30" column="54" selection-start-line="30" selection-start-column="54" selection-end-line="30" selection-end-column="54" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/CIDDS/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="15" selection-start-line="3" selection-start-column="15" selection-end-line="3" selection-end-column="15" />
+        <state relative-caret-position="60">
+          <caret line="4" column="20" lean-forward="true" selection-start-line="4" selection-start-column="20" selection-end-line="4" selection-end-column="20" />
           <folding>
-            <marker date="1541438293565" expanded="true" signature="73:74" ph="..." />
+            <marker date="1541623298960" expanded="true" signature="73:74" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/simulator/tests.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/simulator/models.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/simulator/admin.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CIDDS/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="376">
+          <caret line="126" lean-forward="true" selection-start-line="126" selection-end-line="126" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/lib/python3.7/site-packages/django/utils/deprecation.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="383">
+          <caret line="93" selection-start-line="93" selection-end-line="93" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/lib/python3.7/site-packages/django/core/handlers/exception.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="35" selection-start-line="35" selection-end-line="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/lib/python3.7/site-packages/django/core/handlers/base.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="123" selection-start-line="123" selection-end-line="123" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/lib/python3.7/site-packages/django/http/response.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="145">
+          <caret line="431" column="46" selection-start-line="431" selection-start-column="41" selection-end-line="431" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/lib/python3.7/site-packages/matplotlib/pyplot.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="686" column="4" selection-start-line="686" selection-start-column="4" selection-end-line="686" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/base/Orchestrator.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="20" column="20" lean-forward="true" selection-start-line="20" selection-start-column="20" selection-end-line="20" selection-end-column="20" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+            <marker date="1541616267162" expanded="true" signature="115:117" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/base/Tangle.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="31" column="44" selection-start-line="31" selection-start-column="44" selection-end-line="31" selection-end-column="44" />
+        <state relative-caret-position="2130">
+          <caret line="142" column="22" lean-forward="true" selection-start-line="142" selection-start-column="22" selection-end-line="142" selection-end-column="22" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/base/sim.py">
+    <entry file="file://$PROJECT_DIR$/venv/lib/python3.7/site-packages/django/views/generic/base.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="27" selection-start-line="27" selection-end-line="27" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="840">
+          <caret line="66" column="32" lean-forward="true" selection-start-line="66" selection-start-column="32" selection-end-line="66" selection-end-column="32" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/CIDDS/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="59" selection-start-line="3" selection-start-column="59" selection-end-line="3" selection-end-column="59" />
+        <state relative-caret-position="435">
+          <caret line="29" lean-forward="true" selection-start-line="29" selection-end-line="29" />
           <folding>
             <element signature="e#629#661#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CIDDS/settings.py">
+    <entry file="file://$PROJECT_DIR$/static/contact.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1380">
-          <caret line="92" column="5" lean-forward="true" selection-start-line="92" selection-start-column="5" selection-end-line="92" selection-end-column="5" />
+        <state relative-caret-position="155">
+          <caret line="139" column="18" lean-forward="true" selection-start-line="139" selection-start-column="18" selection-end-line="139" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/simulator/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="29" selection-start-line="29" selection-end-line="29" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+            <marker date="1541616317652" expanded="true" signature="318:1277" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/simulator/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" selection-start-line="2" selection-end-line="2" />
         </state>
       </provider>
     </entry>

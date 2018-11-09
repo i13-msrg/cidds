@@ -1,0 +1,11 @@
+cycler==0.10.0
+decorator==4.3.0
+Django==2.1.2
+kiwisolver==1.0.1
+matplotlib==3.0.1
+networkx==2.2
+numpy==1.15.3
+pyparsing==2.3.0
+python-dateutil==2.7.5
+pytz==2018.6
+six==1.11.0
