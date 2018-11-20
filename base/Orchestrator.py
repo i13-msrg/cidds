@@ -16,9 +16,9 @@ def start_helper():
     for i in range(10):
         t.next_transaction()
 
-    finalPlot = t.plot()
+
     # finalPlot.show()
-    return finalPlot
+    return t
 
 
 
