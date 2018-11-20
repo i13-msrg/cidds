@@ -2,107 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4c672379-96e4-4d39-a392-b1382b8d020b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/other.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/css/main.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/css/util.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/font-awesome-4.7.0/HELP-US-OUT.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/font-awesome-4.7.0/css/font-awesome.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/font-awesome-4.7.0/css/font-awesome.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/font-awesome-4.7.0/fonts/FontAwesome.otf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/font-awesome-4.7.0/fonts/fontawesome-webfont.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/font-awesome-4.7.0/fonts/fontawesome-webfont.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/font-awesome-4.7.0/fonts/fontawesome-webfont.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/font-awesome-4.7.0/fonts/fontawesome-webfont.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/font-awesome-4.7.0/fonts/fontawesome-webfont.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/font-awesome-4.7.0/less/animated.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/font-awesome-4.7.0/less/bordered-pulled.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/font-awesome-4.7.0/less/core.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/font-awesome-4.7.0/less/fixed-width.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/font-awesome-4.7.0/less/font-awesome.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/font-awesome-4.7.0/less/icons.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/font-awesome-4.7.0/less/larger.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/font-awesome-4.7.0/less/list.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/font-awesome-4.7.0/less/mixins.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/font-awesome-4.7.0/less/path.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/font-awesome-4.7.0/less/rotated-flipped.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/font-awesome-4.7.0/less/screen-reader.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/font-awesome-4.7.0/less/stacked.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/font-awesome-4.7.0/less/variables.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/font-awesome-4.7.0/scss/_animated.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/font-awesome-4.7.0/scss/_bordered-pulled.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/font-awesome-4.7.0/scss/_core.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/font-awesome-4.7.0/scss/_fixed-width.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/font-awesome-4.7.0/scss/_icons.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/font-awesome-4.7.0/scss/_larger.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/font-awesome-4.7.0/scss/_list.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/font-awesome-4.7.0/scss/_mixins.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/font-awesome-4.7.0/scss/_path.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/font-awesome-4.7.0/scss/_rotated-flipped.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/font-awesome-4.7.0/scss/_screen-reader.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/font-awesome-4.7.0/scss/_stacked.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/font-awesome-4.7.0/scss/_variables.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/font-awesome-4.7.0/scss/font-awesome.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/montserrat/Montserrat-Black.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/montserrat/Montserrat-BlackItalic.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/montserrat/Montserrat-Bold.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/montserrat/Montserrat-BoldItalic.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/montserrat/Montserrat-ExtraBold.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/montserrat/Montserrat-ExtraBoldItalic.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/montserrat/Montserrat-ExtraLight.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/montserrat/Montserrat-ExtraLightItalic.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/montserrat/Montserrat-Italic.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/montserrat/Montserrat-Light.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/montserrat/Montserrat-LightItalic.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/montserrat/Montserrat-Medium.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/montserrat/Montserrat-MediumItalic.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/montserrat/Montserrat-Regular.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/montserrat/Montserrat-SemiBold.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/montserrat/Montserrat-SemiBoldItalic.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/montserrat/Montserrat-Thin.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/montserrat/Montserrat-ThinItalic.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/montserrat/OFL.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/icons/favicon.ico" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/img-01.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/img-02.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/js/main.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/vendor/animate/animate.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/vendor/bootstrap/css/bootstrap-grid.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/vendor/bootstrap/css/bootstrap-grid.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/vendor/bootstrap/css/bootstrap-grid.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/vendor/bootstrap/css/bootstrap-grid.min.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/vendor/bootstrap/css/bootstrap-reboot.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/vendor/bootstrap/css/bootstrap-reboot.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/vendor/bootstrap/css/bootstrap-reboot.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/vendor/bootstrap/css/bootstrap-reboot.min.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/vendor/bootstrap/css/bootstrap.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/vendor/bootstrap/css/bootstrap.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/vendor/bootstrap/css/bootstrap.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/vendor/bootstrap/css/bootstrap.min.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/vendor/bootstrap/js/bootstrap.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/vendor/bootstrap/js/bootstrap.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/vendor/bootstrap/js/popper.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/vendor/bootstrap/js/popper.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/vendor/bootstrap/js/tooltip.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/vendor/css-hamburgers/hamburgers.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/vendor/css-hamburgers/hamburgers.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/vendor/jquery/jquery-3.2.1.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/vendor/select2/select2.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/vendor/select2/select2.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/vendor/select2/select2.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/vendor/select2/select2.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/vendor/tilt/tilt.jquery.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/start_form.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CIDDS/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/CIDDS/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CIDDS/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/CIDDS/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/base/Orchestrator.py" beforeDir="false" afterPath="$PROJECT_DIR$/base/Orchestrator.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/simulator/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/simulator/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/simulator/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/simulator/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/simulator/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/simulator/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/img/logo.png" beforeDir="false" afterPath="$PROJECT_DIR$/static/img/logo.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/start_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/start_form.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -138,7 +38,8 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="html" value="11" />
+          <entry key="config" value="1" />
+          <entry key="html" value="15" />
           <entry key="jpg" value="1" />
           <entry key="js" value="2" />
           <entry key="png" value="8" />
@@ -147,22 +48,23 @@
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="HTML" value="11" />
+          <entry key="HTML" value="15" />
           <entry key="Image" value="9" />
           <entry key="JavaScript" value="2" />
+          <entry key="PLAIN_TEXT" value="1" />
           <entry key="Python" value="42" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="16" />
-          <entry key="html" value="821" />
+          <entry key="html" value="849" />
           <entry key="py" value="1629" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="HTML" value="821" />
+          <entry key="HTML" value="849" />
           <entry key="PLAIN_TEXT" value="16" />
           <entry key="Python" value="1629" />
         </counts>
@@ -173,11 +75,11 @@
     <splitter split-orientation="horizontal" split-proportion="0.57238305">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/templates/index.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="676">
-                  <caret line="77" column="94" selection-start-line="77" selection-start-column="94" selection-end-line="77" selection-end-column="94" />
+                <state relative-caret-position="493">
+                  <caret line="93" column="33" selection-start-line="93" selection-start-column="24" selection-end-line="93" selection-end-column="33" />
                 </state>
               </provider>
             </entry>
@@ -186,7 +88,7 @@
             <entry file="file://$PROJECT_DIR$/simulator/views.py">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="645">
-                  <caret line="57" lean-forward="true" selection-start-line="57" selection-end-line="57" />
+                  <caret line="57" selection-start-line="57" selection-end-line="57" />
                 </state>
               </provider>
             </entry>
@@ -195,7 +97,7 @@
             <entry file="file://$PROJECT_DIR$/base/Tangle.py">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="337">
-                  <caret line="28" column="23" lean-forward="true" selection-start-line="28" selection-start-column="23" selection-end-line="28" selection-end-column="23" />
+                  <caret line="28" column="23" selection-start-line="28" selection-start-column="23" selection-end-line="28" selection-end-column="23" />
                   <folding>
                     <element signature="e#0#18#0" expanded="true" />
                   </folding>
@@ -204,44 +106,50 @@
             </entry>
           </file>
           <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/static/img/favicon.png">
-              <provider selected="true" editor-type-id="images" />
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/static/img/chart.jpg">
-              <provider selected="true" editor-type-id="images" />
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/static/img/browser.png">
               <provider selected="true" editor-type-id="images" />
             </entry>
           </file>
-          <file pinned="false" current-in-tab="false">
+          <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/templates/start_form.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="79">
-                  <caret line="51" column="42" selection-start-line="51" selection-start-column="42" selection-end-line="51" selection-end-column="42" />
+                <state relative-caret-position="375">
+                  <caret line="25" column="24" selection-start-line="25" selection-start-column="16" selection-end-line="25" selection-end-column="24" />
                 </state>
               </provider>
             </entry>
           </file>
           <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/simulator/models.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="450">
-                  <caret line="30" lean-forward="true" selection-start-line="30" selection-end-line="30" />
-                  <folding>
-                    <element signature="e#0#43#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/simulator/admin.py">
+            <entry file="file://$PROJECT_DIR$/static/single-blog.html">
               <provider selected="true" editor-type-id="text-editor" />
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/static/services.html">
+              <provider selected="true" editor-type-id="text-editor" />
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/static/prepros-6.config">
+              <provider selected="true" editor-type-id="text-editor" />
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/static/elements.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="141">
+                  <caret line="28" column="102" selection-start-line="28" selection-start-column="102" selection-end-line="28" selection-end-column="102" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/static/blog.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="684">
+                  <caret line="63" column="17" lean-forward="true" selection-start-line="63" selection-start-column="17" selection-end-line="63" selection-end-column="17" />
+                </state>
+              </provider>
             </entry>
           </file>
         </leaf>
@@ -263,8 +171,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/base/Orchestrator.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="420">
-                  <caret line="28" column="26" lean-forward="true" selection-start-line="28" selection-start-column="26" selection-end-line="28" selection-end-column="26" />
+                <state relative-caret-position="315">
+                  <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
                   <folding>
                     <element signature="e#0#11#0" expanded="true" />
                     <marker date="1542743987101" expanded="true" signature="115:117" ph="..." />
@@ -334,6 +242,7 @@
       <find>unique scree</find>
       <find>start</find>
       <find>logo</find>
+      <find>home</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -352,11 +261,11 @@
         <option value="$PROJECT_DIR$/CIDDS/urls.py" />
         <option value="$PROJECT_DIR$/CIDDS/settings.py" />
         <option value="$PROJECT_DIR$/CIDDS/models.py" />
-        <option value="$PROJECT_DIR$/templates/start_form.html" />
         <option value="$PROJECT_DIR$/simulator/models.py" />
         <option value="$PROJECT_DIR$/base/Orchestrator.py" />
         <option value="$PROJECT_DIR$/simulator/views.py" />
         <option value="$PROJECT_DIR$/templates/index.html" />
+        <option value="$PROJECT_DIR$/templates/start_form.html" />
       </list>
     </option>
   </component>
@@ -366,11 +275,11 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6" fullScreen="true">
-    <option name="x" value="-960" />
-    <option name="y" value="-1440" />
-    <option name="width" value="2063" />
-    <option name="height" value="1440" />
+  <component name="ProjectFrameBounds" fullScreen="true">
+    <option name="x" value="-695" />
+    <option name="y" value="-1692" />
+    <option name="width" value="3008" />
+    <option name="height" value="1692" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -554,15 +463,15 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-960" y="-1440" width="2063" height="1440" extended-state="6" />
+    <frame x="-695" y="-1692" width="3008" height="1692" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.0979713" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.13486177" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.43576643" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.4352651" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.6240964" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -571,12 +480,12 @@
       <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="11" visible="true" weight="0.20948905" />
+      <window_info anchor="bottom" id="Terminal" order="11" weight="0.17694205" />
       <window_info anchor="bottom" id="Python Console" order="12" weight="0.329927" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="SciView" order="3" visible="true" weight="0.14943098" />
+      <window_info anchor="right" id="SciView" order="3" visible="true" weight="0.10182063" />
       <window_info anchor="right" id="Database" order="4" />
     </layout>
   </component>
@@ -686,13 +595,6 @@
     <entry file="file://$USER_HOME$/Downloads/Webp.net-resizeimage.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/elements.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="141">
-          <caret line="28" column="102" selection-start-line="28" selection-start-column="102" selection-end-line="28" selection-end-column="102" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/static/img/logo.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
@@ -795,26 +697,12 @@
     <entry file="file://$PROJECT_DIR$/static/img/chart.jpg">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/img/browser.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/simulator/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="450">
-          <caret line="30" lean-forward="true" selection-start-line="30" selection-end-line="30" />
+          <caret line="30" selection-start-line="30" selection-end-line="30" />
           <folding>
             <element signature="e#0#43#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/base/Orchestrator.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="28" column="26" lean-forward="true" selection-start-line="28" selection-start-column="26" selection-end-line="28" selection-end-column="26" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-            <marker date="1542743987101" expanded="true" signature="115:117" ph="..." />
           </folding>
         </state>
       </provider>
@@ -822,7 +710,7 @@
     <entry file="file://$PROJECT_DIR$/base/Tangle.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="337">
-          <caret line="28" column="23" lean-forward="true" selection-start-line="28" selection-start-column="23" selection-end-line="28" selection-end-column="23" />
+          <caret line="28" column="23" selection-start-line="28" selection-start-column="23" selection-end-line="28" selection-end-column="23" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>
@@ -832,24 +720,61 @@
     <entry file="file://$PROJECT_DIR$/simulator/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="645">
-          <caret line="57" lean-forward="true" selection-start-line="57" selection-end-line="57" />
+          <caret line="57" selection-start-line="57" selection-end-line="57" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/static/images/img-01.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/start_form.html">
+    <entry file="file://$PROJECT_DIR$/static/services.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/prepros-6.config">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/elements.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="79">
-          <caret line="51" column="42" selection-start-line="51" selection-start-column="42" selection-end-line="51" selection-end-column="42" />
+        <state relative-caret-position="141">
+          <caret line="28" column="102" selection-start-line="28" selection-start-column="102" selection-end-line="28" selection-end-column="102" />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/static/blog.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="684">
+          <caret line="63" column="17" lean-forward="true" selection-start-line="63" selection-start-column="17" selection-end-line="63" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/img/browser.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/templates/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="676">
-          <caret line="77" column="94" selection-start-line="77" selection-start-column="94" selection-end-line="77" selection-end-column="94" />
+        <state relative-caret-position="493">
+          <caret line="93" column="33" selection-start-line="93" selection-start-column="24" selection-end-line="93" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/single-blog.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/base/Orchestrator.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+            <marker date="1542743987101" expanded="true" signature="115:117" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/start_form.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="25" column="24" selection-start-line="25" selection-start-column="16" selection-end-line="25" selection-end-column="24" />
         </state>
       </provider>
     </entry>
