@@ -1,11 +1,12 @@
 from django.contrib.auth.models import User
 from django.db import models
+from django.utils import timezone
 from safedelete.models import SafeDeleteModel
 import uuid
 import os
 
 def get_image_path(instance, filename):
-    return os.path.join('simulationresults', str(instance.id), filename)
+    return os.path.join('images', str(instance.id), filename)
 
 class SimulationResults(SafeDeleteModel):
     # unique id for each simulation
@@ -33,7 +34,7 @@ class SimulationResults(SafeDeleteModel):
     randomness = models.FloatField(blank=False, null=False, default=1)
 
 # Tip selection algorithm
-    algoithm = models.CharField(blank=True, max_length=10,
+    algorithm = models.CharField(blank=True, max_length=10,
                                 help_text="A short description of the simulation")
 
     # reference text for the simulation
@@ -48,7 +49,18 @@ class SimulationResults(SafeDeleteModel):
     # resultant plotted image
     image = models.ImageField(upload_to=get_image_path, blank=True, null=True)
 
+    # Created time
+    created = models.DateTimeField(editable=False, default=timezone.now())
 
+    # modified time
+    modified = models.DateTimeField(null=True)
+
+    def save(self, *args, **kwargs):
+        ''' On save, update timestamps '''
+        if not self.id:
+            self.created = timezone.now()
+        self.modified = timezone.now()
+        return super(SimulationResults, self).save(*args, **kwargs)
 
 
 

@@ -1,7 +1,7 @@
 import io
 
 from django.http import JsonResponse, HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views import View
 import json
 from django.core.files.images import ImageFile
@@ -35,14 +35,24 @@ class StartSim(View):
     def post(self, request):
 
         data = request.POST
-        nodes = data.get("nodes")
-        # processes = data.get("alpha")
-        alpha = data.get("alpha")
-        randomness = data.get("randomness")
-        algorithm = data.get("algoritm")
+        nodes = int(data.get("transactions"))
+        processes = int(data.get("processes"))
+        alpha = float(data.get("alpha"))
+        randomness = float(data.get("randomness"))
+        algorithm = data.get("algorithm")
         reference =  data.get("reference")
 
-        t = Orchestrator.start_helper()
+        sim = SimulationResults(user=request.user,
+                                       num_process=processes,
+                                       alpha=alpha,
+                                       randomness=randomness,
+                                       reference=reference,
+                                       algorithm=algorithm,
+                                transactions=nodes
+                                      )
+        sim.save()
+
+        t = Orchestrator.start_helper(sim)
         figure = io.BytesIO()
         # plot.show()
         plot = t.plot()
@@ -51,19 +61,24 @@ class StartSim(View):
 
         resultImage = ImageFile(figure)
 
-        sim_result =  SimulationResults(user= request.user)
-        sim_result.image = resultImage
-        sim_result.tangle = t
-        sim_result.reference = reference
+
+        sim.image = resultImage
+        sim.tangle = t
+        sim.reference = reference
+        sim.save()
 
 
-        response = HttpResponse(figure.getvalue(), content_type="image/png")
-        # return JsonResponse(
-        #     data={
-        #         "test": True,
-        #         "error": None
-        #     },
-        #     status=200,
-        # )
-        return response
+        table_results =  SimulationResults.objects.all()
+
+        data = {
+            'simulation': sim,
+            'table': table_results
+        }
+        return render(request, "simulation_results.html", data)
+
+        # response = HttpResponse(figure.getvalue(), content_type="image/png")
+
+        # return response
+
+
 

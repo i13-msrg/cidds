@@ -1,27 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<title>Contact V1</title>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-<!--===============================================================================================-->
-	<link rel="icon" type="image/png" href="../static/images/icons/favicon.ico"/>
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="../static/vendor/bootstrap/css/bootstrap.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="../static/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="../static/vendor/animate/animate.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="../static/vendor/css-hamburgers/hamburgers.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="../static/vendor/select2/select2.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="../static/css/util.css">
-	<link rel="stylesheet" type="text/css" href="../static/css/main.css">
-<!--===============================================================================================-->
-</head>
-<body>
+{% extends "base.html" %}
+
+{% block content %}
 
 	<div class="contact1">
 		<div class="container-contact1">
@@ -36,11 +15,11 @@
 				</span>
 
                 <div class="wrap-input1 validate-input" data-validate = "Number of Processes is required">
-					<input id="processes" class="input1" type="text" name="nodes" placeholder="Number of Processes">
+					<input id="processes" class="input1" type="text" name="processes" placeholder="Number of Processes">
 					<span class="shadow-input1"></span>
 				</div>
 <div class="wrap-input1 validate-input" data-validate = "Number of transactions is required">
-					<input id="transactions" class="input1" type="text" name="nodes" placeholder="Number of Transactions">
+					<input id="transactions" class="input1" type="text" name="transactions" placeholder="Number of Transactions">
 					<span class="shadow-input1"></span>
 				</div>
 
@@ -50,12 +29,12 @@
 				</div>
 
 				<div class="wrap-input1 validate-input" data-validate = "Degree of randomness">
-					<input id="randomness" class="input1" type="text" name="lambda" placeholder="Degree of Randomness( λ)">
+					<input id="randomness" class="input1" type="text" name="randomness" placeholder="Degree of Randomness( λ)">
 					<span class="shadow-input1"></span>
 				</div>
          				<div class="wrap-input1 validate-input" data-validate = "Subject is required">
 
-                <select id="algorithm" >
+                <select id="algorithm" name="algorithm">
   <option value="urts">urts</option>
   <option value="mcmc">mcmc</option>
 </select>
@@ -109,5 +88,4 @@
 <!--===============================================================================================-->
 	<script src="../static/js/main.js"></script>
 
-</body>
-</html>
+{% endblock %}
