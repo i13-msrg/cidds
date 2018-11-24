@@ -21,10 +21,10 @@ class SimulationResults(SafeDeleteModel):
         verbose_name="Created by user",
         help_text="User who created the simulation"
     )
-# Number of processes
+    # Number of processes
     num_process = models.IntegerField(blank=False, null=False, default= 1)
 
-# Number of transactions
+    # Number of transactions
     transactions = models.IntegerField(blank=False, null=False, default = 10)
 
 
@@ -44,6 +44,10 @@ class SimulationResults(SafeDeleteModel):
     # Picked version of the entire tangle
     tangle = models.TextField(blank=True,
                                   help_text= "The tangle result from the simulation" )
+
+    # Current status of the simulation - Can be running or done
+    status = models.CharField(blank=True, max_length=20,
+                                help_text="Status of the simulation")
 
 
     # resultant plotted image

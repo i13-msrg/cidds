@@ -1,5 +1,6 @@
 import io
 
+from django.core.files.base import ContentFile
 from django.http import JsonResponse, HttpResponse
 from django.shortcuts import render, redirect
 from django.views import View
@@ -50,7 +51,10 @@ class StartSim(View):
                                        algorithm=algorithm,
                                 transactions=nodes
                                       )
+        sim.status = "Running"
         sim.save()
+
+        id = sim.id
 
         t = Orchestrator.start_helper(sim)
         figure = io.BytesIO()
@@ -59,13 +63,16 @@ class StartSim(View):
         plot.savefig(figure, format="png")
         plot.show()
 
+
+        sim = SimulationResults.objects.get(id=id)
+        sim.status = "Done"
+
         resultImage = ImageFile(figure)
-
-
-        sim.image = resultImage
+        sim.image.save(str(id)+'.png',resultImage)
         sim.tangle = t
         sim.reference = reference
         sim.save()
+
 
 
         table_results =  SimulationResults.objects.all()

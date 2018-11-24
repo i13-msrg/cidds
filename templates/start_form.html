@@ -1,11 +1,12 @@
 {% extends "base.html" %}
 
 {% block content %}
+{% load static %}
 
 	<div class="contact1">
 		<div class="container-contact1">
 			<div class="contact1-pic js-tilt" data-tilt>
-				<img src="../static/images/img-02.png" alt="IMG">
+				<img src="{% static "images/img-02.png"%}" alt="IMG">
 			</div>
 
 			<form action="initialize/" method="post" class="contact1-form validate-form">
@@ -32,13 +33,14 @@
 					<input id="randomness" class="input1" type="text" name="randomness" placeholder="Degree of Randomness( λ)">
 					<span class="shadow-input1"></span>
 				</div>
-         				<div class="wrap-input1 validate-input" data-validate = "Subject is required">
 
-                <select id="algorithm" name="algorithm">
-  <option value="urts">urts</option>
-  <option value="mcmc">mcmc</option>
-</select>
-  				</div>
+					<input id="urts" class="input1" type="radio" name="algorithm" value = "urts" checked>   <label for="urts">URTS Tip Selection</label>
+<br>
+                    <input id="mcmc" class="input1" type="radio" name="algorithm" value = "mcmc"> <label for="mcmc">MCMC Tip Selection</label>
+
+					<span class="shadow-input1"></span>
+
+
 
 				<div class="wrap-input1 validate-input" data-validate = "Simulation remark is required">
 					<textarea class="input1" name="reference" placeholder="Remarks/Name for the simulation for later reference"></textarea>
@@ -61,14 +63,14 @@
 
 
 <!--===============================================================================================-->
-	<script src="../static/vendor/jquery/jquery-3.2.1.min.js"></script>
+	<script src="{% static "vendor/jquery/jquery-3.2.1.min.js"%}"></script>
 <!--===============================================================================================-->
-	<script src="../static/vendor/bootstrap/js/popper.js"></script>
-	<script src="../static/vendor/bootstrap/js/bootstrap.min.js"></script>
+	<script src="{% static "vendor/bootstrap/js/popper.js"%}"></script>
+	<script src="{% static "vendor/bootstrap/js/bootstrap.min.js"%}"></script>
 <!--===============================================================================================-->
-	<script src="../static/vendor/select2/select2.min.js"></script>
+	<script src="{% static "vendor/select2/select2.min.js"%}"></script>
 <!--===============================================================================================-->
-	<script src="../static/vendor/tilt/tilt.jquery.min.js"></script>
+	<script src="{% static "vendor/tilt/tilt.jquery.min.js"%}"></script>
 	<script >
 		$('.js-tilt').tilt({
 			scale: 1.1
@@ -86,6 +88,6 @@
 </script>
 
 <!--===============================================================================================-->
-	<script src="../static/js/main.js"></script>
+	<script src="{% static "js/main.js"%}"></script>
 
 {% endblock %}
