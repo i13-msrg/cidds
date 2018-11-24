@@ -6,11 +6,11 @@ import uuid
 import os
 
 def get_image_path(instance, filename):
-    return os.path.join('images', str(instance.id), filename)
+    return os.path.join('simulation_results', str(instance.id), filename)
 
 class SimulationResults(SafeDeleteModel):
     # unique id for each simulation
-    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    id = models.UUIDField(primary_key=True, default=uuid.uuid1, editable=False)
 
     # User who initiated the error
     user = models.ForeignKey(
@@ -21,10 +21,10 @@ class SimulationResults(SafeDeleteModel):
         verbose_name="Created by user",
         help_text="User who created the simulation"
     )
-# Number of processes
+    # Number of processes
     num_process = models.IntegerField(blank=False, null=False, default= 1)
 
-# Number of transactions
+    # Number of transactions
     transactions = models.IntegerField(blank=False, null=False, default = 10)
 
 
@@ -45,9 +45,13 @@ class SimulationResults(SafeDeleteModel):
     tangle = models.TextField(blank=True,
                                   help_text= "The tangle result from the simulation" )
 
+    # Current status of the simulation - Can be running or done
+    status = models.CharField(blank=True, max_length=20,
+                                help_text="Status of the simulation")
+
 
     # resultant plotted image
-    image = models.ImageField(upload_to=get_image_path, blank=True, null=True)
+    image = models.ImageField(upload_to='images/result_images', blank=True, null=True)
 
     # Created time
     created = models.DateTimeField(editable=False, default=timezone.now())
