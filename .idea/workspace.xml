@@ -3,14 +3,22 @@
   <component name="ChangeListManager">
     <list default="true" id="4c672379-96e4-4d39-a392-b1382b8d020b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/CIDDS/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/CIDDS/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/images/879752f4-9408-4136-874d-9d61ea493e4b/879752f4-9408-4136-874d-9d61ea493e4b" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/images/ae226576-9a1c-4b99-8328-80750ccc8a79/ae226576-9a1c-4b99-8328-80750ccc8a79" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/images/dcdedd4f-7c50-4893-90f6-a157a10448d0/dcdedd4f-7c50-4893-90f6-a157a10448d0" beforeDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/CIDDS/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/CIDDS/views.py" afterDir="false" />
+>>>>>>> 02532acf5735be9602e76f58cde3d1837040a7eb
       <change beforePath="$PROJECT_DIR$/simulator/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/simulator/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/simulator/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/simulator/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/simulator/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/simulator/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
+<<<<<<< HEAD
+=======
+      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
+>>>>>>> 02532acf5735be9602e76f58cde3d1837040a7eb
       <change beforePath="$PROJECT_DIR$/templates/simulation_results.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/simulation_results.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/start_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/start_form.html" afterDir="false" />
     </list>
@@ -50,34 +58,61 @@
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="config" value="1" />
+<<<<<<< HEAD
           <entry key="html" value="21" />
           <entry key="jpg" value="1" />
           <entry key="js" value="2" />
           <entry key="png" value="9" />
           <entry key="py" value="59" />
+=======
+          <entry key="html" value="20" />
+          <entry key="jpg" value="1" />
+          <entry key="js" value="2" />
+          <entry key="png" value="8" />
+          <entry key="py" value="56" />
+>>>>>>> 02532acf5735be9602e76f58cde3d1837040a7eb
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
+<<<<<<< HEAD
           <entry key="HTML" value="21" />
           <entry key="Image" value="10" />
           <entry key="JavaScript" value="2" />
           <entry key="PLAIN_TEXT" value="1" />
           <entry key="Python" value="59" />
+=======
+          <entry key="HTML" value="20" />
+          <entry key="Image" value="9" />
+          <entry key="JavaScript" value="2" />
+          <entry key="PLAIN_TEXT" value="1" />
+          <entry key="Python" value="56" />
+>>>>>>> 02532acf5735be9602e76f58cde3d1837040a7eb
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="16" />
+<<<<<<< HEAD
           <entry key="html" value="1342" />
           <entry key="py" value="3143" />
+=======
+          <entry key="html" value="1331" />
+          <entry key="py" value="3047" />
+>>>>>>> 02532acf5735be9602e76f58cde3d1837040a7eb
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
+<<<<<<< HEAD
           <entry key="HTML" value="1342" />
           <entry key="PLAIN_TEXT" value="16" />
           <entry key="Python" value="3143" />
+=======
+          <entry key="HTML" value="1331" />
+          <entry key="PLAIN_TEXT" value="16" />
+          <entry key="Python" value="3047" />
+>>>>>>> 02532acf5735be9602e76f58cde3d1837040a7eb
         </counts>
       </usages-collector>
     </session>
@@ -89,8 +124,13 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/templates/index.html">
               <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
                 <state relative-caret-position="75">
                   <caret line="5" selection-start-line="5" selection-end-line="27" selection-end-column="69" />
+=======
+                <state relative-caret-position="405">
+                  <caret line="27" column="49" lean-forward="true" selection-start-line="27" selection-start-column="49" selection-end-line="27" selection-end-column="49" />
+>>>>>>> 02532acf5735be9602e76f58cde3d1837040a7eb
                 </state>
               </provider>
             </entry>
@@ -98,16 +138,22 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/simulator/views.py">
               <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
                 <state relative-caret-position="600">
                   <caret line="55" lean-forward="true" selection-start-line="55" selection-end-line="55" />
                   <folding>
                     <marker date="1543086585897" expanded="true" signature="2622:2835" ph="..." />
                   </folding>
+=======
+                <state relative-caret-position="813">
+                  <caret line="73" column="18" lean-forward="true" selection-start-line="73" selection-start-column="18" selection-end-line="73" selection-end-column="18" />
+>>>>>>> 02532acf5735be9602e76f58cde3d1837040a7eb
                 </state>
               </provider>
             </entry>
           </file>
           <file pinned="false" current-in-tab="false">
+<<<<<<< HEAD
             <entry file="file://$PROJECT_DIR$/simulator/urls.py">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="150">
@@ -115,11 +161,18 @@
                   <folding>
                     <element signature="e#0#28#0" expanded="true" />
                   </folding>
+=======
+            <entry file="file://$PROJECT_DIR$/venv/lib/python3.7/site-packages/django/db/models/fields/files.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="463">
+                  <caret line="92" selection-start-line="92" selection-end-line="92" />
+>>>>>>> 02532acf5735be9602e76f58cde3d1837040a7eb
                 </state>
               </provider>
             </entry>
           </file>
           <file pinned="false" current-in-tab="false">
+<<<<<<< HEAD
             <entry file="file://$PROJECT_DIR$/CIDDS/settings.py">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="1845">
@@ -131,13 +184,34 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/CIDDS/__init__.py">
               <provider selected="true" editor-type-id="text-editor" />
+=======
+            <entry file="file://$PROJECT_DIR$/CIDDS/wsgi.py">
+              <provider selected="true" editor-type-id="text-editor" />
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/CIDDS/views.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="60">
+                  <caret line="4" column="57" selection-start-line="4" selection-start-column="57" selection-end-line="4" selection-end-column="57" />
+                </state>
+              </provider>
+>>>>>>> 02532acf5735be9602e76f58cde3d1837040a7eb
             </entry>
           </file>
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/templates/base.html">
               <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
                 <state relative-caret-position="612">
                   <caret line="80" column="35" selection-start-line="80" selection-start-column="35" selection-end-line="80" selection-end-column="35" />
+=======
+                <state relative-caret-position="105">
+                  <caret line="7" column="33" selection-start-line="7" selection-start-column="33" selection-end-line="7" selection-end-column="33" />
+                  <folding>
+                    <element signature="e#0#31#0" expanded="true" />
+                  </folding>
+>>>>>>> 02532acf5735be9602e76f58cde3d1837040a7eb
                 </state>
               </provider>
             </entry>
@@ -145,8 +219,13 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/simulator/models.py">
               <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
                 <state relative-caret-position="564">
                   <caret line="55" column="18" selection-start-line="55" selection-start-column="18" selection-end-line="55" selection-end-column="18" />
+=======
+                <state relative-caret-position="699">
+                  <caret line="54" lean-forward="true" selection-start-line="54" selection-end-line="54" />
+>>>>>>> 02532acf5735be9602e76f58cde3d1837040a7eb
                   <folding>
                     <element signature="e#0#43#0" expanded="true" />
                   </folding>
@@ -157,8 +236,13 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/CIDDS/urls.py">
               <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
                 <state relative-caret-position="375">
                   <caret line="25" column="31" selection-start-line="25" selection-start-column="31" selection-end-line="25" selection-end-column="31" />
+=======
+                <state relative-caret-position="450">
+                  <caret line="30" selection-start-line="30" selection-end-line="30" />
+>>>>>>> 02532acf5735be9602e76f58cde3d1837040a7eb
                   <folding>
                     <element signature="e#629#661#0" expanded="true" />
                   </folding>
@@ -169,8 +253,25 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/templates/start_form.html">
               <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
                 <state relative-caret-position="1065">
                   <caret line="71" column="47" selection-start-line="71" selection-start-column="47" selection-end-line="71" selection-end-column="47" />
+=======
+                <state relative-caret-position="565">
+                  <caret line="67" column="71" selection-start-line="67" selection-start-column="71" selection-end-line="67" selection-end-column="71" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/base/Tangle.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="260">
+                  <caret line="32" column="42" selection-start-line="32" selection-start-column="42" selection-end-line="32" selection-end-column="42" />
+                  <folding>
+                    <element signature="e#0#18#0" expanded="true" />
+                  </folding>
+>>>>>>> 02532acf5735be9602e76f58cde3d1837040a7eb
                 </state>
               </provider>
             </entry>
@@ -188,16 +289,21 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/templates/simulation_results.html">
               <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
                 <state relative-caret-position="75">
                   <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
+=======
+                <state relative-caret-position="30">
+                  <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
+>>>>>>> 02532acf5735be9602e76f58cde3d1837040a7eb
                 </state>
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="false">
+          <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/base/Orchestrator.py">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="210">
@@ -291,7 +397,10 @@
       <find>follow</find>
       <find>{% static &quot;s</find>
       <find>static</find>
+<<<<<<< HEAD
       <find>tables</find>
+=======
+>>>>>>> 02532acf5735be9602e76f58cde3d1837040a7eb
       <find>easy to use</find>
     </findStrings>
   </component>
@@ -309,6 +418,7 @@
         <option value="$PROJECT_DIR$/CIDDS/urls.py" />
         <option value="$PROJECT_DIR$/CIDDS/models.py" />
         <option value="$PROJECT_DIR$/base/Orchestrator.py" />
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/simulator/tables.py" />
         <option value="$PROJECT_DIR$/simulator/admin.py" />
         <option value="$PROJECT_DIR$/templates/index.html" />
@@ -320,6 +430,18 @@
         <option value="$PROJECT_DIR$/simulator/views.py" />
         <option value="$PROJECT_DIR$/simulator/urls.py" />
         <option value="$PROJECT_DIR$/templates/simulation_results.html" />
+=======
+        <option value="$PROJECT_DIR$/CIDDS/settings.py" />
+        <option value="$PROJECT_DIR$/simulator/tables.py" />
+        <option value="$PROJECT_DIR$/simulator/admin.py" />
+        <option value="$PROJECT_DIR$/templates/simulation_results.html" />
+        <option value="$PROJECT_DIR$/templates/index.html" />
+        <option value="$PROJECT_DIR$/templates/base.html" />
+        <option value="$PROJECT_DIR$/templates/start_form.html" />
+        <option value="$PROJECT_DIR$/simulator/models.py" />
+        <option value="$PROJECT_DIR$/CIDDS/views.py" />
+        <option value="$PROJECT_DIR$/simulator/views.py" />
+>>>>>>> 02532acf5735be9602e76f58cde3d1837040a7eb
       </list>
     </option>
   </component>
@@ -353,12 +475,23 @@
             <path>
               <item name="CIDDS" type="b2602c69:ProjectViewProjectNode" />
               <item name="CIDDS" type="462c0819:PsiDirectoryNode" />
+<<<<<<< HEAD
               <item name="CIDDS" type="462c0819:PsiDirectoryNode" />
+=======
+              <item name="images" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="CIDDS" type="b2602c69:ProjectViewProjectNode" />
               <item name="CIDDS" type="462c0819:PsiDirectoryNode" />
-              <item name="simulator" type="462c0819:PsiDirectoryNode" />
+              <item name="images" type="462c0819:PsiDirectoryNode" />
+              <item name="879752f4-9408-4136-874d-9d61ea493e4b" type="462c0819:PsiDirectoryNode" />
+>>>>>>> 02532acf5735be9602e76f58cde3d1837040a7eb
+            </path>
+            <path>
+              <item name="CIDDS" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CIDDS" type="462c0819:PsiDirectoryNode" />
+              <item name="images" type="462c0819:PsiDirectoryNode" />
+              <item name="ae226576-9a1c-4b99-8328-80750ccc8a79" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="CIDDS" type="b2602c69:ProjectViewProjectNode" />
@@ -515,7 +648,11 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.1879518" />
+<<<<<<< HEAD
       <window_info anchor="bottom" id="Debug" order="3" visible="true" weight="0.34671533" />
+=======
+      <window_info anchor="bottom" id="Debug" order="3" visible="true" weight="0.17956205" />
+>>>>>>> 02532acf5735be9602e76f58cde3d1837040a7eb
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.329927" />
@@ -542,10 +679,26 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+<<<<<<< HEAD
+=======
+          <url>file://$PROJECT_DIR$/simulator/views.py</url>
+          <line>73</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+>>>>>>> 02532acf5735be9602e76f58cde3d1837040a7eb
           <url>file://$PROJECT_DIR$/simulator/models.py</url>
           <line>8</line>
           <option name="timeStamp" value="3" />
         </line-breakpoint>
+<<<<<<< HEAD
+=======
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/simulator/views.py</url>
+          <line>66</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+>>>>>>> 02532acf5735be9602e76f58cde3d1837040a7eb
       </breakpoints>
     </breakpoint-manager>
   </component>
@@ -704,6 +857,16 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
+=======
+    <entry file="file://$PROJECT_DIR$/CIDDS/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="27" column="8" selection-start-line="27" selection-start-column="8" selection-end-line="27" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+>>>>>>> 02532acf5735be9602e76f58cde3d1837040a7eb
     <entry file="file://$PROJECT_DIR$/static/elements.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="420">
@@ -746,6 +909,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/static/about-us.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
@@ -753,6 +917,43 @@
         </state>
       </provider>
     </entry>
+=======
+    <entry file="file://$PROJECT_DIR$/simulator/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="20" selection-start-line="6" selection-start-column="10" selection-end-line="6" selection-end-column="20" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/about-us.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="1" selection-start-line="2" selection-start-column="1" selection-end-line="2" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/simulation_results.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/base/Orchestrator.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="29" selection-start-line="14" selection-start-column="24" selection-end-line="14" selection-end-column="29" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+            <marker date="1542914936924" expanded="true" signature="118:120" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+>>>>>>> 02532acf5735be9602e76f58cde3d1837040a7eb
     <entry file="file://$PROJECT_DIR$/base/Tangle.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="260">
@@ -763,8 +964,20 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/venv/lib/python3.7/site-packages/psycopg2/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
+=======
+    <entry file="file://$PROJECT_DIR$/templates/base.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="685">
+          <caret line="122" column="51" lean-forward="true" selection-start-line="122" selection-start-column="51" selection-end-line="122" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/lib/python3.7/site-packages/psycopg2/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+>>>>>>> 02532acf5735be9602e76f58cde3d1837040a7eb
         <state relative-caret-position="751">
           <caret line="137" column="34" lean-forward="true" selection-start-line="137" selection-start-column="34" selection-end-line="137" selection-end-column="34" />
         </state>
@@ -772,6 +985,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/simulator/tables.py">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="105">
           <caret line="7" column="33" selection-start-line="7" selection-start-column="33" selection-end-line="7" selection-end-column="33" />
           <folding>
@@ -794,13 +1008,32 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="281">
           <caret line="85" selection-start-line="85" selection-end-line="85" />
+=======
+        <state relative-caret-position="565">
+          <caret line="67" column="71" selection-start-line="67" selection-start-column="71" selection-end-line="67" selection-end-column="71" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CIDDS/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="30" selection-start-line="30" selection-end-line="30" />
+          <folding>
+            <element signature="e#629#661#0" expanded="true" />
+          </folding>
+>>>>>>> 02532acf5735be9602e76f58cde3d1837040a7eb
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/base/Orchestrator.py">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="210">
           <caret line="14" column="29" selection-start-line="14" selection-start-column="24" selection-end-line="14" selection-end-column="29" />
+=======
+        <state relative-caret-position="105">
+          <caret line="7" column="33" selection-start-line="7" selection-start-column="33" selection-end-line="7" selection-end-column="33" />
+>>>>>>> 02532acf5735be9602e76f58cde3d1837040a7eb
           <folding>
             <element signature="e#0#11#0" expanded="true" />
             <marker date="1542914936924" expanded="true" signature="118:120" ph="..." />
@@ -808,6 +1041,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/CIDDS/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="375">
@@ -822,11 +1056,28 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="612">
           <caret line="80" column="35" selection-start-line="80" selection-start-column="35" selection-end-line="80" selection-end-column="35" />
+=======
+    <entry file="file://$PROJECT_DIR$/CIDDS/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="57" selection-start-line="4" selection-start-column="57" selection-end-line="4" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CIDDS/wsgi.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/lib/python3.7/site-packages/django/db/models/fields/files.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="463">
+          <caret line="92" selection-start-line="92" selection-end-line="92" />
+>>>>>>> 02532acf5735be9602e76f58cde3d1837040a7eb
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/CIDDS/settings.py">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="1845">
           <caret line="123" selection-start-line="123" selection-end-line="123" />
         </state>
@@ -845,13 +1096,29 @@
           <folding>
             <element signature="e#0#43#0" expanded="true" />
           </folding>
+=======
+        <state relative-caret-position="813">
+          <caret line="73" column="18" lean-forward="true" selection-start-line="73" selection-start-column="18" selection-end-line="73" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="27" column="49" lean-forward="true" selection-start-line="27" selection-start-column="49" selection-end-line="27" selection-end-column="49" />
+>>>>>>> 02532acf5735be9602e76f58cde3d1837040a7eb
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/simulator/urls.py">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="150">
           <caret line="10" column="1" lean-forward="true" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
+=======
+        <state relative-caret-position="699">
+          <caret line="54" lean-forward="true" selection-start-line="54" selection-end-line="54" />
+>>>>>>> 02532acf5735be9602e76f58cde3d1837040a7eb
           <folding>
             <element signature="e#0#28#0" expanded="true" />
           </folding>

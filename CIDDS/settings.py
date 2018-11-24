@@ -25,7 +25,9 @@ SECRET_KEY = '7g+t%6bdkog-pg^^#j4#ys*u3@f8u!3!_ng60$7ea$7+(^lziy'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['0.0.0.0']
+ALLOWED_HOSTS = ['0.0.0.0', '129.187.178.250','.blockchainsimulator.org']
+
+# ALLOWED_HOSTS = ['131.159.52.52','.blockchainsimulator.org' ]
 
 
 # Application definition
@@ -125,6 +127,8 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
 ]
+
+
 
 DATABASES = {
     'default': {
