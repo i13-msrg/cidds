@@ -7,5 +7,6 @@ urlpatterns = [
     path('initialize/', StartSim.as_view()),
     path('', TemplateView.as_view(template_name='start_form.html')),
     path('history/', SimulationHistory.as_view()),
+    path('compare/', TemplateView.as_view(template_name='compare.html')),
 
 ]

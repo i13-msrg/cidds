@@ -1,0 +1,98 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+
+
+        <!--================Work Area =================-->
+        <section class="work_area p_120">
+        	<div class="container">
+        		<div class="main_title">
+        			<h2>Comparision of Simulation results</h2>
+        			<p>The following is the comparison result for the selected simulations</p>
+        		</div>
+        		<div class="work_inner row">
+        			<div class="col-lg-6">
+        				<div class="work_item">
+        					<img width="500" height="300" src="{% static "/images/mcmc.png"%}"/>
+        					<a href="#"><h4>Simulation 1</h4></a>
+{#        					<p>Feature 1</p>#}
+                            <ul>
+
+                                 <li>
+                                    <strong> Processes: </strong> 1
+                                </li>
+                                <li>
+                                    <strong> Transactions: </strong> 100
+                                </li>
+                                <li>
+                                    <strong> Alpha: </strong> 2
+                                </li>
+
+                                <li>
+                                    <strong> Labmda: </strong> 2
+                                </li>
+
+                                <li>
+                                    <strong> Tip Selection: </strong> URTS
+                                </li>
+
+                                <li>
+                                    <strong>Time Units: </strong> 49.2
+                                </li>
+
+                                <li>
+                                    <strong> Unapproved Tips: </strong> 3
+                                </li>
+
+                            </ul>
+        				</div>
+        			</div>
+        			<div class="col-lg-6">
+        				<div class="work_item">
+        					<img width="500" height="300" src="{% static "/images/urts.png"%}"/>
+        					<a href="#"><h4>Simulation 2</h4></a>
+        					 <ul>
+
+                                <li>
+                                    <strong> Processes: </strong> 1
+                                </li>
+                                <li>
+                                    <strong> Transactions: </strong> 100
+                                </li>
+                                <li>
+                                    <strong> Alpha: </strong> 2
+                                </li>
+
+                                <li>
+                                    <strong> Labmda: </strong> 2
+                                </li>
+
+                                <li>
+                                    <strong> Tip Selection: </strong> URTS
+                                </li>
+<li>
+                                    <strong>Time Units: </strong> 46.7
+                                </li>
+
+                                <li>
+                                    <strong> Unapproved Tips: </strong> 11
+                                </li>
+
+                            </ul>
+        				</div>
+        			</div>
+
+        		</div>
+        	</div>
+        </section>
+        <!--================End Work Area =================-->
+
+
+
+{% endblock %}
+
+
+
+

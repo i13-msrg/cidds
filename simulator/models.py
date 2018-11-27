@@ -51,7 +51,7 @@ class SimulationResults(SafeDeleteModel):
 
 
     # resultant plotted image
-    image = models.ImageField(upload_to='images/result_images', blank=True, null=True)
+    image = models.ImageField(upload_to='static/images/result_images', blank=True, null=True)
 
     # Created time
     created = models.DateTimeField(editable=False, default=timezone.now())

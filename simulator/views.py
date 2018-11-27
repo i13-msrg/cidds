@@ -8,6 +8,7 @@ import json
 from django.core.files.images import ImageFile
 
 # Create your views here.
+from django_tables2 import RequestConfig
 from matplotlib.backends.backend_agg import FigureCanvasAgg
 
 from base import Orchestrator
@@ -74,11 +75,9 @@ class StartSim(View):
         sim.save()
 
 
-
         table_results =  SimulationResults.objects.all()
 
         data = {
-            'simulation': sim,
             'table': table_results
         }
         return render(request, "simulation_results.html", data)
@@ -94,6 +93,7 @@ class SimulationHistory(View):
         table_results = SimulationResults.objects.all()
 
         data = {
+            'Title': 'Simulation History',
             'table': table_results
         }
         return render(request, "simulation_results.html", data)

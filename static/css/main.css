@@ -25,8 +25,9 @@
   src: url('../fonts/montserrat/Montserrat-Medium.ttf'); 
 }
 
-
-
+.main_menu {
+  background: #3bacf0;
+}
 /*//////////////////////////////////////////////////////////////////
 [ RESTYLE TAG ]*/
 
