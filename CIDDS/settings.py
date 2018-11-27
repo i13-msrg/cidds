@@ -125,7 +125,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "static"),
+    os.path.join(BASE_DIR, "static/"),
 ]
 
 
@@ -142,3 +142,6 @@ DATABASES = {
 }
 
 DJANGO_TABLES2_TEMPLATE = 'django_tables2/bootstrap.html'
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = '/var/www/media/'
