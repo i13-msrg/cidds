@@ -16,6 +16,7 @@ from base import Orchestrator
 from django.http import HttpResponse
 
 from simulator.models import SimulationResults
+from simulator.tables import SimulationResultsTable
 
 
 class StartSim(View):
@@ -93,6 +94,7 @@ class StartSim(View):
 
 
         table_results =  SimulationResults.objects.all()
+        RequestConfig(request).configure(table_results)
 
         data = {
             'table': table_results,
@@ -116,7 +118,8 @@ class SimulationHistory(View):
             }
             return render(request, "default.html", data)
 
-        table_results = SimulationResults.objects.all()
+        table_results = SimulationResultsTable(SimulationResults.objects.all())
+        RequestConfig(request).configure(table_results)
 
         data = {
             'Title': 'Simulation History',
@@ -126,3 +129,19 @@ class SimulationHistory(View):
         }
         return render(request, "simulation_results.html", data)
 
+
+
+class Comparison(View):
+
+    def post(self, request):
+        data = request.POST
+        pks = data.getlist("sim_selection")
+        selected_objects = SimulationResults.objects.filter(pk__in=pks)
+
+        data = {
+            'first_sim': selected_objects[0],
+            'second_sim': selected_objects[1]
+
+        }
+
+        return render(request, "compare.html", data)

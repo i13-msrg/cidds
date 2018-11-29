@@ -436,3 +436,14 @@ textarea.input1 + .shadow-input1 {
     opacity: 1;
   }
 }
+
+.data-table{
+   width: 60%;
+    margin: 0 auto;
+    border: 1px solid #337ab7;
+}
+
+.data-div{
+  position:relative;
+      top: 100px;
+}

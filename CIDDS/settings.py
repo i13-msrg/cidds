@@ -141,7 +141,7 @@ DATABASES = {
     }
 }
 
-DJANGO_TABLES2_TEMPLATE = 'django_tables2/bootstrap.html'
+DJANGO_TABLES2_TEMPLATE = 'django_tables2/bootstrap-responsive.html'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, "media/")

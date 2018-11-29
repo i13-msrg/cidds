@@ -1,5 +1,6 @@
 from django.contrib.auth.models import User
 from django.db import models
+from django.db.models import Model
 from django.utils import timezone
 from safedelete.models import SafeDeleteModel
 import uuid
@@ -8,7 +9,7 @@ import os
 def get_image_path(instance, filename):
     return os.path.join('simulation_results', str(instance.id), filename)
 
-class SimulationResults(SafeDeleteModel):
+class SimulationResults(Model):
 
     # User who initiated the error
     user = models.ForeignKey(
@@ -56,6 +57,13 @@ class SimulationResults(SafeDeleteModel):
 
     # modified time
     modified = models.DateTimeField(null=True)
+
+    # Time units
+    time_units = models.FloatField(blank=True, null=True, default=0)
+
+    # unapproved tips
+    unapproved_tips = models.IntegerField(blank=True, null=True, default = 0)
+
 
     def save(self, *args, **kwargs):
         ''' On save, update timestamps '''
