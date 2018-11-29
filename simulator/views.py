@@ -1,5 +1,6 @@
 import io
 
+from django.contrib import messages
 from django.core.files.base import ContentFile
 from django.http import JsonResponse, HttpResponse
 from django.shortcuts import render, redirect
@@ -20,6 +21,14 @@ from simulator.models import SimulationResults
 class StartSim(View):
 
     def get(self, request):
+        if request.user.is_anonymous:
+            user_notif = 'Please login. If you dont have a login yet, please request access!'
+            data = {
+                'message': user_notif
+
+            }
+            return render(request, "default.html", data)
+
         nodes = request.GET.get('nodes')
         # processes = request.GET.get('processes')
         alpha = request.GET.get('alpha')
@@ -35,6 +44,14 @@ class StartSim(View):
         return response
 
     def post(self, request):
+
+        if request.user.is_anonymous:
+            user_notif = 'Please login. If you dont have a login yet, please request access!'
+            data = {
+                'message': user_notif
+
+            }
+            return render(request, "default.html", data)
 
         data = request.POST
         nodes = int(data.get("transactions"))
@@ -78,7 +95,8 @@ class StartSim(View):
         table_results =  SimulationResults.objects.all()
 
         data = {
-            'table': table_results
+            'table': table_results,
+            'messages': messages
         }
         return render(request, "simulation_results.html", data)
 
@@ -90,11 +108,21 @@ class StartSim(View):
 class SimulationHistory(View):
 
     def get(self, request):
+        if request.user.is_anonymous:
+            user_notif = 'Please login. If you dont have a login yet, please request access!'
+            data = {
+                'message': user_notif
+
+            }
+            return render(request, "default.html", data)
+
         table_results = SimulationResults.objects.all()
 
         data = {
             'Title': 'Simulation History',
-            'table': table_results
+            'table': table_results,
+            'messages': messages
+
         }
         return render(request, "simulation_results.html", data)
 

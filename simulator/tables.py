@@ -9,4 +9,4 @@ class SimulationResultsTable(tables.Table):
 
     class Meta:
         model = SimulationResults
-        fields = ('selection_column','id', 'reference' , 'algorithm', 'status', 'image', 'created', 'modified',)
+        fields = ('selection_column','id', 'reference' , 'algorithm', 'status', 'image', 'created', 'modified')

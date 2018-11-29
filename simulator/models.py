@@ -9,8 +9,6 @@ def get_image_path(instance, filename):
     return os.path.join('simulation_results', str(instance.id), filename)
 
 class SimulationResults(SafeDeleteModel):
-    # unique id for each simulation
-    id = models.UUIDField(primary_key=True, default=uuid.uuid1, editable=False)
 
     # User who initiated the error
     user = models.ForeignKey(
@@ -51,10 +49,10 @@ class SimulationResults(SafeDeleteModel):
 
 
     # resultant plotted image
-    image = models.ImageField(upload_to='result_images', blank=True, null=True)
+    image = models.ImageField(uplosad_to='result_images', blank=True, null=True)
 
     # Created time
-    created = models.DateTimeField(editable=False, default=timezone.now())
+    created = models.DateTimeField(editable=False, default=timezone.now)
 
     # modified time
     modified = models.DateTimeField(null=True)

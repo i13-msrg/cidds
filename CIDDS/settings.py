@@ -144,4 +144,4 @@ DATABASES = {
 DJANGO_TABLES2_TEMPLATE = 'django_tables2/bootstrap.html'
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = '/var/www/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, "media/")
