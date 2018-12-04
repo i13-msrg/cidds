@@ -25,6 +25,7 @@ from CIDDS import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('accounts/', include('django.contrib.auth.urls'), name='authorize'),  # new
     path('', views.index, name='index'),
     path('simulator/',include('simulator.urls')),
     path('', views.index, name='index'),

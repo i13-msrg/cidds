@@ -56,17 +56,35 @@
 						<div class="collapse navbar-collapse offset" id="navbarSupportedContent">
 							<ul class="nav navbar-nav menu_nav justify-content-center">
 								<li class="nav-item active"><a class="nav-link" href="{% url 'index' %}" >Home</a></li>
+                                {% if user.is_authenticated %}
+
                                 <li class="nav-item"><a class="nav-link" href="{% url 'startsim' %}" >Run Simulation</a></li>
 
                                 <li class="nav-item"><a class="nav-link" href="{% url 'history' %}" >Simulation Results</a></li>
+                                {% endif %}
 
 								<li class="nav-item"><a class="nav-link" href="{% url 'about' %}">About</a></li>
 								<li class="nav-item"><a class="nav-link" href="{% url 'contact' %}">Contact</a></li>
 
 							</ul>
-							<ul class="nav navbar-nav navbar-right">
+
+                            {% if user.is_authenticated %}
+
+								<ul class="nav navbar-nav navbar-right">
+								<li class="nav-item"><a href={% url 'logout' %} class="tickets_btn">Logout</a></li>
+							</ul>
+
+                                 {% else %}
+<ul class="nav navbar-nav navbar-right">
+								<li class="nav-item"><a href="{% url 'login' %}" class="tickets_btn">Login</a></li>
+							</ul>
+
+                                <ul class="nav navbar-nav navbar-right">
 								<li class="nav-item"><a href="mailto:p.nasirifard@tum.de,riswan.lathif@tum.de?subject=Request for access to CIDDS&body=Hi, I request access to CIDDS and the following are my details:" class="tickets_btn">Request Access</a></li>
 							</ul>
+                                {% endif %}
+
+
 						</div>
 					</div>
             	</nav>

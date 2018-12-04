@@ -12,7 +12,15 @@
 							<div class="banner_content">
 								<h2>Configurable and Interactive Digital Distributed Ledger <br />Simulation framework!</h2>
 								<p></p>
-								<a class="banner_btn" href="{% url 'startsim' %}">Get Started</a>
+                                {% if user.is_authenticated %}
+
+								<a class="banner_btn" href="{% url 'startsim' %}">Run Simulations</a>
+
+                                 {% else %}
+                                  <a class="banner_btn" href="{% url 'login' %}">Get Started</a>
+
+                                {% endif %}
+
 								<a class="banner_btn2" href="https://github.com/i13-msrg/cidds">Download</a>
 							</div>
 						</div>

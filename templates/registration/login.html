@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+        
+
+        <!--================Work Area =================-->
+        <section class="work_area p_120">
+        	<div class="container">
+        		<div class="main_title">
+        			<h2>LOGIN</h2>
+        		</div>
+
+<form method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit">Login</button>
+</form>
+
+                </div>
+
+        </section>
+        <!--================End Work Area =================-->
+
+
+
+{% endblock %}
