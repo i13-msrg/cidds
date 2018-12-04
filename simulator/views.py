@@ -1,4 +1,5 @@
 import io
+from pprint import pprint
 
 from django.contrib import messages
 from django.core.files.base import ContentFile
@@ -61,7 +62,7 @@ class StartSim(View):
         randomness = float(data.get("randomness"))
         algorithm = data.get("algorithm")
         reference = data.get("reference")
-
+        pprint(data)
         sim = SimulationResults(user=request.user,
                                        num_process=processes,
                                        alpha=alpha,
@@ -94,7 +95,9 @@ class StartSim(View):
 
         table_results = SimulationResultsTable(SimulationResults.objects.all())
         RequestConfig(request).configure(table_results)
+        pprint("***************************************************************" )
 
+        pprint(table_results )
         data = {
             'Title': 'Simulation History',
             'table': table_results,
