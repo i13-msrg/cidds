@@ -121,8 +121,13 @@ class SimulationHistory(View):
             }
             return render(request, "default.html", data)
 
+        pprint("***************************************************************" )
+        pprint("simulation history")
+
         table_results = SimulationResultsTable(SimulationResults.objects.all())
         RequestConfig(request).configure(table_results)
+        pprint(table_results)
+
 
         data = {
             'Title': 'Simulation History',
@@ -130,6 +135,9 @@ class SimulationHistory(View):
             'messages': messages
 
         }
+
+        pprint(data)
+
         return render(request, "simulation_results.html", data)
 
 
