@@ -60,7 +60,7 @@ class StartSim(View):
         alpha = float(data.get("alpha"))
         randomness = float(data.get("randomness"))
         algorithm = data.get("algorithm")
-        reference =  data.get("reference")
+        reference = data.get("reference")
 
         sim = SimulationResults(user=request.user,
                                        num_process=processes,
@@ -92,11 +92,11 @@ class StartSim(View):
         sim.reference = reference
         sim.save()
 
-
-        table_results =  SimulationResults.objects.all()
+        table_results = SimulationResultsTable(SimulationResults.objects.all())
         RequestConfig(request).configure(table_results)
 
         data = {
+            'Title': 'Simulation History',
             'table': table_results,
             'messages': messages
         }
@@ -145,3 +145,16 @@ class Comparison(View):
         }
 
         return render(request, "compare.html", data)
+
+class Details(View):
+
+    def get(self, request, sim_id):
+        # id = int(request.GET.get('sim_id'))
+        selected_object = SimulationResults.objects.get(id=sim_id)
+
+        data = {
+            'sim': selected_object,
+
+        }
+
+        return render(request, "details.html", data)

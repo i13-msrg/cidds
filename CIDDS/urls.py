@@ -27,6 +27,11 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name='index'),
     path('simulator/',include('simulator.urls')),
+    path('', views.index, name='index'),
+    path('about/', TemplateView.as_view(template_name='about.html'),
+         name='about'),
+    path('contact/', TemplateView.as_view(template_name='contact.html'),
+         name='contact'),
 
 ]
 

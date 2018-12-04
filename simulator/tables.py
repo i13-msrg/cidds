@@ -1,4 +1,5 @@
 import django_tables2 as tables
+from django_tables2 import A
 
 from simulator.models import SimulationResults
 
@@ -13,7 +14,9 @@ class SimulationResultsTable(tables.Table):
                                                                 {
                                                                     "onclick": "toggle(this)"}},
                                       orderable=False)
+
+    details = tables.LinkColumn('detail', text='Details', args=[A('pk')], empty_values=())
     class Meta:
         model = SimulationResults
-        fields = ('sim_selection','id', 'reference' , 'algorithm', 'status', 'image', 'created', 'modified')
+        fields = ('sim_selection','id','details', 'reference' , 'algorithm', 'status', 'image', 'created', 'modified')
 
