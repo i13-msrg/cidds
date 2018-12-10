@@ -2,7 +2,8 @@ import time
 import numpy as np
 import matplotlib.pyplot as plt
 
-from base.Tangle import Tangle
+from base.DAG import DAG
+
 
 def start_helper(sim):
 
@@ -12,7 +13,7 @@ def start_helper(sim):
 
     plt.figure(figsize=(25, 10))
 
-    t = Tangle(rate=sim.alpha, tip_selection=sim.algorithm, plot=True)
+    t = DAG(rate=sim.alpha, tip_selection=sim.algorithm, plot=True)
     for i in range(sim.transactions):
         t.next_transaction()
 

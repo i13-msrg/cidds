@@ -3,23 +3,46 @@ import networkx as nx
 import matplotlib.pyplot as plt
 import threading
 
+
+# code is inspired from work by https://github.com/minh-nghia/TangleSimulator
+
+
 class Node(object):
 
+    '''
+    Stores the individual transaction detail for  a tangle
+    '''
+
     def __init__(self, name: str, time: float):
+
+        '''
+        constructor
+        :param name: id of the node
+        :param time: timestamp in unit time
+        '''
         self.x = 300
         self.y = 200
         self.name = name
         self.time = time
 
 class Link(object):
+    '''
+    Class for showing connections between the nodes in graph - Approval details
+    '''
+
 
     def __init__(self, source: Node, target: Node):
+        '''
+        Constuctor
+        :param source: Approving node
+        :param target: Node with is approved
+        '''
         self.source = source
         self.target = target
 
 
 
-class Tangle(object):
+class DAG(object):
 
     def __init__(self, rate=50, alpha=0.001, tip_selection='mcmc', plot=False):
         self.time = 1.0
@@ -169,8 +192,8 @@ class Tangle(object):
 
 class Transaction(object):
 
-    def __init__(self, tangle, time, approved_transactions, num):
-        self.tangle = tangle
+    def __init__(self, dag, time, approved_transactions, num):
+        self.dag = dag
         self.time = time
         self.approved_transactions = approved_transactions
         self._approved_directly_by = set()
@@ -178,51 +201,51 @@ class Transaction(object):
         self.num = num
         self._approved_by = set()
 
-        if hasattr(self.tangle, 'G'):
-            self.tangle.G.add_node(self.num,
-                                   pos=(self.time, np.random.uniform(-1, 1)))
+        if hasattr(self.dag, 'G'):
+            self.dag.G.add_node(self.num,
+                                pos=(self.time, np.random.uniform(-1, 1)))
 
     def is_visible(self):
-        return self.tangle.time >= self.time + 1.0
+        return self.dag.time >= self.time + 1.0
 
     def is_tip(self):
-        return self.tangle.time < self.approved_time
+        return self.dag.time < self.approved_time
 
     def is_tip_delayed(self):
-        return self.tangle.time - 1.0 < self.approved_time
+        return self.dag.time - 1.0 < self.approved_time
 
     def cumulative_weight(self):
         cw = 1 + len(self.approved_by())
-        self.tangle.t_cache = set()
+        self.dag.t_cache = set()
 
         return cw
 
     def cumulative_weight_delayed(self):
-        cached = self.tangle.cw_cache.get(self.num)
+        cached = self.dag.cw_cache.get(self.num)
         if cached:
             return cached
         else:
             cached = 1 + len(self.approved_by_delayed())
-            self.tangle.t_cache = set()
-            self.tangle.cw_cache[self.num] = cached
+            self.dag.t_cache = set()
+            self.dag.cw_cache[self.num] = cached
 
         return cached
 
     def approved_by(self):
         for t in self._approved_directly_by:
-            if t not in self.tangle.t_cache:
-                self.tangle.t_cache.add(t)
-                self.tangle.t_cache.update(t.approved_by())
+            if t not in self.dag.t_cache:
+                self.dag.t_cache.add(t)
+                self.dag.t_cache.update(t.approved_by())
 
-        return self.tangle.t_cache
+        return self.dag.t_cache
 
     def approved_by_delayed(self):
         for t in self.approved_directly_by():
-            if t not in self.tangle.t_cache:
-                self.tangle.t_cache.add(t)
-                self.tangle.t_cache.update(t.approved_by_delayed())
+            if t not in self.dag.t_cache:
+                self.dag.t_cache.add(t)
+                self.dag.t_cache.update(t.approved_by_delayed())
 
-        return self.tangle.t_cache
+        return self.dag.t_cache
 
     def approved_directly_by(self):
         return [p for p in self._approved_directly_by if p.is_visible()]
@@ -233,15 +256,15 @@ class Transaction(object):
 
 class Genesis(Transaction):
 
-    def __init__(self, tangle):
-        self.tangle = tangle
+    def __init__(self, dag):
+        self.dag = dag
         self.time = 0
         self.approved_transactions = []
         self.approved_time = float('inf')
         self._approved_directly_by = set()
         self.num = 0
-        if hasattr(self.tangle, 'G'):
-            self.tangle.G.add_node(self.num, pos=(self.time, 0))
+        if hasattr(self.dag, 'G'):
+            self.dag.G.add_node(self.num, pos=(self.time, 0))
 
     def __repr__(self):
         return '<Genesis>'

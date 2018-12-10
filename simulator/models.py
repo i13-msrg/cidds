@@ -41,8 +41,8 @@ class SimulationResults(Model):
                                   help_text= "A short description of the simulation" )
 
     # Picked version of the entire tangle
-    tangle = models.TextField(blank=True,
-                                  help_text= "The tangle result from the simulation" )
+    dag = models.TextField(blank=True,
+                           help_text= "The tangle result from the simulation")
 
     # Current status of the simulation - Can be running or done
     status = models.CharField(blank=True, max_length=20,
