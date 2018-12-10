@@ -91,6 +91,8 @@ class StartSim(View):
         sim.image.save(str(id)+'.png',resultImage)
         sim.tangle = t
         sim.reference = reference
+        sim.unapproved_tips = len(t.tips())
+        sim.time_units = t.time
         sim.save()
 
         table_results = SimulationResultsTable(SimulationResults.objects.all())

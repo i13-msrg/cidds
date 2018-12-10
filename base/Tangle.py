@@ -3,6 +3,21 @@ import networkx as nx
 import matplotlib.pyplot as plt
 import threading
 
+class Node(object):
+
+    def __init__(self, name: str, time: float):
+        self.x = 300
+        self.y = 200
+        self.name = name
+        self.time = time
+
+class Link(object):
+
+    def __init__(self, source: Node, target: Node):
+        self.source = source
+        self.target = target
+
+
 
 class Tangle(object):
 
@@ -22,6 +37,8 @@ class Tangle(object):
         self.cw_cache = dict()
         self.t_cache = set()
         self.tip_walk_cache = list()
+        self.nodes = []
+        self.links = []
 
     def next_transaction(self):
         dt_time = np.random.exponential(1.0 / self.rate)
@@ -43,7 +60,14 @@ class Tangle(object):
 
             if hasattr(self, 'G'):
                 self.G.add_edges_from([(transaction.num, t.num)])
+                self.links.append(Link(
+                    source=Node(name=str(transaction.num),
+                                time=transaction.time),
+                    target=Node(name=str(t.num),
+                                time=t.time)))
 
+        node = Node(name=str(transaction.num), time= transaction.time)
+        self.nodes.append(node)
         self.transactions.append(transaction)
 
         self.cw_cache = {}

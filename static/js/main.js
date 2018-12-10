@@ -11,30 +11,36 @@
     var message = $('.validate-input textarea[name="message"]');
 
 
-    $('.validate-form').on('submit',function(){
+    $('.validate-form').on('submit',function(event){
         var check = true;
 
-        if($(name).val().trim() == ''){
-            showValidate(name);
+        if($(processes).val().trim() == ''){
+            showValidate(processes);
             check=false;
         }
 
-        if($(subject).val().trim() == ''){
-            showValidate(subject);
+        if($(transactions).val().trim() == ''){
+            showValidate(transactions);
             check=false;
         }
 
-
-        if($(email).val().trim().match(/^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{1,5}|[0-9]{1,3})(\]?)$/) == null) {
-            showValidate(email);
+        if($(alpha).val().trim() == ''){
+            showValidate(alpha);
             check=false;
         }
 
-        if($(message).val().trim() == ''){
-            showValidate(message);
+        if($(randomness).val().trim() == ''){
+            showValidate(randomness);
             check=false;
         }
 
+        if($(reference).val().trim() == ''){
+            showValidate(reference);
+            check=false;
+        }
+        if (!check) {
+      event.preventDefault();
+    }
         return check;
     });
 

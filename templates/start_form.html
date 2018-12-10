@@ -19,21 +19,21 @@
 				</span>
 
                 <div class="wrap-input1 validate-input" data-validate = "Number of Processes is required">
-					<input id="processes" class="input1" type="text" name="processes" placeholder="Number of Processes">
+					<input id="processes" class="input1" type="number" min="0" required="required" type="text" name="processes" placeholder="Number of Processes">
 					<span class="shadow-input1"></span>
 				</div>
 <div class="wrap-input1 validate-input" data-validate = "Number of transactions is required">
-					<input id="transactions" class="input1" type="text" name="transactions" placeholder="Number of Transactions">
+					<input id="transactions" class="input1" type="number" min="0" required="required" type="text" name="transactions" placeholder="Number of Transactions">
 					<span class="shadow-input1"></span>
 				</div>
 
 				<div class="wrap-input1 validate-input" data-validate = "Alpha is required">
-					<input id="alpha" class="input1" type="text" name="alpha" placeholder="Alpha value(α)">
+					<input id="alpha" class="input1" type="number" min="0" step="0.00001" required="required" type="text" name="alpha" placeholder="Alpha value(α)">
 					<span class="shadow-input1"></span>
 				</div>
 
 				<div class="wrap-input1 validate-input" data-validate = "Degree of randomness">
-					<input id="randomness" class="input1" type="text" name="randomness" placeholder="Degree of Randomness( λ)">
+					<input id="randomness" class="input1" type="number" min="0" step="0.00001" required="required" type="text" name="randomness" placeholder="Degree of Randomness( λ)">
 					<span class="shadow-input1"></span>
 				</div>
 
@@ -46,7 +46,7 @@
 
 
 				<div class="wrap-input1 validate-input" data-validate = "Simulation remark is required">
-					<textarea class="input1" name="reference" placeholder="Remarks/Name for the simulation for later reference"></textarea>
+					<textarea class="input1" required="required" name="reference" placeholder="Remarks/Name for the simulation for later reference"></textarea>
 					<span class="shadow-input1"></span>
 				</div>
 
