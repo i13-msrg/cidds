@@ -95,7 +95,7 @@ class StartSim(View):
         sim.time_units = t.time
         sim.save()
 
-        table_results = SimulationResultsTable(SimulationResults.objects.all())
+        table_results = SimulationResultsTable(SimulationResults.objects.all(),order_by="-created")
         RequestConfig(request).configure(table_results)
         pprint("***************************************************************" )
 
@@ -126,7 +126,7 @@ class SimulationHistory(View):
         pprint("***************************************************************" )
         pprint("simulation history")
 
-        table_results = SimulationResultsTable(SimulationResults.objects.all())
+        table_results = SimulationResultsTable(SimulationResults.objects.all(),order_by="-created")
         RequestConfig(request).configure(table_results)
         pprint(table_results)
 
