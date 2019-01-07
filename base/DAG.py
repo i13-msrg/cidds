@@ -4,7 +4,15 @@ import matplotlib.pyplot as plt
 import threading
 
 
-# code is inspired from work by https://github.com/minh-nghia/TangleSimulator
+# This is the base of CIDDS simulator
+#
+#  Here we have a Directed Acyclic Graph (DAG), which is
+#
+#  Implementation of algorithms for MCMC and URTS are inspired from inputs by
+#  Alon Gal from IOTA foundation and Minh-nghia, Nguyen.
+#  For more details on their individual works visit:
+#  https://github.com/iotaledger/iotavisualization
+#  https://github.com/minh-nghia/TangleSimulator
 
 
 class Node(object):
@@ -44,45 +52,46 @@ class Link(object):
 
 class DAG(object):
 
-    def __init__(self, rate=50, alpha=0.001, tip_selection='mcmc', plot=False):
+    def __init__(self, rate=50, alpha=0.001, algorithm='mcmc', plot=False):
         self.time = 1.0
         self.rate = rate
         self.alpha = alpha
 
         if plot:
-            self.G = nx.OrderedDiGraph()
+            self.graph = nx.OrderedDiGraph()
 
         self.genesis = Genesis(self)
         self.transactions = [self.genesis]
-        self.count = 1
-        self.tip_selection = tip_selection
+        self.step_counter = 1
+        self.algorithm = algorithm
 
         self.cw_cache = dict()
-        self.t_cache = set()
+        self.transaction_cache = set()
         self.tip_walk_cache = list()
         self.nodes = []
         self.links = []
 
-    def next_transaction(self):
-        dt_time = np.random.exponential(1.0 / self.rate)
-        self.time += dt_time
-        self.count += 1
+    def generate_next_node(self):
 
-        if self.tip_selection == 'mcmc':
+        time_difference = np.random.exponential(1.0 / self.rate)
+        self.time += time_difference
+        self.step_counter += 1
+
+        if self.algorithm == 'mcmc':
             approved_tips = set(self.mcmc())
-        elif self.tip_selection == 'urts':
+        elif self.algorithm == 'urts':
             approved_tips = set(self.urts())
         else:
             raise Exception()
 
         transaction = Transaction(self, self.time, approved_tips,
-                                  self.count - 1)
+                                  self.step_counter - 1)
         for t in approved_tips:
             t.approved_time = np.minimum(self.time, t.approved_time)
             t._approved_directly_by.add(transaction)
 
-            if hasattr(self, 'G'):
-                self.G.add_edges_from([(transaction.num, t.num)])
+            if hasattr(self, 'graph'):
+                self.graph.add_edges_from([(transaction.num, t.num)])
                 self.links.append(Link(
                     source=Node(name=str(transaction.num),
                                 time=transaction.time),
@@ -110,8 +119,8 @@ class DAG(object):
 
     def mcmc(self):
         num_particles = 10
-        lower_bound = int(np.maximum(0, self.count - 20.0 * self.rate))
-        upper_bound = int(np.maximum(1, self.count - 10.0 * self.rate))
+        lower_bound = int(np.maximum(0, self.step_counter - 20.0 * self.rate))
+        upper_bound = int(np.maximum(1, self.step_counter - 10.0 * self.rate))
 
         candidates = self.transactions[lower_bound:upper_bound]
         # at_least_5_cw = [t for t in self.transactions[lower_bound:upper_bound] if t.cumulative_weight_delayed() >= 5]
@@ -119,7 +128,7 @@ class DAG(object):
         particles = np.random.choice(candidates, num_particles)
         distances = {}
         for p in particles:
-            t = threading.Thread(target=self._walk2(p))
+            t = threading.Thread(target=self.mcmc_walk(p))
             t.start()
         #            tip, distance = self._walk(p)
         #            distances[tip] = distance
@@ -130,7 +139,7 @@ class DAG(object):
 
         return tips
 
-    def _walk2(self, starting_transaction):
+    def mcmc_walk(self, starting_transaction):
         p = starting_transaction
         while not p.is_tip_delayed() and p.is_visible():
             if len(self.tip_walk_cache) >= 2:
@@ -138,11 +147,11 @@ class DAG(object):
 
             next_transactions = p.approved_directly_by()
             if self.alpha > 0:
-                p_cw = p.cumulative_weight_delayed()
+                p_cw = p.calculate_delayed_cumulative_weight()
                 c_weights = np.array([])
                 for transaction in next_transactions:
                     c_weights = np.append(c_weights,
-                                          transaction.cumulative_weight_delayed())
+                                          transaction.calculate_delayed_cumulative_weight())
 
                 deno = np.sum(np.exp(-self.alpha * (p_cw - c_weights)))
                 probs = np.divide(np.exp(-self.alpha * (p_cw - c_weights)),
@@ -154,35 +163,12 @@ class DAG(object):
 
         self.tip_walk_cache.append(p)
 
-    def _walk(self, starting_transaction):
-        p = starting_transaction
-        count = 0
-        while not p.is_tip_delayed() and p.is_visible():
-            next_transactions = p.approved_directly_by()
-            if self.alpha > 0:
-                p_cw = p.cumulative_weight_delayed()
-                c_weights = np.array([])
-                for transaction in next_transactions:
-                    c_weights = np.append(c_weights,
-                                          transaction.cumulative_weight_delayed())
-
-                deno = np.sum(np.exp(-self.alpha * (p_cw - c_weights)))
-                probs = np.divide(np.exp(-self.alpha * (p_cw - c_weights)),
-                                  deno)
-            else:
-                probs = None
-
-            p = np.random.choice(next_transactions, p=probs)
-            count += 1
-
-        return p, count
-
     def plot(self):
-        if hasattr(self, 'G'):
-            pos = nx.get_node_attributes(self.G, 'pos')
-            nx.draw_networkx_nodes(self.G, pos)
-            nx.draw_networkx_labels(self.G, pos)
-            nx.draw_networkx_edges(self.G, pos, edgelist=self.G.edges(),
+        if hasattr(self, 'graph'):
+            pos = nx.get_node_attributes(self.graph, 'pos')
+            nx.draw_networkx_nodes(self.graph, pos)
+            nx.draw_networkx_labels(self.graph, pos)
+            nx.draw_networkx_edges(self.graph, pos, edgelist=self.graph.edges(),
                                    arrows=True)
             plt.xlabel('Time')
             plt.yticks([])
@@ -201,7 +187,7 @@ class Transaction(object):
         self.num = num
         self._approved_by = set()
 
-        if hasattr(self.dag, 'G'):
+        if hasattr(self.dag, 'graph'):
             self.dag.G.add_node(self.num,
                                 pos=(self.time, np.random.uniform(-1, 1)))
 
@@ -220,7 +206,7 @@ class Transaction(object):
 
         return cw
 
-    def cumulative_weight_delayed(self):
+    def calculate_delayed_cumulative_weight(self):
         cached = self.dag.cw_cache.get(self.num)
         if cached:
             return cached
@@ -263,7 +249,7 @@ class Genesis(Transaction):
         self.approved_time = float('inf')
         self._approved_directly_by = set()
         self.num = 0
-        if hasattr(self.dag, 'G'):
+        if hasattr(self.dag, 'graph'):
             self.dag.G.add_node(self.num, pos=(self.time, 0))
 
     def __repr__(self):

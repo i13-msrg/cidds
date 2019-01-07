@@ -29,7 +29,7 @@
 						'throw throws try while public protected private static';
 		var types    =  'void boolean byte char short int long float double';
 		var constants = 'null';
-		var methods   = 'allProperties count get size '+
+		var methods   = 'allProperties step_counter get size '+
 						'collect each eachProperty eachPropertyName eachWithIndex find findAll ' +
 						'findIndexOf grep inject max min reverseEach sort ' +
 						'asImmutable asSynchronized flatten intersect join pop reverse subMap toList ' +

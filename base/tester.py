@@ -13,9 +13,9 @@ def start_helper():
 
     plt.figure(figsize=(25, 10))
 
-    t = DAG(rate=1, tip_selection='urts', plot=True)
+    t = DAG(rate=1, algorithm='urts', plot=True)
     for i in range(10):
-        t.next_transaction()
+        t.generate_next_node()
 
     nodes = json.dumps(t.nodes)
     # finalPlot.show()

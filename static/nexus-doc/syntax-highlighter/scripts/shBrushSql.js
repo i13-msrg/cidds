@@ -21,7 +21,7 @@
 
 	function Brush()
 	{
-		var funcs	=	'abs avg case cast coalesce convert count current_timestamp ' +
+		var funcs	=	'abs avg case cast coalesce convert step_counter current_timestamp ' +
 						'current_user day isnull left lower month nullif replace right ' +
 						'session_user space substring sum system_user upper user year';
 

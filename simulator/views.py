@@ -4,7 +4,7 @@ from pprint import pprint
 from django.contrib import messages
 from django.core.files.base import ContentFile
 from django.http import JsonResponse, HttpResponse
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, render_to_response
 from django.views import View
 import json
 from django.core.files.images import ImageFile
@@ -18,6 +18,17 @@ from django.http import HttpResponse
 
 from simulator.models import SimulationResults
 from simulator.tables import SimulationResultsTable
+
+
+def handler404(request, template_name="error.html"):
+    response = render_to_response("error.html")
+    response.status_code = 404
+    return response
+
+def handler500(request, template_name="error.html"):
+    response = render_to_response("error.html")
+    response.status_code = 500
+    return response
 
 
 class StartSim(View):
