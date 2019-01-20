@@ -84,7 +84,7 @@ python manage.py runserver
 CIDDS can be accessed online using the following link:
 http://131.159.52.52:8080
 
-## Inspitations from:
+## Inspirations from:
 
 Please do visit these repositories for similar simulators:
 
