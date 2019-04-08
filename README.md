@@ -83,12 +83,12 @@ If the database is installed properly, this should create all the required table
 python manage.py runserver
 ```
 
-## Accessing CIDDS online: 
+## Accessing CIDDS online 
 
 CIDDS can be accessed online using the following link:
 http://131.159.52.52:8080
 
-## Inspirations from:
+## Inspirations from
 
 Please do visit these repositories for similar simulators:
 
