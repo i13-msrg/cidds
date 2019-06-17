@@ -82,6 +82,14 @@ If the database is installed properly, this should create all the required table
 ```
 python manage.py runserver
 ```
+* If you are running the code in local machines, please make sure you add the localhosts to the list of allowed hosts, and debug can be set to true in 'cidds/CIDDS/settings.py' file
+
+```
+DEBUG = True
+
+ALLOWED_HOSTS = ['0.0.0.0', '131.159.52.52', '.blockchainsimulator.org', '127.0.0.1', 'localhost']
+```
+
 
 ## Accessing CIDDS online 
 
