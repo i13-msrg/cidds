@@ -93,7 +93,7 @@ ALLOWED_HOSTS = ['0.0.0.0', '131.159.52.52', '.blockchainsimulator.org', '127.0.
 * Also, if you notice that the application is loading without proper styling, make sure that the staticfiles are loaded by running the command
 
 ```
-pythong manage.py collectstatic
+python manage.py collectstatic
 ```
 
 
