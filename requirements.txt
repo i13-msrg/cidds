@@ -1,6 +1,6 @@
 cycler==0.10.0
 decorator==4.3.0
-Django==2.1.2
+django>=2.1.11
 django-debug-toolbar==1.10.1
 django-safedelete==0.5.1
 django-tables2==2.0.3
