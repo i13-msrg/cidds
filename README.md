@@ -77,6 +77,13 @@ python manage.py migrate
 ```
 If the database is installed properly, this should create all the required tables for the application to run
 
+
+* A new superuser can be created with the following command to access the appication
+
+```
+python manage.py createsuperuser
+```
+
 * Now the application can be run by the following command
 
 ```
