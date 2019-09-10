@@ -188,7 +188,7 @@ class Transaction(object):
         self._approved_by = set()
 
         if hasattr(self.dag, 'graph'):
-            self.dag.G.add_node(self.num,
+            self.dag.graph.add_node(self.num,
                                 pos=(self.time, np.random.uniform(-1, 1)))
 
     def is_visible(self):
@@ -202,7 +202,7 @@ class Transaction(object):
 
     def cumulative_weight(self):
         cw = 1 + len(self.approved_by())
-        self.dag.t_cache = set()
+        self.dag.transaction_cache = set()
 
         return cw
 
@@ -212,26 +212,26 @@ class Transaction(object):
             return cached
         else:
             cached = 1 + len(self.approved_by_delayed())
-            self.dag.t_cache = set()
+            self.dag.transaction_cache = set()
             self.dag.cw_cache[self.num] = cached
 
         return cached
 
     def approved_by(self):
         for t in self._approved_directly_by:
-            if t not in self.dag.t_cache:
-                self.dag.t_cache.add(t)
-                self.dag.t_cache.update(t.approved_by())
+            if t not in self.dag.transaction_cache:
+                self.dag.transaction_cache.add(t)
+                self.dag.transaction_cache.update(t.approved_by())
 
-        return self.dag.t_cache
+        return self.dag.transaction_cache
 
     def approved_by_delayed(self):
         for t in self.approved_directly_by():
-            if t not in self.dag.t_cache:
-                self.dag.t_cache.add(t)
-                self.dag.t_cache.update(t.approved_by_delayed())
+            if t not in self.dag.transaction_cache:
+                self.dag.transaction_cache.add(t)
+                self.dag.transaction_cache.update(t.approved_by_delayed())
 
-        return self.dag.t_cache
+        return self.dag.transaction_cache
 
     def approved_directly_by(self):
         return [p for p in self._approved_directly_by if p.is_visible()]
@@ -250,7 +250,7 @@ class Genesis(Transaction):
         self._approved_directly_by = set()
         self.num = 0
         if hasattr(self.dag, 'graph'):
-            self.dag.G.add_node(self.num, pos=(self.time, 0))
+            self.dag.graph.add_node(self.num, pos=(self.time, 0))
 
     def __repr__(self):
         return '<Genesis>'

@@ -51,7 +51,7 @@ class StartSim(View):
         buf = io.BytesIO()
         # plot.show()
         plot.savefig(buf, format="png")
-        plot.show()
+        # plot.show()
         response = HttpResponse(buf.getvalue(),content_type="image/png")
         # create your image as usual, e.g. pylab.plot(...)
         return response
@@ -92,7 +92,7 @@ class StartSim(View):
         # plot.show()
         plot = t.plot()
         plot.savefig(figure, format="png")
-        plot.show()
+        # plot.show()
 
 
         sim = SimulationResults.objects.get(id=id)
