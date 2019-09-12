@@ -28,7 +28,34 @@ class Node(object):
         self.id = id
         self.time = time
 
+    def __init__(self, dag, id: str, time: float):
+        # Used only for CAC
+        self.x = 300
+        self.y = 200
+        self.id = id
         self.time = time
+
+        self.dag = dag
+        self.vote = None
+        self.neighbourNodeIds = []
+
+    def add_neighbour(self, nId):
+        if nId not in self.neighbourNodeIds:
+                self.neighbourNodeIds.append(nId)
+
+    def get_vote(self):
+        numTrue = 0
+        numFalse = 0
+
+        for nId in self.neighbourNodeIds:
+            node = [n for n in self.dag.nodes if int(n.id) == nId][0]
+            if node.vote == True:
+                numTrue = numTrue + 1
+            if node.vote == False:
+                numFalse = numFalse + 1
+
+        self.vote = numTrue >= numFalse
+        return self.vote
 
 class Link(object):
     '''
@@ -73,6 +100,8 @@ class DAG(object):
             approved_tips = set(self.mcmc())
         elif self.algorithm == 'urts':
             approved_tips = set(self.urts())
+        elif self.algorithm == 'cac':
+            approved_tips = set(self.cac())
         else:
             raise Exception()
 
@@ -86,6 +115,9 @@ class DAG(object):
             t.approved_time = np.minimum(self.time, t.approved_time)
             t._approved_directly_by.add(transaction)
 
+            self.addNeighbourToNode(t.num, transaction.num)
+            self.addNeighbourToNode(transaction.num, t.num)
+
             if hasattr(self, 'graph'):
                 self.graph.add_edges_from([(transaction.num, t.num)])
                 self.links.append(Link(
@@ -93,10 +125,59 @@ class DAG(object):
                     target=Node(self, id=str(t.num),
                                 time=t.time)))
         self.cw_cache = {}
+    
+    def addNeighbourToNode(self, nodeId, newNodeId):
+        node = [n for n in self.nodes if int(n.id) == nodeId][0]
+        node.add_neighbour(newNodeId)
 
     def tips(self):
         return [t for t in self.transactions if t.is_visible() and t.is_tip_delayed()]
 
+    def getTipNodes(self):
+        return [n for n in self.nodes if self.getLinkNum(n.id) < 2]
+
+    def getLinkNum(self, targetNodeId):
+        linkNum = 0
+        for l in self.links:
+            if int(l.target.id) == int(targetNodeId):
+                linkNum = linkNum + 1
+        return linkNum
+        
+    def cac(self):
+        print("CAC OLEY")
+        tipNodes = self.getTipNodes()
+        if len(tipNodes) > 2:
+            selectedTips = np.random.choice(tipNodes, 2)
+        else:
+            selectedTips = tipNodes
+
+        for tip in selectedTips:
+            tip.vote = True
+        
+        result = self.vote()
+
+        #set all nodes votes to None after geting the final result
+        for node in self.nodes:
+            node.vote = None
+        
+        transactionTips = []
+        if result:
+            for tip in selectedTips:
+                transactionTips.append([t for t in self.transactions if t.num == int(tip.id)][0])
+
+        return transactionTips
+    
+    def vote(self):
+        votes = []
+        for node in self.nodes:
+            votes.append(node.get_vote())
+        
+        if len(set(votes)) == 1:
+            return votes[0]
+        else:
+            self.vote()
+        return False #Will never execute
+        
     def urts(self):
         tips = self.tips()
         if len(tips) == 0:
