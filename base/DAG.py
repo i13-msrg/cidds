@@ -3,7 +3,6 @@ import networkx as nx
 import matplotlib.pyplot as plt
 import threading
 
-
 # This is the base of CIDDS simulator
 #
 #  Here we have a Directed Acyclic Graph (DAG), which is
@@ -14,31 +13,27 @@ import threading
 #  https://github.com/iotaledger/iotavisualization
 #  https://github.com/minh-nghia/TangleSimulator
 
-
 class Node(object):
-
     '''
     Stores the individual transaction detail for  a tangle
     '''
-
-    def __init__(self, name: str, time: float):
-
+    def __init__(self, id: str, time: float):
         '''
         constructor
-        :param name: id of the node
+        :param id: id of the node
         :param time: timestamp in unit time
         '''
         self.x = 300
         self.y = 200
-        self.name = name
+        self.id = id
+        self.time = time
+
         self.time = time
 
 class Link(object):
     '''
     Class for showing connections between the nodes in graph - Approval details
     '''
-
-
     def __init__(self, source: Node, target: Node):
         '''
         Constuctor
@@ -47,8 +42,6 @@ class Link(object):
         '''
         self.source = source
         self.target = target
-
-
 
 class DAG(object):
 
@@ -68,11 +61,10 @@ class DAG(object):
         self.cw_cache = dict()
         self.transaction_cache = set()
         self.tip_walk_cache = list()
-        self.nodes = []
+        self.nodes = [Node(self, id=0, time=0)] #Genesis is in by default
         self.links = []
 
     def generate_next_node(self):
-
         time_difference = np.random.exponential(1.0 / self.rate)
         self.time += time_difference
         self.step_counter += 1
@@ -86,6 +78,10 @@ class DAG(object):
 
         transaction = Transaction(self, self.time, approved_tips,
                                   self.step_counter - 1)
+        newNode = Node(self, id=str(transaction.num), time=transaction.time)
+        self.nodes.append(newNode)
+        self.transactions.append(transaction)
+
         for t in approved_tips:
             t.approved_time = np.minimum(self.time, t.approved_time)
             t._approved_directly_by.add(transaction)
@@ -93,20 +89,13 @@ class DAG(object):
             if hasattr(self, 'graph'):
                 self.graph.add_edges_from([(transaction.num, t.num)])
                 self.links.append(Link(
-                    source=Node(name=str(transaction.num),
-                                time=transaction.time),
-                    target=Node(name=str(t.num),
+                    source=newNode,
+                    target=Node(self, id=str(t.num),
                                 time=t.time)))
-
-        node = Node(name=str(transaction.num), time= transaction.time)
-        self.nodes.append(node)
-        self.transactions.append(transaction)
-
         self.cw_cache = {}
 
     def tips(self):
-        return [t for t in self.transactions if
-                t.is_visible() and t.is_tip_delayed()]
+        return [t for t in self.transactions if t.is_visible() and t.is_tip_delayed()]
 
     def urts(self):
         tips = self.tips()
@@ -123,17 +112,11 @@ class DAG(object):
         upper_bound = int(np.maximum(1, self.step_counter - 10.0 * self.rate))
 
         candidates = self.transactions[lower_bound:upper_bound]
-        # at_least_5_cw = [t for t in self.transactions[lower_bound:upper_bound] if t.cumulative_weight_delayed() >= 5]
-
         particles = np.random.choice(candidates, num_particles)
         distances = {}
         for p in particles:
             t = threading.Thread(target=self.mcmc_walk(p))
             t.start()
-        #            tip, distance = self._walk(p)
-        #            distances[tip] = distance
-
-        # return [key for key in sorted(distances, key=distances.get, reverse=False)[:2]]
         tips = self.tip_walk_cache[:2]
         self.tip_walk_cache = list()
 
@@ -172,9 +155,7 @@ class DAG(object):
                                    arrows=True)
             plt.xlabel('Time')
             plt.yticks([])
-            # plt.show()
             return plt
-
 
 class Transaction(object):
 
@@ -238,7 +219,6 @@ class Transaction(object):
 
     def __repr__(self):
         return '<Transaction {}>'.format(self.num)
-
 
 class Genesis(Transaction):
 
