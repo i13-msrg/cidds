@@ -26,38 +26,25 @@
 				Start the CAC Simulation
 			</span>
 
-			<div class="wrap-input1 validate-input" data-validate="Number of Processes is required">
-				<input id="processes" class="input1" type="number" min="0" required="required" type="text" name="processes"
-					placeholder="Number of Processes">
+			<div class="wrap-input1 validate-input" data-validate="Number of Total Users is required">
+				<input id="numTotalUser" class="input1" type="number" min="0" required="required" type="text" name="numTotalUser"
+					placeholder="Number of Total Users">
 				<span class="shadow-input1"></span>
 			</div>
-			<div class="wrap-input1 validate-input" data-validate="Number of transactions is required">
-				<input id="transactions" class="input1" type="number" min="0" required="required" type="text"
-					name="transactions" placeholder="Number of Transactions">
+			<div class="wrap-input1 validate-input" data-validate="Number of Total Malicious is required">
+				<input id="numMalUser" class="input1" type="number" min="0" required="required" type="text"
+					name="numMalUser" placeholder="Number of Malicious Users">
 				<span class="shadow-input1"></span>
 			</div>
+			<div class="wrap-input1 validate-input" data-validate="Number of Transactions per User is required">
+					<input id="traUser" class="input1" type="number" min="0" required="required" type="text"
+						name="traUser" placeholder="Number of Transactions per User">
+					<span class="shadow-input1"></span>
+				</div>
 
-			<div class="wrap-input1 validate-input" data-validate="Alpha is required">
-				<input id="alpha" class="input1" type="number" min="0" step="0.00001" required="required" type="text"
-					name="alpha" placeholder="Alpha value(α)">
-				<span class="shadow-input1"></span>
-			</div>
-
-			<div class="wrap-input1 validate-input" data-validate="Degree of randomness">
-				<input id="randomness" class="input1" type="number" min="0" step="0.00001" required="required" type="text"
-					name="randomness" placeholder="Degree of Randomness( λ)">
-				<span class="shadow-input1"></span>
-			</div>
-
-			<input id="urts" type="radio" name="algorithm" value="urts" checked> <label for="urts"> URTS Tip Selection</label>
-			<br>
-			<input id="mcmc" type="radio" name="algorithm" value="mcmc"> <label for="mcmc"> MCMC Tip Selection</label>
-			<br>
-			<input id="cac" type="radio" name="algorithm" value="cac"> <label for="cac"> Cellular Automata Consensus</label>
+			<input id="cac" type="radio" name="algorithm" value="cac" checked> <label for="cac"> Cellular Automata Consensus</label>
 
 			<span class="shadow-input1"></span>
-
-
 
 			<div class="wrap-input1 validate-input" data-validate="Simulation remark is required">
 				<textarea class="input1" required="required" name="reference"

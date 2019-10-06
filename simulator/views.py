@@ -43,15 +43,16 @@ class StartSim(View):
             return render(request, "default.html", data)
 
         nodes = request.GET.get('nodes')
-        # processes = request.GET.get('processes')
         alpha = request.GET.get('alpha')
         randomness = request.GET.get('randomness')
 
+        numTotalUser = request.GET.get("numTotalUser")
+        numMalUser = request.GET.get("numMalUser")
+        traUser = request.GET.get("traUser")
+
         plot = Orchestrator.start_helper()
         buf = io.BytesIO()
-        # plot.show()
         plot.savefig(buf, format="png")
-        # plot.show()
         response = HttpResponse(buf.getvalue(),content_type="image/png")
         # create your image as usual, e.g. pylab.plot(...)
         return response
@@ -67,21 +68,29 @@ class StartSim(View):
             return render(request, "default.html", data)
 
         data = request.POST
-        nodes = int(data.get("transactions"))
-        processes = int(data.get("processes"))
-        alpha = float(data.get("alpha"))
-        randomness = float(data.get("randomness"))
+        nodes = int(data.get("transactions") or 0)
+        processes = int(data.get("processes") or 0)
+        alpha = float(data.get("alpha") or 1)
+        randomness = float(data.get("randomness") or 0)
+
+        numTotalUser = int(data.get("numTotalUser") or 0)
+        numMalUser = int(data.get("numMalUser") or 0)
+        traUser = int(data.get("traUser") or 0)
+
         algorithm = data.get("algorithm")
         reference = data.get("reference")
         pprint(data)
         sim = SimulationResults(user=request.user,
-                                       num_process=processes,
-                                       alpha=alpha,
-                                       randomness=randomness,
-                                       reference=reference,
-                                       algorithm=algorithm,
-                                transactions=nodes
-                                      )
+                                num_process=processes,
+                                alpha=alpha,
+                                randomness=randomness,
+                                reference=reference,
+                                algorithm=algorithm,
+                                transactions=nodes,
+                                numTotalUser=numTotalUser,
+                                numMalUser=numMalUser,
+                                traUser=traUser,
+                                )
         sim.status = "Running"
         sim.save()
 
@@ -89,11 +98,8 @@ class StartSim(View):
 
         t = Orchestrator.start_helper(sim)
         figure = io.BytesIO()
-        # plot.show()
         plot = t.plot()
         plot.savefig(figure, format="png")
-        # plot.show()
-
 
         sim = SimulationResults.objects.get(id=id)
         sim.status = "Done"
@@ -117,11 +123,6 @@ class StartSim(View):
             'messages': messages
         }
         return render(request, "simulation_results.html", data)
-
-        # response = HttpResponse(figure.getvalue(), content_type="image/png")
-
-        # return response
-
 
 class SimulationHistory(View):
 

@@ -20,8 +20,15 @@ def start_helper(sim):
 
     # Call the DAG to generate transactions
     dag = DAG(rate=sim.alpha, algorithm=sim.algorithm, plot=True)
-    for i in range(sim.transactions):
-        dag.generate_next_node()
+
+    if sim.algorithm == "cac":
+        #use cac specific func
+        transactions = sim.numTotalUser * sim.traUser
+        for i in range(transactions):
+            dag.generate_next_node()
+    else:
+        for i in range(sim.transactions):
+            dag.generate_next_node()
 
     # Return the result
     return dag

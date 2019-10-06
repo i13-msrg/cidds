@@ -21,18 +21,21 @@ class SimulationResults(Model):
         help_text="User who created the simulation"
     )
     # Number of processes
-    num_process = models.IntegerField(blank=False, null=False, default= 1)
+    num_process = models.IntegerField(blank=True, null=True, default= 1)
 
     # Number of transactions
-    transactions = models.IntegerField(blank=False, null=False, default = 10)
+    transactions = models.IntegerField(blank=True, null=True, default = 10)
 
+    alpha = models.FloatField(blank=True, null=True, default=1)
 
-    alpha = models.FloatField(blank=False, null=False, default=1)
+    numTotalUser = models.IntegerField(blank=True, null=True, default = 3)
+    numMalUser = models.IntegerField(blank=True, null=True, default = 0)
+    traUser = models.IntegerField(blank=True, null=True, default = 5)
 
-# Degree of randomness
-    randomness = models.FloatField(blank=False, null=False, default=1)
+    # Degree of randomness
+    randomness = models.FloatField(blank=True, null=True, default=1)
 
-# Tip selection algorithm
+    # Tip selection algorithm
     algorithm = models.CharField(blank=True, max_length=10,
                                 help_text="A short description of the simulation")
 
