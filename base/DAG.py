@@ -53,9 +53,13 @@ class Node(object):
                 numTrue = numTrue + 1
             if node.vote == False:
                 numFalse = numFalse + 1
+            
 
         self.vote = numTrue >= numFalse
         return self.vote
+
+    def is_tip_delayed(self):
+        return self.dag.time - 5.0 < self.time
 
 class Link(object):
     '''
@@ -134,7 +138,8 @@ class DAG(object):
         return [t for t in self.transactions if t.is_visible() and t.is_tip_delayed()]
 
     def getTipNodes(self):
-        return [n for n in self.nodes if self.getLinkNum(n.id) < 2]
+        # return [n for n in self.nodes if self.getLinkNum(n.id) < 2]
+        return [n for n in self.nodes if n.is_tip_delayed()]
 
     def getLinkNum(self, targetNodeId):
         linkNum = 0
@@ -144,7 +149,6 @@ class DAG(object):
         return linkNum
         
     def cac(self):
-        print("CAC OLEY")
         tipNodes = self.getTipNodes()
         if len(tipNodes) > 2:
             selectedTips = np.random.choice(tipNodes, 2)

@@ -8,6 +8,14 @@
 
 <div class="contact1">
 	<div class="container-contact1">
+
+		<nav class="contact1-navbar navbar">
+			<ul class="nav navbar-nav contact1-nav menu_nav justify-content-center">
+				<li class="contact1-navitem nav-item"><a class="contact1-navlink nav-link" href="{% url 'startsim' %}">CIDDS Simulation</a></li>
+				<li class="contact1-navitem nav-item active active-nav"><a class="contact1-navlink nav-link" href="{% url 'startcac' %}">CAC Simulation</a></li>
+			</ul>
+		</nav>
+		<br/><br/><br/>
 		<div class="contact1-pic js-tilt" data-tilt>
 			<img src="{% static "images/img-02.png"%}" alt="IMG">
 		</div>
@@ -15,7 +23,7 @@
 		<form action="{% url 'initialize' %}" method="post" class="contact1-form validate-form">
 			{% csrf_token %}
 			<span class="contact1-form-title">
-				Start the simulation
+				Start the CAC Simulation
 			</span>
 
 			<div class="wrap-input1 validate-input" data-validate="Number of Processes is required">
@@ -68,9 +76,6 @@
 		</form>
 	</div>
 </div>
-
-
-
 
 <!--===============================================================================================-->
 <script src="{% static "vendor/jquery/jquery-3.2.1.min.js"%}"></script>
