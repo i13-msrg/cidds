@@ -4,93 +4,100 @@
 {% load static %}
 
 
-        <!--================Header Menu Area =================-->
+<!--================Header Menu Area =================-->
 
-	<div class="contact1">
-		<div class="container-contact1">
-			<div class="contact1-pic js-tilt" data-tilt>
-				<img src="{% static "images/img-02.png"%}" alt="IMG">
+<div class="contact1">
+	<div class="container-contact1">
+		<div class="contact1-pic js-tilt" data-tilt>
+			<img src="{% static "images/img-02.png"%}" alt="IMG">
+		</div>
+
+		<form action="{% url 'initialize' %}" method="post" class="contact1-form validate-form">
+			{% csrf_token %}
+			<span class="contact1-form-title">
+				Start the simulation
+			</span>
+
+			<div class="wrap-input1 validate-input" data-validate="Number of Processes is required">
+				<input id="processes" class="input1" type="number" min="0" required="required" type="text" name="processes"
+					placeholder="Number of Processes">
+				<span class="shadow-input1"></span>
+			</div>
+			<div class="wrap-input1 validate-input" data-validate="Number of transactions is required">
+				<input id="transactions" class="input1" type="number" min="0" required="required" type="text"
+					name="transactions" placeholder="Number of Transactions">
+				<span class="shadow-input1"></span>
 			</div>
 
-			<form action="{% url 'initialize' %}" method="post" class="contact1-form validate-form">
-                 {% csrf_token %}
-				<span class="contact1-form-title">
-					Start the simulation
-				</span>
+			<div class="wrap-input1 validate-input" data-validate="Alpha is required">
+				<input id="alpha" class="input1" type="number" min="0" step="0.00001" required="required" type="text"
+					name="alpha" placeholder="Alpha value(α)">
+				<span class="shadow-input1"></span>
+			</div>
 
-                <div class="wrap-input1 validate-input" data-validate = "Number of Processes is required">
-					<input id="processes" class="input1" type="number" min="0" required="required" type="text" name="processes" placeholder="Number of Processes">
-					<span class="shadow-input1"></span>
-				</div>
-<div class="wrap-input1 validate-input" data-validate = "Number of transactions is required">
-					<input id="transactions" class="input1" type="number" min="0" required="required" type="text" name="transactions" placeholder="Number of Transactions">
-					<span class="shadow-input1"></span>
-				</div>
+			<div class="wrap-input1 validate-input" data-validate="Degree of randomness">
+				<input id="randomness" class="input1" type="number" min="0" step="0.00001" required="required" type="text"
+					name="randomness" placeholder="Degree of Randomness( λ)">
+				<span class="shadow-input1"></span>
+			</div>
 
-				<div class="wrap-input1 validate-input" data-validate = "Alpha is required">
-					<input id="alpha" class="input1" type="number" min="0" step="0.00001" required="required" type="text" name="alpha" placeholder="Alpha value(α)">
-					<span class="shadow-input1"></span>
-				</div>
+			<input id="urts" type="radio" name="algorithm" value="urts" checked> <label for="urts"> URTS Tip Selection</label>
+			<br>
+			<input id="mcmc" type="radio" name="algorithm" value="mcmc"> <label for="mcmc"> MCMC Tip Selection</label>
+			<br>
+			<input id="cac" type="radio" name="algorithm" value="cac"> <label for="cac"> Cellular Automata Consensus</label>
 
-				<div class="wrap-input1 validate-input" data-validate = "Degree of randomness">
-					<input id="randomness" class="input1" type="number" min="0" step="0.00001" required="required" type="text" name="randomness" placeholder="Degree of Randomness( λ)">
-					<span class="shadow-input1"></span>
-				</div>
-
-					<input id="urts"  type="radio" name="algorithm" value = "urts" checked>   <label for="urts">   URTS Tip Selection</label>
-<br>
-                    <input id="mcmc"  type="radio" name="algorithm" value = "mcmc"> <label for="mcmc">   MCMC Tip Selection</label>
-
-					<span class="shadow-input1"></span>
+			<span class="shadow-input1"></span>
 
 
 
-				<div class="wrap-input1 validate-input" data-validate = "Simulation remark is required">
-					<textarea class="input1" required="required" name="reference" placeholder="Remarks/Name for the simulation for later reference"></textarea>
-					<span class="shadow-input1"></span>
-				</div>
+			<div class="wrap-input1 validate-input" data-validate="Simulation remark is required">
+				<textarea class="input1" required="required" name="reference"
+					placeholder="Remarks/Name for the simulation for later reference"></textarea>
+				<span class="shadow-input1"></span>
+			</div>
 
-				<div class="container-contact1-form-btn">
-					<button type="submit" class="contact1-form-btn">
-						<span>
-							Start the Simulation
-							<i class="fa fa-long-arrow-right" aria-hidden="true"></i>
-						</span>
-					</button>
-				</div>
-			</form>
-		</div>
+			<div class="container-contact1-form-btn">
+				<button type="submit" class="contact1-form-btn">
+					<span>
+						Start the Simulation
+						<i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+					</span>
+				</button>
+			</div>
+		</form>
 	</div>
+</div>
 
 
 
 
 <!--===============================================================================================-->
-	<script src="{% static "vendor/jquery/jquery-3.2.1.min.js"%}"></script>
+<script src="{% static "vendor/jquery/jquery-3.2.1.min.js"%}"></script>
 <!--===============================================================================================-->
-	<script src="{% static "vendor/bootstrap/js/popper.js"%}"></script>
-	<script src="{% static "vendor/bootstrap/js/bootstrap.min.js"%}"></script>
+<script src="{% static "vendor/bootstrap/js/popper.js"%}"></script>
+<script src="{% static "vendor/bootstrap/js/bootstrap.min.js"%}"></script>
 <!--===============================================================================================-->
-	<script src="{% static "vendor/select2/select2.min.js"%}"></script>
+<script src="{% static "vendor/select2/select2.min.js"%}"></script>
 <!--===============================================================================================-->
-	<script src="{% static "vendor/tilt/tilt.jquery.min.js"%}"></script>
-	<script >
-		$('.js-tilt').tilt({
-			scale: 1.1
-		})
-	</script>
+<script src="{% static "vendor/tilt/tilt.jquery.min.js"%}"></script>
+<script>
+	$('.js-tilt').tilt({
+		scale: 1.1
+	})
+</script>
 
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+	window.dataLayer = window.dataLayer || [];
+	function gtag() { dataLayer.push(arguments); }
+	gtag('js', new Date());
 
-  gtag('config', 'UA-23581568-13');
+	gtag('config', 'UA-23581568-13');
 </script>
 
 <!--===============================================================================================-->
-	<script src="{% static "js/main.js"%}"></script>
+<script src="{% static "js/main.js"%}"></script>
 
 {% endblock %}

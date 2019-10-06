@@ -1,165 +1,176 @@
 <!doctype html>
 {% load static %}
 <html lang="en">
-    <head>
-        <!-- Required meta tags -->
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <link rel="icon" href="{% static "img/favicon.png"%}" type="image/png">
-        <title>CIDDS Simulator</title>
-        <!-- Bootstrap CSS -->
-        <link rel="stylesheet" href="{% static "css/bootstrap.css" %}">
-        <link rel="stylesheet" href="{% static "vendors/linericon/style.css"%}">
-        <link rel="stylesheet" href="{% static "css/font-awesome.min.css"%}">
-        <link rel="stylesheet" href="{% static "vendors/owl-carousel/owl.carousel.min.css"%}">
-        <link rel="stylesheet" href="{% static "vendors/lightbox/simpleLightbox.css"%}">
-        <link rel="stylesheet" href="{% static "vendors/nice-select/css/nice-select.css"%}">
-        <link rel="stylesheet" href="{% static "vendors/animate-css/animate.css"%}">
-        <link rel="stylesheet" href="{% static "vendors/flaticon/flaticon.css"%}">
-        <!-- main css -->
-        <link rel="stylesheet" href="{% static "css/style.css"%}">
-        <link rel="stylesheet" href="{% static "css/responsive.css"%}">
-        	<title>Initiate Simulation</title>
 
-<!--===============================================================================================-->
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="icon" href="{% static "img/favicon.png"%}" type="image/png">
+	<title>CIDDS Simulator</title>
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="{% static "css/bootstrap.css" %}">
+	<link rel="stylesheet" href="{% static "vendors/linericon/style.css"%}">
+	<link rel="stylesheet" href="{% static "css/font-awesome.min.css"%}">
+	<link rel="stylesheet" href="{% static "vendors/owl-carousel/owl.carousel.min.css"%}">
+	<link rel="stylesheet" href="{% static "vendors/lightbox/simpleLightbox.css"%}">
+	<link rel="stylesheet" href="{% static "vendors/nice-select/css/nice-select.css"%}">
+	<link rel="stylesheet" href="{% static "vendors/animate-css/animate.css"%}">
+	<link rel="stylesheet" href="{% static "vendors/flaticon/flaticon.css"%}">
+	<!-- main css -->
+	<link rel="stylesheet" href="{% static "css/style.css"%}">
+	<link rel="stylesheet" href="{% static "css/responsive.css"%}">
+	<title>Initiate Simulation</title>
+
+	<!--===============================================================================================-->
 	<link rel="icon" type="image/png" href="{% static "images/icons/favicon.ico"%}">
-<!--===============================================================================================-->
+	<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="{% static "vendor/bootstrap/css/bootstrap.min.css"%}">
-<!--===============================================================================================-->
+	<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="{% static "fonts/font-awesome-4.7.0/css/font-awesome.min.css"%}">
-<!--===============================================================================================-->
+	<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="{% static "vendor/animate/animate.css"%}">
-<!--===============================================================================================-->
+	<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="{% static "vendor/css-hamburgers/hamburgers.min.css"%}">
-<!--===============================================================================================-->
+	<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="{% static "vendor/select2/select2.min.css"%}">
-<!--===============================================================================================-->
+	<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="{% static "css/util.css"%}">
 	<link rel="stylesheet" type="text/css" href="{% static "css/main.css"%}">
-<!--===============================================================================================-->
-    </head>
-    <body>
+	<!--===============================================================================================-->
+</head>
 
-        <!--================Header Menu Area =================-->
-        <header class="header_area" >
-            <div class="main_menu">
-            	<nav class="navbar navbar-expand-lg navbar-light">
-					<div class="container box_1620">
-						<!-- Brand and toggle get grouped for better mobile display -->
-						<a class="navbar-brand logo_h" href="{% url 'index' %}"><img src="{% static "img/logo.png"%}" alt=""></a>
-						<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-						</button>
-						<!-- Collect the nav links, forms, and other content for toggling -->
-						<div class="collapse navbar-collapse offset" id="navbarSupportedContent">
-							<ul class="nav navbar-nav menu_nav justify-content-center">
-								<li class="nav-item active"><a class="nav-link" href="{% url 'index' %}" >Home</a></li>
-                                {% if user.is_authenticated %}
+<body>
 
-                                <li class="nav-item"><a class="nav-link" href="{% url 'startsim' %}" >Run Simulation</a></li>
+	<!--================Header Menu Area =================-->
+	<header class="header_area">
+		<div class="main_menu">
+			<nav class="navbar navbar-expand-lg navbar-light">
+				<div class="container box_1620">
+					<!-- Brand and toggle get grouped for better mobile display -->
+					<a class="navbar-brand logo_h" href="{% url 'index' %}"><img src="{% static "img/logo.png"%}" alt=""></a>
+					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+						aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<!-- Collect the nav links, forms, and other content for toggling -->
+					<div class="collapse navbar-collapse offset" id="navbarSupportedContent">
+						<ul class="nav navbar-nav menu_nav justify-content-center">
+							<li class="nav-item active"><a class="nav-link" href="{% url 'index' %}">Home</a></li>
+							{% if user.is_authenticated %}
 
-                                <li class="nav-item"><a class="nav-link" href="{% url 'history' %}" >Simulation Results</a></li>
-                                {% endif %}
+							<li class="nav-item"><a class="nav-link" href="{% url 'startsim' %}">Run Simulation</a></li>
 
-								<li class="nav-item"><a class="nav-link" href="{% url 'about' %}">About</a></li>
-								<li class="nav-item"><a class="nav-link" href="{% url 'contact' %}">Contact</a></li>
+							<li class="nav-item"><a class="nav-link" href="{% url 'history' %}">Simulation Results</a></li>
+							{% endif %}
 
-							</ul>
+							<li class="nav-item"><a class="nav-link" href="{% url 'about' %}">About</a></li>
+							<li class="nav-item"><a class="nav-link" href="{% url 'contact' %}">Contact</a></li>
 
-                            {% if user.is_authenticated %}
+						</ul>
 
-								<ul class="nav navbar-nav navbar-right">
-								<li class="nav-item"><a href={% url 'logout' %} class="tickets_btn">Logout</a></li>
-							</ul>
+						{% if user.is_authenticated %}
 
-                                 {% else %}
-<ul class="nav navbar-nav navbar-right">
-								<li class="nav-item"><a href="{% url 'login' %}" class="tickets_btn">Login</a></li>
-							</ul>
+						<ul class="nav navbar-nav navbar-right">
+							<li class="nav-item"><a href={% url 'logout' %} class="tickets_btn">Logout</a></li>
+						</ul>
 
-                                <ul class="nav navbar-nav navbar-right">
-								<li class="nav-item"><a href="mailto:p.nasirifard@tum.de,riswan.lathif@tum.de?subject=Request for access to CIDDS&body=Hi, I request access to CIDDS and the following are my details:" class="tickets_btn">Request Access</a></li>
-							</ul>
-                                {% endif %}
+						{% else %}
+						<ul class="nav navbar-nav navbar-right">
+							<li class="nav-item"><a href="{% url 'login' %}" class="tickets_btn">Login</a></li>
+						</ul>
+
+						<ul class="nav navbar-nav navbar-right">
+							<li class="nav-item"><a
+									href="mailto:p.nasirifard@tum.de,riswan.lathif@tum.de?subject=Request for access to CIDDS&body=Hi, I request access to CIDDS and the following are my details:"
+									class="tickets_btn">Request Access</a></li>
+						</ul>
+						{% endif %}
 
 
-						</div>
 					</div>
-            	</nav>
-            </div>
-        </header>
+				</div>
+			</nav>
+		</div>
+	</header>
 
-        <!--================Header Menu Area =================-->
+	<!--================Header Menu Area =================-->
 
-        {% block content %}
-
-
-        {% endblock %}
+	{% block content %}
 
 
-       <!--================Footer Area =================-->
-        <footer class="footer_area p_120">
-        	<div class="container">
-        		<div class="row footer_inner">
-        			<div class="col-lg-5 col-sm-6">
-        				<aside class="f_widget ab_widget">
-        					<div class="f_title">
-        						<h3>About</h3>
-        					</div>
-        					<p>-----> Fill in info about the chair</p>
-        					<p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
-        				</aside>
-        			</div>
-        			<div class="col-lg-5 col-sm-6">
-        				<aside class="f_widget news_widget">
-
-        				</aside>
-        			</div>
-        			<div class="col-lg-2">
-        				<aside class="f_widget social_widget">
-        					<div class="f_title">
-        						<h3>Follow </h3>
-        					</div>
-        					<p>Social media footprint</p>
-        					<ul class="list">
-        						<li><a href="#"><i class="fa fa-facebook"></i></a></li>
-        						<li><a href="#"><i class="fa fa-twitter"></i></a></li>
-        						<li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-        						<li><a href="#"><i class="fa fa-behance"></i></a></li>
-        					</ul>
-        				</aside>
-        			</div>
-        		</div>
-        	</div>
-        </footer>
-        <!--================End Footer Area =================-->
+	{% endblock %}
 
 
+	<!--================Footer Area =================-->
+	<footer class="footer_area p_120">
+		<div class="container">
+			<div class="row footer_inner">
+				<div class="col-lg-5 col-sm-6">
+					<aside class="f_widget ab_widget">
+						<div class="f_title">
+							<h3>About</h3>
+						</div>
+						<p>-----> Fill in info about the chair</p>
+						<p>
+							<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+							Copyright &copy;
+							<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made
+							with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com"
+								target="_blank">Colorlib</a>
+							<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+						</p>
+					</aside>
+				</div>
+				<div class="col-lg-5 col-sm-6">
+					<aside class="f_widget news_widget">
+
+					</aside>
+				</div>
+				<div class="col-lg-2">
+					<aside class="f_widget social_widget">
+						<div class="f_title">
+							<h3>Follow </h3>
+						</div>
+						<p>Social media footprint</p>
+						<ul class="list">
+							<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+							<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+							<li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+							<li><a href="#"><i class="fa fa-behance"></i></a></li>
+						</ul>
+					</aside>
+				</div>
+			</div>
+		</div>
+	</footer>
+	<!--================End Footer Area =================-->
 
 
 
-        <!-- Optional JavaScript -->
-        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-        <script src="{% static "js/jquery-3.2.1.min.js"%}"></script>
-        <script src="{% static "js/popper.js"%}"></script>
-        <script src="{% static "js/bootstrap.min.js" %}"></script>
-        <script src="{% static "js/stellar.js"%}"></script>
-        <script src="{% static "vendors/lightbox/simpleLightbox.min.js"%}"></script>
-        <script src="{% static "vendors/nice-select/js/jquery.nice-select.min.js"%}"></script>
-        <script src="{% static "vendors/isotope/imagesloaded.pkgd.min.js"%}"></script>
-        <script src="{% static "vendors/isotope/isotope-min.js"%}"></script>
-        <script src="{% static "vendors/owl-carousel/owl.carousel.min.js"%}"></script>
-        <script src="{% static "js/jquery.ajaxchimp.min.js"%}"></script>
-        <script src="{% static "vendors/counter-up/jquery.waypoints.min.js"%}"></script>
-        <script src="{% static "vendors/counter-up/jquery.counterup.min.js"%}"></script>
-        <script src="{% static "js/mail-script.js"%}"></script>
-        <!--gmaps Js-->
-        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script>
-        <script src="{% static "js/gmaps.min.js"%}"></script>
-        <script src="{% static "/js/theme.js"%}"></script>
-    </body>
+
+
+	<!-- Optional JavaScript -->
+	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	<script src="{% static "js/jquery-3.2.1.min.js"%}"></script>
+	<script src="{% static "js/popper.js"%}"></script>
+	<script src="{% static "js/bootstrap.min.js" %}"></script>
+	<script src="{% static "js/stellar.js"%}"></script>
+	<script src="{% static "vendors/lightbox/simpleLightbox.min.js"%}"></script>
+	<script src="{% static "vendors/nice-select/js/jquery.nice-select.min.js"%}"></script>
+	<script src="{% static "vendors/isotope/imagesloaded.pkgd.min.js"%}"></script>
+	<script src="{% static "vendors/isotope/isotope-min.js"%}"></script>
+	<script src="{% static "vendors/owl-carousel/owl.carousel.min.js"%}"></script>
+	<script src="{% static "js/jquery.ajaxchimp.min.js"%}"></script>
+	<script src="{% static "vendors/counter-up/jquery.waypoints.min.js"%}"></script>
+	<script src="{% static "vendors/counter-up/jquery.counterup.min.js"%}"></script>
+	<script src="{% static "js/mail-script.js"%}"></script>
+	<!--gmaps Js-->
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script>
+	<script src="{% static "js/gmaps.min.js"%}"></script>
+	<script src="{% static "/js/theme.js"%}"></script>
+</body>
+
 </html>
