@@ -93,6 +93,8 @@ class DAG(object):
         self.transaction_cache = set()
         self.tip_walk_cache = list()
         self.nodes = [Node(self, id=0, time=0)] #Genesis is in by default
+        self.maliciousNodes = []
+        self.normalNodes = [Node(self, id=0, time=0)] #Genesis is in by default
         self.links = []
 
     def generate_next_node(self):
@@ -114,6 +116,12 @@ class DAG(object):
         newNode = Node(self, id=str(transaction.num), time=transaction.time)
         self.nodes.append(newNode)
         self.transactions.append(transaction)
+
+        maliciousNode = transaction.num % 3 == 0
+        if maliciousNode:
+            self.maliciousNodes.append(newNode)
+        else:
+            self.normalNodes.append(newNode)
 
         for t in approved_tips:
             t.approved_time = np.minimum(self.time, t.approved_time)
@@ -234,7 +242,11 @@ class DAG(object):
     def plot(self):
         if hasattr(self, 'graph'):
             pos = nx.get_node_attributes(self.graph, 'pos')
-            nx.draw_networkx_nodes(self.graph, pos)
+            normalNodeIds = [int(node.id) for node in self.normalNodes]
+            maliciousNodeIds = [int(node.id) for node in self.maliciousNodes]
+
+            nx.draw_networkx_nodes(self.graph, pos, nodelist=normalNodeIds, node_color='g')
+            nx.draw_networkx_nodes(self.graph, pos, nodelist=maliciousNodeIds, node_color='r')
             nx.draw_networkx_labels(self.graph, pos)
             nx.draw_networkx_edges(self.graph, pos, edgelist=self.graph.edges(),
                                    arrows=True)
