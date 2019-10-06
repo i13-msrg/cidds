@@ -97,7 +97,7 @@ class DAG(object):
         self.normalNodes = [Node(self, id=0, time=0)] #Genesis is in by default
         self.links = []
 
-    def generate_next_node(self):
+    def generate_next_node(self, malicious=False):
         time_difference = np.random.exponential(1.0 / self.rate)
         self.time += time_difference
         self.step_counter += 1
@@ -117,8 +117,7 @@ class DAG(object):
         self.nodes.append(newNode)
         self.transactions.append(transaction)
 
-        maliciousNode = transaction.num % 3 == 0
-        if maliciousNode:
+        if malicious:
             self.maliciousNodes.append(newNode)
         else:
             self.normalNodes.append(newNode)

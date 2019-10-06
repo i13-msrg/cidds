@@ -25,7 +25,8 @@ def start_helper(sim):
         #use cac specific func
         transactions = sim.numTotalUser * sim.traUser
         for i in range(transactions):
-            dag.generate_next_node()
+            maliciousNode = i % 3 == 0
+            dag.generate_next_node(malicious=maliciousNode)
     else:
         for i in range(sim.transactions):
             dag.generate_next_node()
