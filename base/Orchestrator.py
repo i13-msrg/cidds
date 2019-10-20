@@ -46,4 +46,4 @@ def start_helper(sim):
 def cac_for_user(dag, userId, transactions):
     for i in range(transactions):
         dag.generate_next_node_for_cac_user(userId=userId)
-        time.sleep(random.uniform(0, 1))
+        time.sleep(random.uniform(0, 3))
