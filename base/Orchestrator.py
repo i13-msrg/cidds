@@ -1,7 +1,8 @@
 import threading
-from pprint import pprint
 import matplotlib.pyplot as plt
 from base.DAG import DAG
+import time
+import random
 
 def start_helper(sim):
 
@@ -18,45 +19,31 @@ def start_helper(sim):
 
     plt.figure(figsize=(25, 10))
 
-    # Call the DAG to generate transactions
-    dag = DAG(rate=sim.alpha, algorithm=sim.algorithm, plot=True)
-
     if sim.algorithm == "cac":
-        #use cac specific func
-        transactions = sim.numTotalUser * sim.traUser
-        for i in range(transactions):
-            maliciousNode = i % 3 == 0
-            dag.generate_next_node(malicious=maliciousNode)
+        # Call the DAG to generate transactions
+        dag = DAG(rate=sim.alpha, algorithm=sim.algorithm, plot=True, numUsers=sim.numTotalUser, numMalUsers=sim.numMalUser)
+
+        threads = []
+        for userId in range(sim.numTotalUser):
+            threads.append(threading.Thread(target=cac_for_user, args=(dag, userId, sim.traUser)))
+        
+        for t in threads:
+            t.start()
+        
+        for t in threads:
+            t.join()
+
     else:
+        # Call the DAG to generate transactions
+        dag = DAG(rate=sim.alpha, algorithm=sim.algorithm, plot=True)
+
         for i in range(sim.transactions):
             dag.generate_next_node()
 
     # Return the result
     return dag
 
-
-
-def _p_resolveConflict(self, sim, t):
-    '''
-
-    :param self: Orchestrator
-    :param sim: simulation object
-    :param t: executed thread
-    :return: simulator
-    '''
-
-    # Lock the current thread
-    lock = threading.Lock()
-    lock.acquire()
-    try:
-        # Initiate simualtion
-        self.start_helper(sim)
-    except Exception as ex:
-        # Handle error
-        thread_name = threading.current_thread().name
-        pprint("Error in initiating simulation {}.{}".format(thread_name, ex))
-    finally:
-        # Release lock after execution
-        lock.release()
-
-    return sim
+def cac_for_user(dag, userId, transactions):
+    for i in range(transactions):
+        dag.generate_next_node_for_cac_user(userId=userId)
+        time.sleep(random.uniform(0, 1))

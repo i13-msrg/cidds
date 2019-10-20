@@ -2,6 +2,7 @@ import numpy as np
 import networkx as nx
 import matplotlib.pyplot as plt
 import threading
+import random
 
 # This is the base of CIDDS simulator
 #
@@ -12,6 +13,19 @@ import threading
 #  For more details on their individual works visit:
 #  https://github.com/iotaledger/iotavisualization
 #  https://github.com/minh-nghia/TangleSimulator
+
+class User(object):
+    def __init__(self, id: int, malicious: bool):
+        self.id = id
+        self.step_counter = 1
+        self.malicious = malicious
+        self.mana = 1
+    
+    def increaseMana(self): 
+        self.mana += 1
+
+    def resetMana(self):
+        self.mana = 0
 
 class Node(object):
     '''
@@ -28,76 +42,96 @@ class Node(object):
         self.id = id
         self.time = time
 
-    def __init__(self, dag, id: str, time: float):
-        # Used only for CAC
+class CacNode(object):
+    def __init__(self, dag, traId: str, nodeId: int, time: float, user: User, malicious: bool):
         self.x = 300
         self.y = 200
-        self.id = id
+        self.traId = traId
+        self.nodeId = nodeId
         self.time = time
+        self.isTip = False
+        self.approved_time = float('inf')
+        self.user = user
+        self.malicious = malicious
 
         self.dag = dag
         self.vote = None
         self.neighbourNodeIds = []
 
-    def add_neighbour(self, nId):
-        if nId not in self.neighbourNodeIds:
-                self.neighbourNodeIds.append(nId)
+    def add_neighbour(self, node):
+        if node.traId not in self.neighbourNodeIds:
+                self.neighbourNodeIds.append(node.traId)
 
     def get_vote(self):
         numTrue = 0
         numFalse = 0
 
-        for nId in self.neighbourNodeIds:
-            node = [n for n in self.dag.nodes if int(n.id) == nId][0]
+        #get neightbours vote from dag.nodes because python is pass by value... :(
+        # for node in self.neighbourNodes:
+        for node in (n for n in self.dag.nodes if (n.traId in self.neighbourNodeIds)):
             if node.vote == True:
-                numTrue = numTrue + 1
+                numTrue += 1
             if node.vote == False:
-                numFalse = numFalse + 1
-            
-
-        self.vote = numTrue >= numFalse
+                numFalse += 1
+    
+        if numTrue > numFalse:
+            self.vote = True
+        elif numTrue < numFalse:
+            self.vote = False
+        else:
+            if len(self.neighbourNodeIds) == 0:
+                return True
+            #add mana here
+            # print(self.neighbourNodeIds)
+            # print([n.vote for n in self.dag.nodes if (n.traId in self.neighbourNodeIds)])
+            numTrue = 0
+            numFalse = 0
+            for node in (n for n in self.dag.nodes if (n.traId in self.neighbourNodeIds)):
+                if node.vote == True:
+                    numTrue += node.user.mana
+                if node.vote == False:
+                    numFalse += node.user.mana
+            if numTrue != 0 and numFalse != 0:
+                self.vote = numTrue >= numFalse
+        # print("/////")
+        # print(self.traId)
+        # print(self.vote)
+        # print("/////")
         return self.vote
 
     def is_tip_delayed(self):
-        return self.dag.time - 5.0 < self.time
-
-class Link(object):
-    '''
-    Class for showing connections between the nodes in graph - Approval details
-    '''
-    def __init__(self, source: Node, target: Node):
-        '''
-        Constuctor
-        :param source: Approving node
-        :param target: Node with is approved
-        '''
-        self.source = source
-        self.target = target
+        return self.dag.time - 5.0 < self.approved_time
 
 class DAG(object):
 
-    def __init__(self, rate=50, alpha=0.001, algorithm='mcmc', plot=False):
+    def __init__(self, rate=50, alpha=0.001, algorithm='mcmc', plot=False, numUsers=1, numMalUsers=0):
         self.time = 1.0
         self.rate = rate
         self.alpha = alpha
 
         if plot:
             self.graph = nx.OrderedDiGraph()
-
-        self.genesis = Genesis(self)
-        self.transactions = [self.genesis]
-        self.step_counter = 1
         self.algorithm = algorithm
 
         self.cw_cache = dict()
         self.transaction_cache = set()
         self.tip_walk_cache = list()
-        self.nodes = [Node(self, id=0, time=0)] #Genesis is in by default
-        self.maliciousNodes = []
-        self.normalNodes = [Node(self, id=0, time=0)] #Genesis is in by default
-        self.links = []
 
-    def generate_next_node(self, malicious=False):
+        if self.algorithm == 'cac':
+            self.transactions = []
+            self.nodes = []
+            self.users = []
+            self.step_counter = 0
+            for i in range(numUsers):
+                malUserIds = np.random.choice(range(1, numUsers), numMalUsers)
+                self.users.append(User(id=i, malicious=(i in malUserIds)))
+        else:
+            self.genesis = Genesis(self)
+            self.transactions = [self.genesis]
+            self.step_counter = 1
+            self.nodes = [Node(id=0, time=0)]
+
+    def generate_next_node(self):
         time_difference = np.random.exponential(1.0 / self.rate)
         self.time += time_difference
         self.step_counter += 1
@@ -106,84 +140,129 @@ class DAG(object):
             approved_tips = set(self.mcmc())
         elif self.algorithm == 'urts':
             approved_tips = set(self.urts())
-        elif self.algorithm == 'cac':
-            approved_tips = set(self.cac())
         else:
             raise Exception()
 
         transaction = Transaction(self, self.time, approved_tips,
                                   self.step_counter - 1)
-        newNode = Node(self, id=str(transaction.num), time=transaction.time)
+        newNode = Node(id=str(transaction.num), time=transaction.time)
         self.nodes.append(newNode)
         self.transactions.append(transaction)
-
-        if malicious:
-            self.maliciousNodes.append(newNode)
-        else:
-            self.normalNodes.append(newNode)
 
         for t in approved_tips:
             t.approved_time = np.minimum(self.time, t.approved_time)
             t._approved_directly_by.add(transaction)
 
-            self.addNeighbourToNode(t.num, transaction.num)
-            self.addNeighbourToNode(transaction.num, t.num)
-
             if hasattr(self, 'graph'):
                 self.graph.add_edges_from([(transaction.num, t.num)])
-                self.links.append(Link(
-                    source=newNode,
-                    target=Node(self, id=str(t.num),
-                                time=t.time)))
         self.cw_cache = {}
     
-    def addNeighbourToNode(self, nodeId, newNodeId):
-        node = [n for n in self.nodes if int(n.id) == nodeId][0]
-        node.add_neighbour(newNodeId)
+    def generate_next_node_for_cac_user(self, userId=1):
+        time_difference = np.random.exponential(1.0 / self.rate)
+        self.time += time_difference
+        user = [u for u in self.users if u.id == userId][0]
+
+        selectedTips = self.getTipNodes()
+
+        # transaction = Transaction(self, self.time, selectedTips, self.step_counter)
+        malicious = user.malicious and np.random.randint(2) % 2 == 0
+        newNode = CacNode(self, traId=self.step_counter, nodeId=user.step_counter, time=self.time, user=user, malicious=malicious)
+
+        # approved_tips = set(self.cac(selectedTips, newNode))
+        approved = self.cac(selectedTips, newNode)
+        # print('.......')
+        # print(newNode.traId)
+        # print(approved)
+        # print('.......')
+        # print([n.traId for n in selectedTips])
+        # print('.......')
+        if approved:
+            transaction = Transaction(self, self.time, selectedTips, self.step_counter)
+            newNode.isTip = True
+            newNode.approved_time = float('inf')
+
+            for tip in selectedTips:
+                tra = [t for t in self.transactions if t.num == int(tip.traId)][0]
+                tra.approved_time = np.minimum(self.time, tra.approved_time)
+                tra._approved_directly_by.add(transaction)
+            
+                self.addNeighbourToNode(tip, newNode)
+                self.addNeighbourToNode(newNode, tip)
+            
+            user.increaseMana()
+
+        else:
+            transaction = Transaction(self, self.time, [], self.step_counter)
+            for tip in selectedTips:
+                tra = [t for t in self.transactions if t.num == int(tip.traId)][0]
+                tra.approved_time = np.minimum(self.time, tra.approved_time)
+                tra._approved_directly_by.add(transaction)
+            
+                self.addNeighbourToNode(tip, newNode)
+                self.addNeighbourToNode(newNode, tip)
+            newNode.isTip = False
+            newNode.approved_time = float('inf')
+            user.resetMana()
+        
+        for tip in selectedTips:
+            if hasattr(self, 'graph'):
+                self.graph.add_edges_from([(transaction.num, tip.traId)])
+            if approved and len([n for n in self.nodes if n.isTip]) > 2:
+                tip.isTip = False
+            else: 
+                tip.isTip = True
+
+        self.nodes.append(newNode)
+        self.transactions.append(transaction)
+
+        self.step_counter += 1
+        user.step_counter += 1
+        self.cw_cache = {}
+    
+    def addNeighbourToNode(self, node, newNode):
+        node.add_neighbour(newNode)
 
     def tips(self):
         return [t for t in self.transactions if t.is_visible() and t.is_tip_delayed()]
 
     def getTipNodes(self):
-        # return [n for n in self.nodes if self.getLinkNum(n.id) < 2]
-        return [n for n in self.nodes if n.is_tip_delayed()]
+        # tipNodes = [n for n in self.nodes if self.getLinkNum(n.id) < 2]
+        # tipNodes = [n for n in self.nodes if n.is_tip_delayed()]
+        tipNodes = [n for n in self.nodes if n.isTip]
+        # print("TIPNODES:")
+        # print([t.traId for t in tipNodes])
+    
 
-    def getLinkNum(self, targetNodeId):
-        linkNum = 0
-        for l in self.links:
-            if int(l.target.id) == int(targetNodeId):
-                linkNum = linkNum + 1
-        return linkNum
-        
-    def cac(self):
-        tipNodes = self.getTipNodes()
         if len(tipNodes) > 2:
-            selectedTips = np.random.choice(tipNodes, 2)
+            # selectedTips = np.random.choice(tipNodes, 2)
+            selectedTips = random.sample(tipNodes, k=2)
         else:
             selectedTips = tipNodes
 
+        # print([t.traId for t in selectedTips])
+        # print("'''''")
+        return selectedTips
+
+    def cac(self, selectedTips, node):
         for tip in selectedTips:
-            tip.vote = True
+            tip.vote = node.malicious != True
         
         result = self.vote()
 
         #set all nodes votes to None after geting the final result
         for node in self.nodes:
             node.vote = None
-        
-        transactionTips = []
-        if result:
-            for tip in selectedTips:
-                transactionTips.append([t for t in self.transactions if t.num == int(tip.id)][0])
 
-        return transactionTips
-    
+        return result
+        
     def vote(self):
         votes = []
         for node in self.nodes:
+            if node.malicious: continue
             votes.append(node.get_vote())
-        
-        if len(set(votes)) == 1:
+        if len(set(votes)) == 0:
+            return True
+        if len(set(votes)) == 1 and votes[0] != None:
             return votes[0]
         else:
             self.vote()
@@ -241,12 +320,34 @@ class DAG(object):
     def plot(self):
         if hasattr(self, 'graph'):
             pos = nx.get_node_attributes(self.graph, 'pos')
-            normalNodeIds = [int(node.id) for node in self.normalNodes]
-            maliciousNodeIds = [int(node.id) for node in self.maliciousNodes]
+            if self.algorithm == 'cac':
+                user1 = []
+                user2 = []
+                user3 = []
+                labels = dict()
+                malNodesLabels = dict()
+                for node in self.nodes:
+                    if node.malicious:
+                        malNodesLabels[int(node.traId)] = node.nodeId
+                    else:
+                        labels[int(node.traId)] = node.nodeId
 
-            nx.draw_networkx_nodes(self.graph, pos, nodelist=normalNodeIds, node_color='g')
-            nx.draw_networkx_nodes(self.graph, pos, nodelist=maliciousNodeIds, node_color='r')
-            nx.draw_networkx_labels(self.graph, pos)
+                    if node.user.id == 0:
+                        user1.append(int(node.traId))
+                    elif node.user.id == 1:
+                        user2.append(int(node.traId))
+                    else:
+                        user3.append(int(node.traId))
+
+                nx.draw_networkx_nodes(self.graph, pos, nodelist=user1, node_color='g', node_size=600, alpha=0.5)
+                nx.draw_networkx_nodes(self.graph, pos, nodelist=user2, node_color='b', node_size=600, alpha=0.5)
+                nx.draw_networkx_nodes(self.graph, pos, nodelist=user3, node_color='y', node_size=600, alpha=0.5)
+                nx.draw_networkx_labels(self.graph, pos, labels, font_weight="bold", font_size=20)
+                nx.draw_networkx_labels(self.graph, pos, malNodesLabels, font_color='r', font_weight="bold", font_size=20)
+
+            else:
+                nx.draw_networkx_nodes(self.graph, pos, node_color='g', node_size=600, alpha=0.5)
+                nx.draw_networkx_labels(self.graph, pos, font_color="r", font_weight="bold", font_size=20)
             nx.draw_networkx_edges(self.graph, pos, edgelist=self.graph.edges(),
                                    arrows=True)
             plt.xlabel('Time')
