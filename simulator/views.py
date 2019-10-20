@@ -79,7 +79,7 @@ class StartSim(View):
 
         algorithm = data.get("algorithm")
         reference = data.get("reference")
-        pprint(data)
+
         sim = SimulationResults(user=request.user,
                                 num_process=processes,
                                 alpha=alpha,
@@ -149,8 +149,6 @@ class SimulationHistory(View):
             'messages': messages
 
         }
-
-        pprint(data)
 
         return render(request, "simulation_results.html", data)
 

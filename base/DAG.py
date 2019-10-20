@@ -119,9 +119,12 @@ class DAG(object):
             self.maliciousNodes = []
             self.users = []
             self.tra_id_counter = 0
-            for i in range(numUsers):
-                malUserIds = np.random.choice(range(1, numUsers), numMalUsers)
-                self.users.append(User(id=i, malicious=(i in malUserIds)))
+            if numUsers == 1:
+                self.users.append(User(id=0, malicious=False))
+            else:
+                for i in range(numUsers):
+                    malUserIds = np.random.choice(range(1, numUsers), numMalUsers)
+                    self.users.append(User(id=i, malicious=(i in malUserIds)))
         else:
             self.genesis = Genesis(self)
             self.transactions = [self.genesis]
@@ -299,7 +302,7 @@ class DAG(object):
         if hasattr(self, 'graph'):
             pos = nx.get_node_attributes(self.graph, 'pos')
             if self.algorithm == 'cac':
-                node_colors = ['#ECB027', '#7BEC27', '#27C5EC','#8E8E8E', '#ECD727', '#C2EC27', '#2757EC', '#7E27EC']
+                node_colors = ['#F7A81D', '#27ECEC','#8E8E8E', '#379716', '#7E27EC', '#ECE927', '#E413A8', '#2775EC']
                 users = []
                 malNodesLabels = dict(zip([int(node.traId) for node in self.maliciousNodes], [node.nodeId for node in self.maliciousNodes]))
                 honNodeLabels = dict(zip([int(node.traId) for node in self.honestNodes], [node.nodeId for node in self.honestNodes]))
@@ -309,14 +312,14 @@ class DAG(object):
                     users.append([int(node.traId) for node in self.nodes if node.user.id == userId])
 
                 for idx, user in enumerate(users):
-                    nx.draw_networkx_nodes(self.graph, pos, nodelist=user, node_color=node_colors[idx], node_size=600, alpha=0.5)
+                    nx.draw_networkx_nodes(self.graph, pos, nodelist=user, node_color=node_colors[idx], node_size=600, alpha=0.65)
 
                 nx.draw_networkx_labels(self.graph, pos, honNodeLabels, font_weight="bold", font_size=20)
                 nx.draw_networkx_labels(self.graph, pos, malNodesLabels, font_color='r', font_weight="bold", font_size=20)
                 nx.draw_networkx_edges(self.graph, pos, edgelist=self.graph.edges(), arrows=True, edge_color=edge_colors)
 
             else:
-                nx.draw_networkx_nodes(self.graph, pos, node_color='g', node_size=600, alpha=0.5)
+                nx.draw_networkx_nodes(self.graph, pos, node_color='g', node_size=600, alpha=0.65)
                 nx.draw_networkx_labels(self.graph, pos, font_color="r", font_weight="bold", font_size=20)
                 nx.draw_networkx_edges(self.graph, pos, edgelist=self.graph.edges(), arrows=True)
 
