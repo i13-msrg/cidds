@@ -68,34 +68,45 @@ class CacNode(object):
                 self.neighbourNodeIds.append(node.traId)
 
     def get_vote(self):
-        numTrue = 0
-        numFalse = 0
-
+        neighbourVotes = []
         #get neightbours vote from dag.nodes because python is pass by value... :(
-        for node in (n for n in self.dag.nodes if (n.traId in self.neighbourNodeIds)):
-            if node.vote == True:
-                numTrue += 1
-            if node.vote == False:
-                numFalse += 1
-    
-        if numTrue > numFalse:
-            self.vote = True
-        elif numTrue < numFalse:
-            self.vote = False
+        for node in (n for n in self.dag.addedNodes if (n.traId in self.neighbourNodeIds)):
+            neighbourVotes.append(node.vote)
+        votesWithoutNone = [vote for vote in neighbourVotes if vote != None]
+        
+        # print('------- get_vote: ' + str(self.traId) + ' -------')
+        # print('neighbourNodeIds: ' + str(self.neighbourNodeIds))
+        # print('neighbourVotes: ' + str(neighbourVotes))
+        # print('votesWithoutNone: ' + str(votesWithoutNone))
+        # print('------- get_vote: ' + str(self.traId) + ' -------')
+        
+        if len(votesWithoutNone) == 0:
+            return self.vote
+        if len(votesWithoutNone) == 1:
+            # If all neighbours have the same vote, set vote to it
+            self.vote = votesWithoutNone[0]
+            # TODO: burada senin mana mi yoksa neighbour mu buyuk bakmali
+            return self.vote
+        # Else count the occurences of neighbour nodes
+        votesCountDict = {}
+        for vote in set(votesWithoutNone):
+            votesCountDict[vote] = votesWithoutNone.count(vote)
+
+        # Check if 2 votes have the same number, if so use mana, else return max vote
+        maxValue = max(votesCountDict, key=votesCountDict.get)
+        if isinstance(maxValue, int):
+            self.vote = maxValue
         else:
-            if len(self.neighbourNodeIds) == 0:
-                return True
-                
-            numTrue = 0
-            numFalse = 0
-            for node in (n for n in self.dag.nodes if (n.traId in self.neighbourNodeIds)):
-                if node.vote == True:
-                    numTrue += node.user.mana
-                if node.vote == False:
-                    numFalse += node.user.mana
-            if numTrue != 0 and numFalse != 0:
-                self.vote = numTrue >= numFalse
-    
+            votesCountDict = {}
+            for vote in set(votesWithoutNone):
+                votesCountDict[vote] = 0
+            for node in (n for n in self.dag.addedNodes if (n.traId in self.neighbourNodeIds)):
+                votesCountDict[node.vote] += node.user.mana
+            maxValue = max(votesCountDict, key=votesCountDict.get)
+            if isinstance(maxValue, int):
+                self.vote = maxValue
+            else:
+                self.vote = maxValue[0]
         return self.vote
 
 class DAG(object):
@@ -115,10 +126,13 @@ class DAG(object):
 
         if self.algorithm == 'cac':
             self.nodes = []
-            self.honestNodes = []
-            self.maliciousNodes = []
+            # self.honestNodes = []
+            # self.maliciousNodes = []
+            self.addedNodes = []
             self.users = []
             self.tra_id_counter = 0
+            self.currTime = 0
+            self.nodesToAdd = []
             if numUsers == 1:
                 self.users.append(User(id=0, malicious=False))
             else:
@@ -157,43 +171,70 @@ class DAG(object):
                 self.graph.add_edges_from([(transaction.num, t.num)])
         self.cw_cache = {}
     
-    def generate_next_node_for_cac_user(self, userId=1):
-        time_difference = np.random.exponential(1.0 / self.rate)
-        self.time += time_difference
+    def generate_next_node_for_cac_user(self, userId=1, time=0):
+        # TODO: Run one last wmpty loop, to add the last one left at nodesToAdd with blank user
+        self.time = time
+        oldNodesToAdd = []
+
         user = [u for u in self.users if u.id == userId][0]
 
-        malicious = user.malicious and np.random.randint(2) % 2 == 0
-        if malicious:
-            selectedTips = self.getMaliciousTipNodes()
-        else:
-            selectedTips = self.getHonestTipNodes()
+        selectedTips = self.getTipNodes()
+        newNode = CacNode(self, traId=self.tra_id_counter, nodeId=user.node_id_counter, time=self.time, user=user, malicious=False)
+        nodeToAdd = None
 
-        newNode = CacNode(self, traId=self.tra_id_counter, nodeId=user.node_id_counter, time=self.time, user=user, malicious=malicious)
-        approved = self.cac(selectedTips, newNode)
-
-        for tip in selectedTips:
-            self.addNeighbourToNode(tip, newNode)
-            self.addNeighbourToNode(newNode, tip)
-        
-        if approved:
-            self.honestNodes.append(newNode)
-            user.increaseMana()
+        if time == self.currTime:
+            self.nodesToAdd.append(newNode)
         else:
-            self.maliciousNodes.append(newNode)
-            user.resetMana()
+            self.currTime = time
+            oldNodesToAdd = self.nodesToAdd
+            self.nodesToAdd = []
+            self.nodesToAdd.append(newNode)
+
+            if len(self.nodes) > 2:
+                nodeToAdd = self.cac(selectedTips, oldNodesToAdd)
+            else:
+                # Add all
+                nodeToAdd = None
+                for node in oldNodesToAdd:
+                    self.addedNodes.append(node)
+                for i in range(1, len(self.addedNodes)):
+                    self.addNeighbourToNode(self.addedNodes[0], self.addedNodes[i])
+                    self.addNeighbourToNode(self.addedNodes[i], self.addedNodes[0])
         
-        for tip in selectedTips:
-            if hasattr(self, 'graph'):
-                self.graph.add_edges_from([(newNode.traId, tip.traId)], edge_color='r')
-            if approved and len([n for n in self.honestNodes if n.isTip]) > 2:
-                tip.isTip = False
-            elif (not approved) and len([n for n in self.maliciousNodes if n.isTip]) > 2:
+            if nodeToAdd != None:
+                for tip in selectedTips:
+                    self.addNeighbourToNode(tip, nodeToAdd)
+                    self.addNeighbourToNode(nodeToAdd, tip)
+                self.addedNodes.append(nodeToAdd)
+                for tip in selectedTips:
+                    if hasattr(self, 'graph'):
+                        self.graph.add_edges_from([(nodeToAdd.traId, tip.traId)], edge_color='r')
+        
+            # self.honestNodes.append(nodeToAdd)
+            # self.nodes.append(nodeToAdd)
+                user.increaseMana() # TODO:Bu yanlis nodeun sahibi userin manasi artmali
+        # else:
+        #     self.maliciousNodes.append(newNode)
+        #     user.resetMana()
+        # for nodee in oldNodesToAdd:
+        #     for tip in selectedTips:
+        #         if hasattr(self, 'graph'):
+        #             self.graph.add_edges_from([(nodee.traId, tip.traId)], edge_color='r')
+        for nodee in oldNodesToAdd:
+            if nodeToAdd != None and nodee.traId == nodeToAdd:
+                nodee.isTip = True
+            elif len(self.addedNodes) > 3:
+                nodee.isTip = False
+            else:
+                nodee.isTip = True
+            self.nodes.append(nodee)
+
+        for tip in selectedTips:     
+            if len([n for n in self.addedNodes if n.isTip]) > 3: ###
                 tip.isTip = False
             else: 
                 tip.isTip = True
-
-        self.nodes.append(newNode)
-
+    #######
         self.tra_id_counter += 1
         user.node_id_counter += 1
         self.cw_cache = {}
@@ -203,51 +244,98 @@ class DAG(object):
 
     def tips(self):
         if self.algorithm == 'cac': 
-            return [n for n in self.honestNodes if n.isTip]
+            # return [n for n in self.honestNodes if n.isTip]
+            return [n for n in self.addedNodes if n.isTip]
         else:
             return [t for t in self.transactions if t.is_visible() and t.is_tip_delayed()]
 
-    def getHonestTipNodes(self):
-        tipNodes = [n for n in self.honestNodes if n.isTip]
+    # def getHonestTipNodes(self):
+    #     tipNodes = [n for n in self.honestNodes if n.isTip]
+    #     if len(tipNodes) > 2:
+    #         selectedTips = random.sample(tipNodes, k=2)
+    #     else:
+    #         selectedTips = tipNodes
+    #     return selectedTips
+
+    def getTipNodes(self):
+        tipNodes = [n for n in self.addedNodes if n.isTip]
         if len(tipNodes) > 2:
             selectedTips = random.sample(tipNodes, k=2)
         else:
             selectedTips = tipNodes
         return selectedTips
     
-    def getMaliciousTipNodes(self):
-        malTipNodes = [n for n in self.maliciousNodes if n.isTip]
-        if len(malTipNodes) >= 2:
-            selectedTips = random.sample(malTipNodes, k=2)
-        elif len(malTipNodes) == 1:
-            selectedTips = []
-            tipNodes = [n for n in self.honestNodes if n.isTip]
-            selectedTips = random.sample(tipNodes, k=1)
-            selectedTips = selectedTips + malTipNodes
-        else:
-            selectedTips = self.getHonestTipNodes()
-        return selectedTips
+    # def getMaliciousTipNodes(self):
+    #     malTipNodes = [n for n in self.maliciousNodes if n.isTip]
+    #     if len(malTipNodes) >= 2:
+    #         selectedTips = random.sample(malTipNodes, k=2)
+    #     elif len(malTipNodes) == 1:
+    #         selectedTips = []
+    #         tipNodes = [n for n in self.honestNodes if n.isTip]
+    #         selectedTips = random.sample(tipNodes, k=1)
+    #         selectedTips = selectedTips + malTipNodes
+    #     else:
+    #         selectedTips = self.getHonestTipNodes()
+    #     return selectedTips
 
-    def cac(self, selectedTips, node):
-        for tip in selectedTips:
-            tip.vote = node.malicious != True
+    def cac(self, selectedTips, nodesToAdd):
+        # print('------- cac -------')
+        # print('addedNodes: ' + str([n.traId for n in self.addedNodes]))
+
+        if len(nodesToAdd) > 1:
+            print("birden fazla nodesToAdd var!: " + str([n.traId for n in nodesToAdd]))
+
+            largestMana = 0
+            vote = None
+            for node in nodesToAdd:
+                if node.user.mana > largestMana:
+                    largestMana = node.user.mana
+                    vote = node.traId
+
+            for tip in selectedTips:
+                tip.vote = vote
+
+        elif len(nodesToAdd) == 1:
+            # print("birtane nodesToAdd var!: " + str(nodesToAdd[0].traId))
+            for tip in selectedTips:
+                tip.vote = nodesToAdd[0].traId
+        else:
+            # print("hic nodesToAdd yok")
+            # print('------- cac -------')
+            return None
+
+        # print("TIPS: " + str([t.traId for t in selectedTips]) + " - VOTES: " + str([t.vote for t in selectedTips]))
+        # print("VOTESS: " + str([t.vote for t in self.addedNodes]))
         result = self.vote()
         #set all nodes votes to None after geting the final result
         for node in self.nodes:
             node.vote = None
-        return result
-        
-    def vote(self):
-        votes = []
-        for node in self.nodes:
-            if node.malicious: continue
-            votes.append(node.get_vote())
+        if result != None:
+            # print("Result: " + str(result))
+            # print('------- cac -------')
 
+            return [node for node in nodesToAdd if node.traId == result][0]
+
+        return None
+        
+    def vote(self, counter=0):
+        # print('------- vote -------')
+        votes = []
+        for node in self.addedNodes:
+            # if node.malicious: continue
+            votes.append(node.get_vote())
+        # print('votes: ' + str(votes))
         if len(set(votes)) == 0:
-            return True
-        elif len(set(votes)) == 1 and votes[0] != None:
+            return self.nodesToAdd[0].traId
+        if len(set(votes)) == 1 and votes[0] != None:
+            # print('votes[0]: %d' % votes[0])
+            # print('------- vote -------')
             return votes[0]
-        return self.vote()
+        counter += 1
+        if counter < 2:
+            return self.vote(counter)
+        else:
+            return None
         
     def urts(self):
         tips = self.tips()
@@ -304,19 +392,20 @@ class DAG(object):
             if self.algorithm == 'cac':
                 node_colors = ['#F7A81D', '#27ECEC','#8E8E8E', '#379716', '#7E27EC', '#ECE927', '#E413A8', '#2775EC']
                 users = []
-                malNodesLabels = dict(zip([int(node.traId) for node in self.maliciousNodes], [node.nodeId for node in self.maliciousNodes]))
-                honNodeLabels = dict(zip([int(node.traId) for node in self.honestNodes], [node.nodeId for node in self.honestNodes]))
-                edge_colors = ['red' if e[0] in [n.traId for n in self.maliciousNodes] else 'black' for e in self.graph.edges()]
+                # malNodesLabels = dict(zip([int(node.traId) for node in self.maliciousNodes], [node.nodeId for node in self.maliciousNodes]))
+                # honNodeLabels = dict(zip([int(node.traId) for node in self.honestNodes], [node.nodeId for node in self.honestNodes]))
+                # edge_colors = ['red' if e[0] in [n.traId for n in self.maliciousNodes] else 'black' for e in self.graph.edges()]
 
+                nodeLabels = dict(zip([int(node.traId) for node in self.nodes], [node.nodeId for node in self.nodes]))
+                
                 for userId in [user.id for user in self.users]:
                     users.append([int(node.traId) for node in self.nodes if node.user.id == userId])
 
                 for idx, user in enumerate(users):
                     nx.draw_networkx_nodes(self.graph, pos, nodelist=user, node_color=node_colors[idx], node_size=600, alpha=0.65)
 
-                nx.draw_networkx_labels(self.graph, pos, honNodeLabels, font_weight="bold", font_size=20)
-                nx.draw_networkx_labels(self.graph, pos, malNodesLabels, font_color='r', font_weight="bold", font_size=20)
-                nx.draw_networkx_edges(self.graph, pos, edgelist=self.graph.edges(), arrows=True, edge_color=edge_colors)
+                nx.draw_networkx_labels(self.graph, pos, nodeLabels, font_weight="bold", font_size=20)
+                nx.draw_networkx_edges(self.graph, pos, edgelist=self.graph.edges(), arrows=True) #, edge_color=edge_colors)
 
             else:
                 nx.draw_networkx_nodes(self.graph, pos, node_color='g', node_size=600, alpha=0.65)
