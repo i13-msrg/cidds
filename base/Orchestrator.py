@@ -13,7 +13,6 @@ def getTime():
     
     timeNow = time.time()
     time_ = timeNow - startTime
-    print(int(time_))
     return int(time_)
 
 def start_helper(sim):
@@ -59,5 +58,5 @@ def cac_for_user(dag, userId, transactions):
     for i in range(transactions):
         timee = getTime()
         dag.generate_next_node_for_cac_user(userId=userId, time=timee)
-        time.sleep(random.uniform(0, 3))
-    # dag.generate_next_node_for_cac_user(userId=userId, time=timee)
+        time.sleep(random.uniform(1, 3))
+    dag.generate_next_node_for_cac_user(userId=None, time=timee)
