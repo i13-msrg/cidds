@@ -16,7 +16,8 @@ def getTime():
     return int(time_)
 
 def start_helper(sim):
-
+    global startTime
+    
     '''
 
     :param sim: simulator object
@@ -34,6 +35,7 @@ def start_helper(sim):
         # Call the DAG to generate transactions
         dag = DAG(rate=sim.alpha, algorithm=sim.algorithm, plot=True, numUsers=sim.numTotalUser, numMalUsers=sim.numMalUser)
 
+        startTime = 0
         threads = []
         for userId in range(sim.numTotalUser):
             threads.append(threading.Thread(target=cac_for_user, args=(dag, userId, sim.traUser)))

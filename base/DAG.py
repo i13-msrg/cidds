@@ -175,8 +175,8 @@ class DAG(object):
             transactionCounter += 1
             user.node_id_counter += 1
         
-        selectedTips = self.getTipNodes()
         nodeToAdd = None
+        selectedTips = None
 
         if (time == self.currTime) and (userId != None):
             self.nodesToAdd.append(newNode)
@@ -188,25 +188,25 @@ class DAG(object):
                 self.nodesToAdd.append(newNode)
 
             if len(self.nodes) > 2: #addedNodes???
-                # TODO: Cac selected tip i kendi secmeli, herkes ayni tip e votelamamali
-                nodeToAdd = self.cac(selectedTips, oldNodesToAdd)
+                nodeToAdd, selectedTips = self.cac(oldNodesToAdd)
             else:
                 # Add all
                 nodeToAdd = None
                 for node in oldNodesToAdd:
                     self.addNodeToGraph(node, self.addedNodes)
         
-            if nodeToAdd != None:
+            if nodeToAdd != None and selectedTips != None:
                 self.addNodeToGraph(nodeToAdd, selectedTips)
     
-        for tip in selectedTips:     
-            if len([n for n in self.addedNodes if n.isTip]) > 3: ###
-                tipNode = [n for n in self.addedNodes if n.traId == tip.traId][0]
-                tipNode.isTip = False
-            else: 
-                tipNode = [n for n in self.addedNodes if n.traId == tip.traId][0]
-                tipNode.isTip = True
-                # TODO: burada bi sorun var
+        if selectedTips != None:
+            for tip in selectedTips:     
+                if len([n for n in self.addedNodes if n.isTip]) > 3: ###
+                    tipNode = [n for n in self.addedNodes if n.traId == tip.traId][0]
+                    tipNode.isTip = False
+                else: 
+                    tipNode = [n for n in self.addedNodes if n.traId == tip.traId][0]
+                    tipNode.isTip = True
+                    # TODO: burada bi sorun var
         for node in oldNodesToAdd:
             self.nodes.append(node)
         print('addedNodes: ' + str([n.traId for n in self.addedNodes]))
@@ -243,33 +243,37 @@ class DAG(object):
             selectedTips = tipNodes
         return selectedTips
 
-    def cac(self, selectedTips, nodesToAdd):
+    def cac(self, nodesToAdd):
+        selectedTipss = None
 
         if len(nodesToAdd) > 1:
-            largestMana = 0
-            vote = None
             for node in nodesToAdd:
-                if node.user.mana > largestMana:
-                    largestMana = node.user.mana
-                    vote = node.traId
-
-            for tip in selectedTips:
-                tip.vote = vote
-
+                selectedTips = self.getTipNodes()
+                for tip in selectedTips:
+                    if tip.vote == None:
+                        tip.vote = node.traId
+                        selectedTipss = selectedTips
+                    else:
+                        currentVoteMana = [n.user.mana for n in nodesToAdd if n.traId == tip.vote][0]
+                        if currentVoteMana < node.user.mana:
+                            tip.vote = node.traId
+                            selectedTipss = selectedTips
         elif len(nodesToAdd) == 1:
-            for tip in selectedTips:
+            selectedTipss = self.getTipNodes()
+            for tip in selectedTipss:
                 tip.vote = nodesToAdd[0].traId
+
         else:
-            return None
+            return None, selectedTipss
 
         result = self.vote()
         # set all nodes votes to None after geting the final result
-        for node in self.nodes:
+        for node in self.addedNodes:
             node.vote = None
         if result != None:
-            return [node for node in nodesToAdd if node.traId == result][0]
+            return [node for node in nodesToAdd if node.traId == result][0], selectedTipss
 
-        return None
+        return None, selectedTipss
         
     def vote(self, counter=0):
         votes = []
@@ -335,6 +339,9 @@ class DAG(object):
         self.tip_walk_cache.append(p)
 
     def plot(self):
+        global transactionCounter
+        transactionCounter = 0
+
         if hasattr(self, 'graph'):
             pos = nx.get_node_attributes(self.graph, 'pos')
             if self.algorithm == 'cac':
@@ -344,7 +351,8 @@ class DAG(object):
                 # honNodeLabels = dict(zip([int(node.traId) for node in self.honestNodes], [node.nodeId for node in self.honestNodes]))
                 # edge_colors = ['red' if e[0] in [n.traId for n in self.maliciousNodes] else 'black' for e in self.graph.edges()]
 
-                nodeLabels = dict(zip([int(node.traId) for node in self.nodes], [node.nodeId for node in self.nodes]))
+                # nodeLabels = dict(zip([int(node.traId) for node in self.nodes], [node.nodeId for node in self.nodes]))
+                nodeLabels = dict(zip([int(node.traId) for node in self.nodes], [node.traId for node in self.nodes]))
                 
                 for userId in [user.id for user in self.users]:
                     users.append([int(node.traId) for node in self.nodes if node.user.id == userId])
