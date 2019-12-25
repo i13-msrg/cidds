@@ -17,7 +17,7 @@ def getTime():
 
 def start_helper(sim):
     global startTime
-    
+
     '''
 
     :param sim: simulator object
@@ -33,7 +33,7 @@ def start_helper(sim):
 
     if sim.algorithm == "cac":
         # Call the DAG to generate transactions
-        dag = DAG(rate=sim.alpha, algorithm=sim.algorithm, plot=True, numUsers=sim.numTotalUser, numMalUsers=sim.numMalUser)
+        dag = DAG(rate=sim.alpha, algorithm=sim.algorithm, plot=True, numUsers=sim.numTotalUser, numMalUsers=sim.numMalUser, traPerUser=sim.traUser)
 
         startTime = 0
         threads = []
@@ -57,8 +57,14 @@ def start_helper(sim):
     return dag
 
 def cac_for_user(dag, userId, transactions):
-    for i in range(transactions):
+    user = [u for u in dag.users if u.id == userId][0]
+    if user.malicious:
+        time.sleep(random.uniform(5, 8))
         timee = getTime()
-        dag.generate_next_node_for_cac_user(userId=userId, time=timee)
-        time.sleep(random.uniform(1, 3))
-    dag.generate_next_node_for_cac_user(userId=None, time=timee)
+        dag.generate_next_node_for_cac_user(userId=userId, time=timee, malicious=True)
+    else:
+        for i in range(transactions):
+            timee = getTime()
+            dag.generate_next_node_for_cac_user(userId=userId, time=timee)
+            time.sleep(random.uniform(1, 3))
+        dag.generate_next_node_for_cac_user(userId=None, time=timee)
