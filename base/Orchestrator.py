@@ -1,6 +1,7 @@
 import threading
 import matplotlib.pyplot as plt
 from base.DAG import DAG
+from base.CAC import DAG_CAC
 import time
 import random
 
@@ -33,7 +34,7 @@ def start_helper(sim):
 
     if sim.algorithm == "cac":
         # Call the DAG to generate transactions
-        dag = DAG(rate=sim.alpha, algorithm=sim.algorithm, plot=True, numUsers=sim.numTotalUser, numMalUsers=sim.numMalUser, traPerUser=sim.traUser)
+        dag = DAG_CAC(plot=True, numUsers=sim.numTotalUser, numMalUsers=sim.numMalUser, traPerUser=sim.traUser)
 
         startTime = 0
         threads = []
@@ -61,10 +62,10 @@ def cac_for_user(dag, userId, transactions):
     if user.malicious:
         time.sleep(random.uniform(5, 8))
         timee = getTime()
-        dag.generate_next_node_for_cac_user(userId=userId, time=timee, malicious=True)
+        dag.generate_next_node(userId=userId, time=timee, malicious=True)
     else:
         for i in range(transactions):
             timee = getTime()
-            dag.generate_next_node_for_cac_user(userId=userId, time=timee)
+            dag.generate_next_node(userId=userId, time=timee)
             time.sleep(random.uniform(1, 3))
-        dag.generate_next_node_for_cac_user(userId=None, time=timee)
+        dag.generate_next_node(userId=None, time=timee)
