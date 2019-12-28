@@ -43,21 +43,12 @@ class CacNode(object):
                 self.neighbourNodeIds.append(node.traId)
 
     def get_vote(self):
-        # tab = "\t\t"
-        # total = 0
-        # for idd in self.neighbourNodeIds:
-        #     total += int(idd)
-        # if len(self.neighbourNodeIds) > 4 or (len(self.neighbourNodeIds) > 3 and total > 30):
-        #     tab = "\t"
-
         neighbourVotes = []
         #get neightbours vote from dag.nodes because python is pass by value... :(
         for node in (n for n in self.dag.addedNodes if (n.traId in self.neighbourNodeIds)):
             neighbourVotes.append(node.vote)
         votesWithoutNone = [vote for vote in neighbourVotes if vote != None]
-    
-        # print("     -Node" + str(self.traId) + "\tneighbours:" + str(self.neighbourNodeIds) + tab + "neighbourVotes:" + str(neighbourVotes))
-        
+
         if len(votesWithoutNone) == 0:
             return self.vote
         if len(votesWithoutNone) == 1:
@@ -148,8 +139,8 @@ class DAG_C(object):
         if depth > self.traPerUser:
             print( "unsuccesfull" )
             #Unsuccessful attack, main tree stays as it is
-            x = 9 #bisey yazmak lazimdi
-            #TODO: Mana 0la
+            user = [u for u in self.users if u.id == userId][0]
+            user.resetMana()
         else:
             print( "succesfull" )
             #Succesful Attack, main tree discards the part after tips and appends malicious tree
@@ -165,9 +156,6 @@ class DAG_C(object):
         for tip in sTips: 
             if tip.time > startTime:
                 startTime = tip.time
-        #TODO: !!!!!!
-        #TODO: IKI TIPI AYNI SECIYO!!!!
-        #TODO: !!!!!!
         print("Attack! maltreewith tips: " + str([n.traId for n in sTips]) + " depth:" + str(depth) + " startTime:" + str(startTime) )
         
         tips = sTips
@@ -208,18 +196,29 @@ class DAG_C(object):
             if userId != None:
                 self.nodesToAdd.append(newNode)
 
-            if len(self.nodes) > 2: #addedNodes???
+            if len(self.addedNodes) > 2:
                 nodeToAdd, selectedTips = self.cac(oldNodesToAdd)
             else:
                 # Add all
                 nodeToAdd = None
-                for node in oldNodesToAdd:
-                    self.addNodeToGraph(node, self.addedNodes)
-        
+
+                if len(oldNodesToAdd) <= 2:
+                    for node in oldNodesToAdd:
+                        self.addNodeToGraph(node, self.addedNodes)
+                else:
+                    self.addNodeToGraph(oldNodesToAdd[0], self.addedNodes)
+                    self.addNodeToGraph(oldNodesToAdd[1], self.addedNodes)
+
+                    for node in oldNodesToAdd[2:]:
+                        node.time += 1
+                        self.graph.node[node.traId]['pos'] = (self.time, np.random.uniform(-2, 0))
+                        self.nodesToAdd.append(node)
+
             if nodeToAdd != None and selectedTips != None:
                 self.addNodeToGraph(nodeToAdd, selectedTips)
     
         if selectedTips != None:
+          #TODO: Eski isTip true olan hic falselanmiyo, hep tip kaliyo
             for tip in selectedTips:     
                 if len([n for n in self.addedNodes if n.isTip]) > 3:
                     tipNode = [n for n in self.addedNodes if n.traId == tip.traId][0]
@@ -315,7 +314,6 @@ class DAG_C(object):
         for node in self.addedNodes:
             node.vote = None
         if result != None:
-            print("RESULT!!: " + str(result))
             return [node for node in nodesToAdd if node.traId == result][0], selectedTipss
 
         return None, selectedTipss
