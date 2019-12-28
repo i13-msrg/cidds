@@ -1,7 +1,7 @@
 import threading
 import matplotlib.pyplot as plt
 from base.DAG import DAG
-from base.CAC import DAG_CAC
+from base.CAC import DAG_C
 import time
 import random
 
@@ -34,7 +34,7 @@ def start_helper(sim):
 
     if sim.algorithm == "cac":
         # Call the DAG to generate transactions
-        dag = DAG_CAC(plot=True, numUsers=sim.numTotalUser, numMalUsers=sim.numMalUser, traPerUser=sim.traUser)
+        dag = DAG_C(plot=True, numUsers=sim.numTotalUser, numMalUsers=sim.numMalUser, traPerUser=sim.traUser)
 
         startTime = 0
         threads = []

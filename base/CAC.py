@@ -28,7 +28,6 @@ class CacNode(object):
         self.isTip = True
         self.user = user
         self.malicious = malicious
-
         self.dag = dag
         self.vote = None
         self.neighbourNodeIds = []
@@ -44,12 +43,12 @@ class CacNode(object):
                 self.neighbourNodeIds.append(node.traId)
 
     def get_vote(self):
-        tab = "\t\t"
-        total = 0
-        for idd in self.neighbourNodeIds:
-            total += int(idd)
-        if len(self.neighbourNodeIds) > 4 or (len(self.neighbourNodeIds) > 3 and total > 30):
-            tab = "\t"
+        # tab = "\t\t"
+        # total = 0
+        # for idd in self.neighbourNodeIds:
+        #     total += int(idd)
+        # if len(self.neighbourNodeIds) > 4 or (len(self.neighbourNodeIds) > 3 and total > 30):
+        #     tab = "\t"
 
         neighbourVotes = []
         #get neightbours vote from dag.nodes because python is pass by value... :(
@@ -88,7 +87,7 @@ class CacNode(object):
                 self.vote = maxValue[0]
         return self.vote
 
-class DAG_CAC(object):
+class DAG_C(object):
 
     def __init__(self, plot=False, numUsers=1, numMalUsers=0, traPerUser=0):
         self.time = 1.0
@@ -102,8 +101,9 @@ class DAG_CAC(object):
         self.currTime = 0
         self.nodesToAdd = []
         self.traPerUser = traPerUser
-        if numUsers == 1:
+        if numUsers < 3:
             self.users.append(User(id=0, malicious=False))
+        # TODO: Num mal needs to be 2lower i sayfaya ekle
         else:
             malUserIds = np.random.choice(range(2, numUsers), numMalUsers)
             for i in range(numUsers):
@@ -159,7 +159,7 @@ class DAG_CAC(object):
             self.addedNodes = self.addedNodes[:idx] + newTree
 
     def maliciousTreeWith(self, sTips, userId, depth):
-        addNodes = []
+        _addedNodes = []
         #get largest time of selected tips
         startTime = 0 
         for tip in sTips: 
@@ -176,12 +176,12 @@ class DAG_CAC(object):
         for i in range(depth):
             print("Attack!      time:" + str(startTime) + " loop: i:" + str(i) + " tips:" + str([n.traId for n in tips]) )
             node, tips = self.addMaliciousNodeToGraph(userId, startTime, tips)
-            addNodes.append(node)
-            print("Attack!      loop: addedNodes:" + str([n.traId for n in addNodes]) + " tipsAfter:" + str([n.traId for n in tips]) )
+            _addedNodes.append(node)
+            print("Attack!      loop: addedNodes:" + str([n.traId for n in _addedNodes]) + " tipsAfter:" + str([n.traId for n in tips]) )
             if i % 2 == 0:
                 startTime = startTime + 1
         #returns the list of nodes that have been created
-        return addNodes
+        return _addedNodes
 
     def non_malicious_user(self, userId=1, time=0):
         global transactionCounter
@@ -221,16 +221,14 @@ class DAG_CAC(object):
     
         if selectedTips != None:
             for tip in selectedTips:     
-                if len([n for n in self.addedNodes if n.isTip]) > 3: ###
+                if len([n for n in self.addedNodes if n.isTip]) > 3:
                     tipNode = [n for n in self.addedNodes if n.traId == tip.traId][0]
                     tipNode.isTip = False
                 else: 
                     tipNode = [n for n in self.addedNodes if n.traId == tip.traId][0]
                     tipNode.isTip = True
-                    # TODO: burada bi sorun var
         for node in oldNodesToAdd:
             self.nodes.append(node)
-        self.cw_cache = {}
     
     def addNodeToGraph(self, node, tips):
         node.isTip = True
@@ -242,7 +240,6 @@ class DAG_CAC(object):
             if hasattr(self, 'graph'):
                 self.graph.add_edges_from([(node.traId, tip.traId)], edge_color='r')
             self.addNeighbourToNode(tip, node)
-            self.addNeighbourToNode(node, tip)
     
     def addMaliciousNodeToGraph(self, userId, time, tips):
         global transactionCounter
@@ -251,8 +248,6 @@ class DAG_CAC(object):
         newNode = CacNode(self, traId=transactionCounter, nodeId=user.node_id_counter, time=time, user=user, malicious=True)
         transactionCounter += 1
         user.node_id_counter += 1
-
-        user = [u for u in self.users if u.id == newNode.user.id][0]
         user.increaseMana()
         self.nodes.append(newNode)
 
@@ -260,7 +255,10 @@ class DAG_CAC(object):
             if hasattr(self, 'graph'):
                 self.graph.add_edges_from([(newNode.traId, tip.traId)], edge_color='r')
             self.addNeighbourToNode(tip, newNode)
-            self.addNeighbourToNode(newNode, tip)
+
+        # TODO: IsTip i false yap onceki tipler icin!!!!
+        # TODO: IsTip i secmeyi duzelt eger attack basariliysa 
+        # eskileri artik tip olmamali sadece bunlar olmali, basarisizsa bunlar tip olmamali
 
         newTips = []
         newTips.append(tips[1])
@@ -270,6 +268,7 @@ class DAG_CAC(object):
 
     def addNeighbourToNode(self, node, newNode):
         node.add_neighbour(newNode)
+        newNode.add_neighbour(node)
 
     def getTipNodes(self):
         tipNodes = [n for n in self.addedNodes if n.isTip]
@@ -316,6 +315,7 @@ class DAG_CAC(object):
         for node in self.addedNodes:
             node.vote = None
         if result != None:
+            print("RESULT!!: " + str(result))
             return [node for node in nodesToAdd if node.traId == result][0], selectedTipss
 
         return None, selectedTipss
@@ -324,16 +324,11 @@ class DAG_CAC(object):
         votes = []
         for node in self.addedNodes:
             votes.append(node.get_vote())
-        # print("   Votes: " + str(votes))
         if len(set(votes)) == 0:
             return self.nodesToAdd[0].traId
         if len(set(votes)) == 1 and votes[0] != None:
             return votes[0]
-        counter += 1
-        if counter < 2:
-            return self.vote(counter)
-        else:
-            return None
+        return self.vote()
 
     def plot(self):
         global transactionCounter
@@ -343,7 +338,7 @@ class DAG_CAC(object):
             pos = nx.get_node_attributes(self.graph, 'pos')
             
             node_colors = ['#F7A81D', '#27ECEC','#8E8E8E', '#379716', '#7E27EC', '#ECE927', '#E413A8', '#2775EC']
-            users = []
+            
             # malNodesLabels = dict(zip([int(node.traId) for node in self.maliciousNodes], [node.nodeId for node in self.maliciousNodes]))
             # honNodeLabels = dict(zip([int(node.traId) for node in self.honestNodes], [node.nodeId for node in self.honestNodes]))
             maliciousUsers = [u.id for u in self.users if u.malicious == True]
@@ -353,11 +348,18 @@ class DAG_CAC(object):
             # nodeLabels = dict(zip([int(node.traId) for node in self.nodes], [node.nodeId for node in self.nodes]))
             nodeLabels = dict(zip([int(node.traId) for node in self.nodes], [node.traId for node in self.nodes]))
             
+            allNodes = []
+            addedUserNodes = []
+            discardedUserNodes = []
             for userId in [user.id for user in self.users]:
-                users.append([int(node.traId) for node in self.nodes if node.user.id == userId])
+                addedUserNodes.append([int(node.traId) for node in self.addedNodes if node.user.id == userId])
+                discardedUserNodes.append([int(node.traId) for node in self.nodes if (node.user.id == userId and (node not in self.addedNodes))])
 
-            for idx, user in enumerate(users):
-                nx.draw_networkx_nodes(self.graph, pos, nodelist=user, node_color=node_colors[idx], node_size=600, alpha=0.65)
+            for idx, node in enumerate(addedUserNodes):
+                nx.draw_networkx_nodes(self.graph, pos, nodelist=node, node_color=node_colors[idx], node_size=600, alpha=0.65)
+
+            for idx, node in enumerate(discardedUserNodes):
+                nx.draw_networkx_nodes(self.graph, pos, nodelist=node, node_color=node_colors[idx], node_size=500, alpha=0.25)
 
             nx.draw_networkx_labels(self.graph, pos, nodeLabels, font_weight="bold", font_size=20)
             nx.draw_networkx_edges(self.graph, pos, edgelist=self.graph.edges(), arrows=True, edge_color=edge_colors)
