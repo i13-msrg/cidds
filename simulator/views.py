@@ -49,6 +49,7 @@ class StartSim(View):
         numTotalUser = request.GET.get("numTotalUser")
         numMalUser = request.GET.get("numMalUser")
         traUser = request.GET.get("traUser")
+        nodeReattachment = request.GET.get("nodeReattachment")
 
         plot = Orchestrator.start_helper()
         buf = io.BytesIO()
@@ -76,6 +77,11 @@ class StartSim(View):
         numTotalUser = int(data.get("numTotalUser") or 0)
         numMalUser = int(data.get("numMalUser") or 0)
         traUser = int(data.get("traUser") or 0)
+        
+        if data.get("nodeReattachment") == "True":
+            nodeReattachment = True
+        else:
+            nodeReattachment = False
 
         algorithm = data.get("algorithm")
         reference = data.get("reference")
@@ -90,6 +96,7 @@ class StartSim(View):
                                 numTotalUser=numTotalUser,
                                 numMalUser=numMalUser,
                                 traUser=traUser,
+                                nodeReattachment=nodeReattachment,
                                 )
         sim.status = "Running"
         sim.save()

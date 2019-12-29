@@ -31,10 +31,10 @@ def start_helper(sim):
     plt.rc('ytick', labelsize=20)
 
     plt.figure(figsize=(25, 10))
-
+    
     if sim.algorithm == "cac":
         # Call the DAG to generate transactions
-        dag = DAG_C(plot=True, numUsers=sim.numTotalUser, numMalUsers=sim.numMalUser, traPerUser=sim.traUser)
+        dag = DAG_C(plot=True, numUsers=sim.numTotalUser, numMalUsers=sim.numMalUser, traPerUser=sim.traUser, reattachment=sim.nodeReattachment)
 
         startTime = 0
         threads = []

@@ -31,6 +31,7 @@ class SimulationResults(Model):
     numTotalUser = models.IntegerField(blank=True, null=True, default = 3)
     numMalUser = models.IntegerField(blank=True, null=True, default = 0)
     traUser = models.IntegerField(blank=True, null=True, default = 5)
+    nodeReattachment = models.BooleanField(blank=True, null=True, default = True)
 
     # Degree of randomness
     randomness = models.FloatField(blank=True, null=True, default=1)

@@ -27,22 +27,30 @@
 			</span>
 
 			<div class="wrap-input1 validate-input" data-validate="Number of Total Users is required">
-				Number of Total Users: <span id="totalUserOutput"></span>
-				<input id="numTotalUser" class="input1" type="range" min="1" max="8" value="3" name="numTotalUser">
+				Number of Total Users: 
+				<input id="numTotalUser" class="input1" type="number" min="0" required="required" type="text"
+					name="numTotalUser" placeholder="Number of Total Users">
 				<span class="shadow-input1"></span>
 			</div>
 			<div class="wrap-input1 validate-input" data-validate="Number of Total Malicious is required">
-				Number of Malicious Users: <span id="malUserOutput"></span>
-				<input id="numMalUser" class="input1" type="range" min="0" max="7" value="0" name="numMalUser">
+				Number of Malicious Users: 
+				<input id="numMalUser" class="input1" type="number" min="0" required="required" type="text"
+					name="numMalUser" placeholder="Number of Malicious Users">
 				<span class="shadow-input1"></span>
 			</div>
 			<div class="wrap-input1 validate-input" data-validate="Number of Transactions per User is required">
-					Number of Transactions per User:
-					<input id="traUser" class="input1" type="number" min="0" required="required" type="text"
-						name="traUser" placeholder="Number of Transactions per User">
-					<span class="shadow-input1"></span>
-				</div>
+				Number of Transactions per User:
+				<input id="traUser" class="input1" type="number" min="0" required="required" type="text"
+					name="traUser" placeholder="Number of Transactions per User">
+				<span class="shadow-input1"></span>
+			</div>
 
+			<label class="switch">
+				<input id="nodeReattachment" name="nodeReattachment" value="true" type="checkbox" onclick='handleClick(this);' checked>
+				<span class="shadow-input1"></span>
+				Reattachment of the node
+			</label>
+			<br/>
 			<input id="cac" type="radio" name="algorithm" value="cac" checked> <label for="cac"> Cellular Automata Consensus</label>
 
 			<span class="shadow-input1"></span>
@@ -66,23 +74,17 @@
 </div>
 
 <script>
-	var userSlider = document.getElementById("numTotalUser");
-	var userSliderOutput = document.getElementById("totalUserOutput");
-	userSliderOutput.innerHTML = userSlider.value;
-
-	var malUserSlider = document.getElementById("numMalUser");
-	var malUserSliderOutput = document.getElementById("malUserOutput");
-	malUserSliderOutput.innerHTML = malUserSlider.value;
-
-	userSlider.oninput = function() {
-		userSliderOutput.innerHTML = this.value;
-		malUserSlider.max = this.value;
-	}
-	
-	malUserSlider.oninput = function() {
-		malUserSliderOutput.innerHTML = this.value;
+	function handleClick(cb) {
+		if (cb.checked == true){
+			cb.value = "True";
+			document.getElementById("nodeReattachment").value = "True";
+		} else {
+			cb.value = "False";
+			document.getElementById("nodeReattachment").value = "False";
+		}
 	}
 </script>
+
 <!--===============================================================================================-->
 <script src="{% static "vendor/jquery/jquery-3.2.1.min.js"%}"></script>
 <!--===============================================================================================-->

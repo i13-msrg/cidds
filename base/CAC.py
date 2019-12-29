@@ -80,9 +80,9 @@ class CacNode(object):
 
 class DAG_C(object):
 
-    def __init__(self, plot=False, numUsers=1, numMalUsers=0, traPerUser=0):
+    def __init__(self, plot=False, numUsers=1, numMalUsers=0, traPerUser=0, reattachment=False):
         self.time = 1.0
-
+        
         if plot:
             self.graph = nx.OrderedDiGraph()
 
@@ -92,6 +92,8 @@ class DAG_C(object):
         self.currTime = 0
         self.nodesToAdd = []
         self.traPerUser = traPerUser
+        self.reattachment = reattachment
+
         if numUsers < 3:
             self.users.append(User(id=0, malicious=False))
         # TODO: Num mal needs to be 2lower i sayfaya ekle
@@ -99,14 +101,18 @@ class DAG_C(object):
             malUserIds = np.random.choice(range(2, numUsers), numMalUsers)
             for i in range(numUsers):
                 self.users.append(User(id=i, malicious=(i in malUserIds)))
-            
-            print("Users: " + str([(u.id, u.malicious) for u in self.users]))
 
     def generate_next_node(self, userId=1, time=0, malicious=False):
         if malicious:
             self.malicious_user_attack(userId, time)
         else:
-            self.non_malicious_user(userId, time)
+            if userId == None:
+                _time = time
+                while len(self.nodesToAdd) != 0:
+                    self.non_malicious_user(userId, _time)
+                    _time += 1
+            else:
+                self.non_malicious_user(userId, time)
 
     def malicious_user_attack(self, userId, _time=0):
         print("Attack! time: " + str(_time) + " Added:" + str([n.traId for n in self.addedNodes]))
@@ -211,11 +217,17 @@ class DAG_C(object):
 
                     for node in oldNodesToAdd[2:]:
                         node.time += 1
-                        self.graph.node[node.traId]['pos'] = (self.time, np.random.uniform(-2, 0))
+                        self.graph.node[node.traId]['pos'] = (self.time, np.random.uniform(0, 2))
                         self.nodesToAdd.append(node)
 
             if nodeToAdd != None and selectedTips != None:
                 self.addNodeToGraph(nodeToAdd, selectedTips)
+
+                if self.reattachment:
+                    for node in ([n for n in oldNodesToAdd if n.traId != nodeToAdd.traId]):
+                        node.time += 1
+                        self.graph.node[node.traId]['pos'] = (self.time, np.random.uniform(0, 2))
+                        self.nodesToAdd.append(node)
     
         if selectedTips != None:
           #TODO: Eski isTip true olan hic falselanmiyo, hep tip kaliyo
@@ -322,11 +334,14 @@ class DAG_C(object):
         votes = []
         for node in self.addedNodes:
             votes.append(node.get_vote())
+        print(votes)
         if len(set(votes)) == 0:
             return self.nodesToAdd[0].traId
         if len(set(votes)) == 1 and votes[0] != None:
             return votes[0]
-        return self.vote()
+        if counter > 8:
+            return votes[0]
+        return self.vote(counter+1)
 
     def plot(self):
         global transactionCounter
