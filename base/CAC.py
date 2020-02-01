@@ -2,10 +2,15 @@ import numpy as np
 import networkx as nx
 import matplotlib.pyplot as plt
 import threading
+from threading import Lock, Thread
 import random
 import time as timeee
 
 transactionCounter = 0 
+lock = Lock()
+
+succesfulAttacks = 0
+failedAttacks = 0
 
 class User(object):
     def __init__(self, id: int, malicious: bool):
@@ -36,7 +41,7 @@ class CacNode(object):
             if malicious:
                 self.dag.graph.add_node(self.traId, pos=(self.time, np.random.uniform(-2, 0)))
             else:
-                self.dag.graph.add_node(self.traId, pos=(self.time, np.random.uniform(0, 2)))
+                self.dag.graph.add_node(self.traId, pos=(self.time, np.random.uniform(0, 10)))
 
     def add_neighbour(self, node):
         if node.traId not in self.neighbourNodeIds:
@@ -82,17 +87,22 @@ class DAG_C(object):
 
     def __init__(self, plot=False, numUsers=1, numMalUsers=0, traPerUser=0, reattachment=False):
         self.time = 1.0
+        self.realtime = timeee.time()
         
+        print("DAG: numUsers:" + str(numUsers) + " numMalUsers:" + str(numMalUsers) + " traPerUser:" + str(traPerUser) + " reattachment:" + str(reattachment))
+
         if plot:
             self.graph = nx.OrderedDiGraph()
 
         self.nodes = []
         self.addedNodes = []
+        self.unvalidatedNodes = []
         self.users = []
         self.currTime = 0
         self.nodesToAdd = []
         self.traPerUser = traPerUser
         self.reattachment = reattachment
+        self.numMalUsers = numMalUsers
 
         if numUsers < 3:
             self.users.append(User(id=0, malicious=False))
@@ -107,15 +117,18 @@ class DAG_C(object):
             self.malicious_user_attack(userId, time)
         else:
             if userId == None:
-                _time = time
                 while len(self.nodesToAdd) != 0:
-                    self.non_malicious_user(userId, _time)
-                    _time += 1
+                    self.time += 1
+                    self.non_malicious_user(None, self.time)
             else:
-                self.non_malicious_user(userId, time)
+                self.non_malicious_user(userId, self.time)
 
     def malicious_user_attack(self, userId, _time=0):
-        print("Attack! time: " + str(_time) + " Added:" + str([n.traId for n in self.addedNodes]))
+        global failedAttacks
+        global succesfulAttacks
+        while len(self.addedNodes) < 1:
+            timeee.sleep(random.uniform(1, 3))
+
         # Select 2 tips from added nodes
         tipNodes = [n for n in self.addedNodes]
         if len(tipNodes) > 2:
@@ -123,8 +136,7 @@ class DAG_C(object):
         else:
             sTips = tipNodes
         # Check depth of those 2 tips to see if its larger than num transactions
-        while len(self.addedNodes) < 1:
-            timeee.sleep(random.uniform(1, 3))
+        
         # str([n.traId for n in self.nodesToAdd])
         depth = 0
         removalNodeId = self.addedNodes[0].traId
@@ -141,20 +153,24 @@ class DAG_C(object):
         # Create subtree with all transactions of that user
         newTree = self.maliciousTreeWith(sTips, userId, self.traPerUser)
 
+        nodeIdsArray = list([n.traId for n in self.addedNodes])
+        idx = nodeIdsArray.index(removalNodeId) + 1
+        curdepth = len(self.addedNodes[(idx+1):])
         # Set subtree as main tree or discard as unsuccesfull attack
-        if depth > self.traPerUser:
-            print( "unsuccesfull" )
+        if curdepth > self.traPerUser:
+            failedAttacks += 1
+            print(" -Attack: User:" + str(userId) + " time:" + str(_time) + " -failed")
             #Unsuccessful attack, main tree stays as it is
             user = [u for u in self.users if u.id == userId][0]
             user.resetMana()
         else:
-            print( "succesfull" )
-            #Succesful Attack, main tree discards the part after tips and appends malicious tree
-            nodeIdsArray = list([n.traId for n in self.addedNodes])
-            idx = nodeIdsArray.index(removalNodeId) + 1
-            print("remNode:" + str(removalNodeId) + " idx:" + str(idx) + " addedNodes:" + str([n.traId for n in self.addedNodes[:idx]]) )
-            self.addedNodes = self.addedNodes[:idx] + newTree
+            succesfulAttacks += 1
+            print(" -Attack: User:" + str(userId) + " time:" + str(_time) + " -succesfull")
 
+            #Succesful Attack, main tree discards the part after tips and appends malicious tree
+            self.unvalidatedNodes += self.addedNodes[(idx+1):]
+            self.addedNodes = self.addedNodes[:idx] + newTree
+        
     def maliciousTreeWith(self, sTips, userId, depth):
         _addedNodes = []
         #get largest time of selected tips
@@ -162,16 +178,13 @@ class DAG_C(object):
         for tip in sTips: 
             if tip.time > startTime:
                 startTime = tip.time
-        print("Attack! maltreewith tips: " + str([n.traId for n in sTips]) + " depth:" + str(depth) + " startTime:" + str(startTime) )
-        
+
         tips = sTips
         #creates a malicious tree in graph with given number of transactions
         #add 2 nodes each second until sub tree formed
         for i in range(depth):
-            print("Attack!      time:" + str(startTime) + " loop: i:" + str(i) + " tips:" + str([n.traId for n in tips]) )
             node, tips = self.addMaliciousNodeToGraph(userId, startTime, tips)
             _addedNodes.append(node)
-            print("Attack!      loop: addedNodes:" + str([n.traId for n in _addedNodes]) + " tipsAfter:" + str([n.traId for n in tips]) )
             if i % 2 == 0:
                 startTime = startTime + 1
         #returns the list of nodes that have been created
@@ -179,7 +192,6 @@ class DAG_C(object):
 
     def non_malicious_user(self, userId=1, time=0):
         global transactionCounter
-
         self.time = time
         oldNodesToAdd = []
         if userId != None:
@@ -193,10 +205,10 @@ class DAG_C(object):
 
         if (time == self.currTime) and (userId != None):
             self.nodesToAdd.append(newNode)
-        else:
-            if userId != None or len(self.nodesToAdd)>0:
-                print("Time: " + str(self.currTime) + " -Nodes Waiting to be added: " + str([n.traId for n in self.nodesToAdd]) + " -Added: " + str([n.traId for n in self.addedNodes]))
-            self.currTime = time
+        else:            
+            lock.acquire()
+            
+            self.currTime = self.time
             oldNodesToAdd = self.nodesToAdd
             self.nodesToAdd = []
             if userId != None:
@@ -215,9 +227,12 @@ class DAG_C(object):
                     self.addNodeToGraph(oldNodesToAdd[0], self.addedNodes)
                     self.addNodeToGraph(oldNodesToAdd[1], self.addedNodes)
 
+                    self.nodes.append(oldNodesToAdd[0])
+                    self.nodes.append(oldNodesToAdd[1])
+
                     for node in oldNodesToAdd[2:]:
                         node.time += 1
-                        self.graph.node[node.traId]['pos'] = (self.time, np.random.uniform(0, 2))
+                        self.graph.node[node.traId]['pos'] = (node.time, np.random.uniform(0, 10))
                         self.nodesToAdd.append(node)
 
             if nodeToAdd != None and selectedTips != None:
@@ -226,20 +241,33 @@ class DAG_C(object):
                 if self.reattachment:
                     for node in ([n for n in oldNodesToAdd if n.traId != nodeToAdd.traId]):
                         node.time += 1
-                        self.graph.node[node.traId]['pos'] = (self.time, np.random.uniform(0, 2))
+                        self.graph.node[node.traId]['pos'] = (node.time, np.random.uniform(0, 10))
                         self.nodesToAdd.append(node)
+            
+            lock.release()
     
         if selectedTips != None:
           #TODO: Eski isTip true olan hic falselanmiyo, hep tip kaliyo
             for tip in selectedTips:     
                 if len([n for n in self.addedNodes if n.isTip]) > 3:
-                    tipNode = [n for n in self.addedNodes if n.traId == tip.traId][0]
+                    if self.reattachment:
+                        tipNode = [n for n in self.nodes if n.traId == tip.traId][0]
+                    else:
+                        tipNode = [n for n in self.addedNodes if n.traId == tip.traId][0]
                     tipNode.isTip = False
                 else: 
-                    tipNode = [n for n in self.addedNodes if n.traId == tip.traId][0]
+                    if self.reattachment:
+                        tipNode = [n for n in self.nodes if n.traId == tip.traId][0]
+                    else:
+                        tipNode = [n for n in self.addedNodes if n.traId == tip.traId][0]
                     tipNode.isTip = True
-        for node in oldNodesToAdd:
-            self.nodes.append(node)
+        if self.reattachment:
+            if nodeToAdd != None:
+                self.nodes.append(nodeToAdd)
+        else:
+            for node in oldNodesToAdd:
+                if node != None and node not in self.nodes:
+                    self.nodes.append(node)
     
     def addNodeToGraph(self, node, tips):
         node.isTip = True
@@ -272,7 +300,10 @@ class DAG_C(object):
         # eskileri artik tip olmamali sadece bunlar olmali, basarisizsa bunlar tip olmamali
 
         newTips = []
-        newTips.append(tips[1])
+        if len(tips) > 1:
+            newTips.append(tips[1])
+        else:
+            newTips.append(tips[0])
         newTips.append(newNode)
 
         return newNode, newTips
@@ -302,14 +333,16 @@ class DAG_C(object):
         selectedTipss = None
 
         if len(nodesToAdd) > 1:
-            for node in nodesToAdd:
+            for node in reversed(nodesToAdd):
                 selectedTips = self.getTipNodes()
                 for tip in selectedTips:
                     if tip.vote == None:
                         tip.vote = node.traId
                         selectedTipss = selectedTips
                     else:
-                        currentVoteMana = [n.user.mana for n in nodesToAdd if n.traId == tip.vote][0]
+                        currentVoteMana = 0
+                        if len([n.user.mana for n in self.nodesToAdd if n.traId == tip.vote]) > 0:
+                            currentVoteMana = [n.user.mana for n in self.nodesToAdd if n.traId == tip.vote][0]
                         if currentVoteMana < node.user.mana:
                             tip.vote = node.traId
                             selectedTipss = selectedTips
@@ -326,7 +359,9 @@ class DAG_C(object):
         for node in self.addedNodes:
             node.vote = None
         if result != None:
-            return [node for node in nodesToAdd if node.traId == result][0], selectedTipss
+            if len([node for node in nodesToAdd if node.traId == result]) > 0:
+                return [node for node in nodesToAdd if node.traId == result][0], selectedTipss
+            return [node for node in self.nodes if node.traId == result][0], selectedTipss
 
         return None, selectedTipss
         
@@ -334,17 +369,22 @@ class DAG_C(object):
         votes = []
         for node in self.addedNodes:
             votes.append(node.get_vote())
-        print(votes)
         if len(set(votes)) == 0:
             return self.nodesToAdd[0].traId
         if len(set(votes)) == 1 and votes[0] != None:
             return votes[0]
         if counter > 8:
-            return votes[0]
+            if votes[0] != None:
+                return votes[0]
+            else:
+                return votes[len(votes)-1]
         return self.vote(counter+1)
 
     def plot(self):
         global transactionCounter
+        global failedAttacks
+        global succesfulAttacks
+
         transactionCounter = 0
 
         if hasattr(self, 'graph'):
@@ -355,8 +395,18 @@ class DAG_C(object):
             # malNodesLabels = dict(zip([int(node.traId) for node in self.maliciousNodes], [node.nodeId for node in self.maliciousNodes]))
             # honNodeLabels = dict(zip([int(node.traId) for node in self.honestNodes], [node.nodeId for node in self.honestNodes]))
             maliciousUsers = [u.id for u in self.users if u.malicious == True]
-            maliciousNodes = [n for n in self.nodes if n.user.id in maliciousUsers]
-            edge_colors = ['red' if e[0] in [n.traId for n in maliciousNodes] else 'black' for e in self.graph.edges()]
+            maliciousNodes = []
+            if len(maliciousUsers) > 0:
+                maliciousNodes = [n for n in self.nodes if n.user.id in maliciousUsers]
+
+            edge_colors = []
+            for e in self.graph.edges():
+                if e[0] in [n.traId for n in maliciousNodes]:
+                    edge_colors.append('red')
+                elif e[0] in [n.traId for n in self.unvalidatedNodes]:
+                    edge_colors.append('gray')
+                else:
+                    edge_colors.append('black')
 
             # nodeLabels = dict(zip([int(node.traId) for node in self.nodes], [node.nodeId for node in self.nodes]))
             nodeLabels = dict(zip([int(node.traId) for node in self.nodes], [node.traId for node in self.nodes]))
@@ -364,18 +414,29 @@ class DAG_C(object):
             allNodes = []
             addedUserNodes = []
             discardedUserNodes = []
+            allDiscardedNodes = [node for node in self.nodes if (node not in self.addedNodes)]
+
             for userId in [user.id for user in self.users]:
                 addedUserNodes.append([int(node.traId) for node in self.addedNodes if node.user.id == userId])
-                discardedUserNodes.append([int(node.traId) for node in self.nodes if (node.user.id == userId and (node not in self.addedNodes))])
+                discardedUserNodes.append([int(node.traId) for node in allDiscardedNodes if node.user.id == userId])
 
             for idx, node in enumerate(addedUserNodes):
-                nx.draw_networkx_nodes(self.graph, pos, nodelist=node, node_color=node_colors[idx], node_size=600, alpha=0.65)
+                nx.draw_networkx_nodes(self.graph, pos, nodelist=node, node_color=node_colors[idx % 8], node_size=600, alpha=0.65)
 
             for idx, node in enumerate(discardedUserNodes):
-                nx.draw_networkx_nodes(self.graph, pos, nodelist=node, node_color=node_colors[idx], node_size=500, alpha=0.25)
+                nx.draw_networkx_nodes(self.graph, pos, nodelist=node, node_color=node_colors[idx % 8], node_size=500, alpha=0.25)
 
-            nx.draw_networkx_labels(self.graph, pos, nodeLabels, font_weight="bold", font_size=20)
+            nx.draw_networkx_labels(self.graph, pos, nodeLabels, font_size=20)
             nx.draw_networkx_edges(self.graph, pos, edgelist=self.graph.edges(), arrows=True, edge_color=edge_colors)
+
+            largestTime = 0 
+            for node in self.nodes:
+                if node.time > largestTime:
+                    largestTime = node.time
+
+            print("Result: simTime:" + str(largestTime) + " runTime:" + str(timeee.time() - self.realtime) + " discardedNodes:" + str(len(allDiscardedNodes)) + " addedNodes:" + str(len(self.addedNodes)))
+            if self.numMalUsers > 0:
+                print("Attacks: succesful:" + str(succesfulAttacks) + " failed:" + str(failedAttacks))
 
             plt.xlabel('Time')
             plt.yticks([])

@@ -18,7 +18,7 @@ class InteractiveLink(tables.Column):
                            title=record.title)
 
 class SimulationResultsTable(tables.Table):
-    sim_selection = CheckBoxColumnWithName(verbose_name="Slection", accessor="pk", attrs={"th__input":
+    sim_selection = CheckBoxColumnWithName(verbose_name="Selection", accessor="pk", attrs={"th__input":
                                                                 {
                                                                     "onclick": "toggle(this)"}},
                                       orderable=False)
@@ -27,5 +27,5 @@ class SimulationResultsTable(tables.Table):
     details = tables.LinkColumn('detail', text='Details', args=[A('pk')], empty_values=())
     class Meta:
         model = SimulationResults
-        fields = ('sim_selection','id','details', 'reference' , 'algorithm', 'status', 'image', 'interactive', 'created', 'modified')
+        fields = ('sim_selection','id','details', 'reference', 'algorithm', 'status', 'image', 'created', 'modified')
 

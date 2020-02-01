@@ -57,15 +57,15 @@ def start_helper(sim):
     # Return the result
     return dag
 
-def cac_for_user(dag, userId, transactions):
+def cac_for_user(dag, userId, transactionNum):
     user = [u for u in dag.users if u.id == userId][0]
     if user.malicious:
-        time.sleep(random.uniform(5, 8))
+        time.sleep(random.uniform(5, 12))
         timee = getTime()
         dag.generate_next_node(userId=userId, time=timee, malicious=True)
     else:
-        for i in range(transactions):
+        for i in range(transactionNum):
             timee = getTime()
             dag.generate_next_node(userId=userId, time=timee)
-            time.sleep(random.uniform(1, 3))
+            time.sleep(random.uniform(1, 5))
         dag.generate_next_node(userId=None, time=timee)

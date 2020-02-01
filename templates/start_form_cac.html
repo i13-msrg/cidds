@@ -12,7 +12,7 @@
 		<nav class="contact1-navbar navbar">
 			<ul class="nav navbar-nav contact1-nav menu_nav justify-content-center">
 				<li class="contact1-navitem nav-item"><a class="contact1-navlink nav-link" href="{% url 'startsim' %}">CIDDS Simulation</a></li>
-				<li class="contact1-navitem nav-item active active-nav"><a class="contact1-navlink nav-link" href="{% url 'startcac' %}">CAC Simulation</a></li>
+				<li class="contact1-navitem nav-item active active-nav"><a class="contact1-navlink nav-link" href="{% url 'startcac' %}">Coordicide Simulation</a></li>
 			</ul>
 		</nav>
 		<br/><br/><br/>
@@ -23,7 +23,7 @@
 		<form action="{% url 'initialize' %}" method="post" class="contact1-form validate-form">
 			{% csrf_token %}
 			<span class="contact1-form-title">
-				Start the CAC Simulation
+				Start the Coordicide Simulation
 			</span>
 
 			<div class="wrap-input1 validate-input" data-validate="Number of Total Users is required">
@@ -46,12 +46,12 @@
 			</div>
 
 			<label class="switch">
-				<input id="nodeReattachment" name="nodeReattachment" value="true" type="checkbox" onclick='handleClick(this);' checked>
+				<input id="nodeReattachment" name="nodeReattachment" value=True type="checkbox" onclick='handleClick(this);' checked>
 				<span class="shadow-input1"></span>
 				Reattachment of the node
 			</label>
 			<br/>
-			<input id="cac" type="radio" name="algorithm" value="cac" checked> <label for="cac"> Cellular Automata Consensus</label>
+			<input id="cac" type="radio" name="algorithm" value="cac" checked> <label for="cac"> Cellular Consensus</label>
 
 			<span class="shadow-input1"></span>
 
