@@ -168,6 +168,38 @@ iframe {
   padding: 90px 130px 88px 148px;
 }
 
+.contact1-navbar {
+  background: transparent;
+  padding: 0px;
+  border: 0px;
+  border-radius: 0px;
+  width: 100%; 
+}
+.contact1-nav {
+  width: 100%; 
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+}
+
+.contact1-navitem {
+  font: 500 12px/100px "Roboto", sans-serif;
+  text-transform: uppercase;
+  color: #3bacf0;
+  padding: 0px;
+  display: inline-block;
+  width: 30%;
+  text-align: center;
+}
+
+.active-nav {
+    background-color: #eeeeee78
+}
+
+.contact1-navlink {
+  color: #3bacf0;
+}
+
 /*------------------------------------------------------------------
 [  ]*/
 .contact1-pic {
@@ -447,3 +479,4 @@ textarea.input1 + .shadow-input1 {
   position:relative;
       top: 100px;
 }
+

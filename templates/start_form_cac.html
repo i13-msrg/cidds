@@ -1,0 +1,116 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+{% load static %}
+
+
+<!--================Header Menu Area =================-->
+
+<div class="contact1">
+	<div class="container-contact1">
+
+		<nav class="contact1-navbar navbar">
+			<ul class="nav navbar-nav contact1-nav menu_nav justify-content-center">
+				<li class="contact1-navitem nav-item"><a class="contact1-navlink nav-link" href="{% url 'startsim' %}">CIDDS Simulation</a></li>
+				<li class="contact1-navitem nav-item active active-nav"><a class="contact1-navlink nav-link" href="{% url 'startcac' %}">Coordicide Simulation</a></li>
+			</ul>
+		</nav>
+		<br/><br/><br/>
+		<div class="contact1-pic js-tilt" data-tilt>
+			<img src="{% static "images/img-02.png"%}" alt="IMG">
+		</div>
+
+		<form action="{% url 'initialize' %}" method="post" class="contact1-form validate-form">
+			{% csrf_token %}
+			<span class="contact1-form-title">
+				Start the Coordicide Simulation
+			</span>
+
+			<div class="wrap-input1 validate-input" data-validate="Number of Total Users is required">
+				Number of Total Users: 
+				<input id="numTotalUser" class="input1" type="number" min="0" required="required" type="text"
+					name="numTotalUser" placeholder="Number of Total Users">
+				<span class="shadow-input1"></span>
+			</div>
+			<div class="wrap-input1 validate-input" data-validate="Number of Total Malicious is required">
+				Number of Malicious Users: 
+				<input id="numMalUser" class="input1" type="number" min="0" required="required" type="text"
+					name="numMalUser" placeholder="Number of Malicious Users">
+				<span class="shadow-input1"></span>
+			</div>
+			<div class="wrap-input1 validate-input" data-validate="Number of Transactions per User is required">
+				Number of Transactions per User:
+				<input id="traUser" class="input1" type="number" min="0" required="required" type="text"
+					name="traUser" placeholder="Number of Transactions per User">
+				<span class="shadow-input1"></span>
+			</div>
+
+			<label class="switch">
+				<input id="nodeReattachment" name="nodeReattachment" value=True type="checkbox" onclick='handleClick(this);' checked>
+				<span class="shadow-input1"></span>
+				Reattachment of the node
+			</label>
+			<br/>
+			<input id="cac" type="radio" name="algorithm" value="cac" checked> <label for="cac"> Cellular Consensus</label>
+
+			<span class="shadow-input1"></span>
+
+			<div class="wrap-input1 validate-input" data-validate="Simulation remark is required">
+				<textarea class="input1" required="required" name="reference"
+					placeholder="Remarks/Name for the simulation for later reference"></textarea>
+				<span class="shadow-input1"></span>
+			</div>
+
+			<div class="container-contact1-form-btn">
+				<button type="submit" class="contact1-form-btn">
+					<span>
+						Start the Simulation
+						<i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+					</span>
+				</button>
+			</div>
+		</form>
+	</div>
+</div>
+
+<script>
+	function handleClick(cb) {
+		if (cb.checked == true){
+			cb.value = "True";
+			document.getElementById("nodeReattachment").value = "True";
+		} else {
+			cb.value = "False";
+			document.getElementById("nodeReattachment").value = "False";
+		}
+	}
+</script>
+
+<!--===============================================================================================-->
+<script src="{% static "vendor/jquery/jquery-3.2.1.min.js"%}"></script>
+<!--===============================================================================================-->
+<script src="{% static "vendor/bootstrap/js/popper.js"%}"></script>
+<script src="{% static "vendor/bootstrap/js/bootstrap.min.js"%}"></script>
+<!--===============================================================================================-->
+<script src="{% static "vendor/select2/select2.min.js"%}"></script>
+<!--===============================================================================================-->
+<script src="{% static "vendor/tilt/tilt.jquery.min.js"%}"></script>
+<script>
+	$('.js-tilt').tilt({
+		scale: 1.1
+	})
+</script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag() { dataLayer.push(arguments); }
+	gtag('js', new Date());
+
+	gtag('config', 'UA-23581568-13');
+</script>
+
+<!--===============================================================================================-->
+<script src="{% static "js/main.js"%}"></script>
+
+{% endblock %}

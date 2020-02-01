@@ -5,94 +5,94 @@
 
 
 
-        <!--================Work Area =================-->
-        <section class="work_area p_120">
-        	<div class="container">
-        		<div class="main_title">
-        			<h2>Comparision of Simulation results</h2>
-        			<p>The following is the comparison result for the selected simulations</p>
-        		</div>
-        		<div class="work_inner row">
-        			<div class="col-lg-6">
-        				<div class="work_item">
-        					<img width="500" height="300" src="{{ first_sim.image.url }}"/>
-        					<a href="#"><h4>{{first_sim.reference}}</h4></a>
-{#        					<p>Feature 1</p>#}
-                            <ul>
+<!--================Work Area =================-->
+<section class="work_area p_120">
+    <div class="container">
+        <div class="main_title">
+            <h2>Comparision of Simulation results</h2>
+            <p>The following is the comparison result for the selected simulations</p>
+        </div>
+        <div class="work_inner row">
+            <div class="col-lg-6">
+                <div class="work_item">
+                    <img width="500" height="300" src="{{ first_sim.image.url }}" />
+                    <a href="#">
+                        <h4>{{first_sim.reference}}</h4>
+                    </a>
+                    {#        					<p>Feature 1</p>#}
+                    <ul>
 
-                                 <li>
-                                    <strong> Processes: </strong> {{first_sim.num_process}}
-                                </li>
-                                <li>
-                                    <strong> Transactions: </strong> {{first_sim.transactions}}
-                                </li>
-                                <li>
-                                    <strong> Alpha: </strong> {{first_sim.alpha}}
-                                </li>
+                        <li>
+                            <strong> Processes: </strong> {{first_sim.num_process}}
+                        </li>
+                        <li>
+                            <strong> Transactions: </strong> {{first_sim.transactions}}
+                        </li>
+                        <li>
+                            <strong> Alpha: </strong> {{first_sim.alpha}}
+                        </li>
 
-                                <li>
-                                    <strong> Lambda: </strong> {{first_sim.randomness}}
-                                </li>
+                        <li>
+                            <strong> Lambda: </strong> {{first_sim.randomness}}
+                        </li>
 
-                                <li>
-                                    <strong> Tip Selection: </strong> {{first_sim.algorithm}}
-                                </li>
+                        <li>
+                            <strong> Tip Selection: </strong> {{first_sim.algorithm}}
+                        </li>
 
-                                <li>
-                                    <strong>Time Units: </strong> {{first_sim.time_units}}
-                                </li>
+                        <li>
+                            <strong>Time Units: </strong> {{first_sim.time_units}}
+                        </li>
 
-                                <li>
-                                    <strong> Unapproved Tips: </strong> {{first_sim.unapproved_tips}}
-                                </li>
+                        <li>
+                            <strong> Unapproved Tips: </strong> {{first_sim.unapproved_tips}}
+                        </li>
 
-                            </ul>
-        				</div>
-        			</div>
-        			<div class="col-lg-6">
-        				<div class="work_item">
-        					<img width="500" height="300" src="{{ second_sim.image.url }}"/>
-        					<a href="#"><h4>{{second_sim.reference}}</h4></a>
-        					 <ul>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="work_item">
+                    <img width="500" height="300" src="{{ second_sim.image.url }}" />
+                    <a href="#">
+                        <h4>{{second_sim.reference}}</h4>
+                    </a>
+                    <ul>
 
-                                <li>
-                                    <strong> Processes: </strong> {{second_sim.num_process}}
-                                </li>
-                                <li>
-                                    <strong> Transactions: </strong> {{second_sim.transactions}}
-                                </li>
-                                <li>
-                                    <strong> Alpha: </strong> {{second_sim.alpha}}
-                                </li>
+                        <li>
+                            <strong> Processes: </strong> {{second_sim.num_process}}
+                        </li>
+                        <li>
+                            <strong> Transactions: </strong> {{second_sim.transactions}}
+                        </li>
+                        <li>
+                            <strong> Alpha: </strong> {{second_sim.alpha}}
+                        </li>
 
-                                <li>
-                                    <strong> Labmda: </strong> {{second_sim.randomness}}
-                                </li>
+                        <li>
+                            <strong> Labmda: </strong> {{second_sim.randomness}}
+                        </li>
 
-                                <li>
-                                    <strong> Tip Selection: </strong> {{second_sim.algorithm}}
-                                </li>
-<li>
-                                    <strong>Time Units: </strong> {{second_sim.time_units}}
-                                </li>
+                        <li>
+                            <strong> Tip Selection: </strong> {{second_sim.algorithm}}
+                        </li>
+                        <li>
+                            <strong>Time Units: </strong> {{second_sim.time_units}}
+                        </li>
 
-                                <li>
-                                    <strong> Unapproved Tips: </strong> {{second_sim.unapproved_tips}}
-                                </li>
+                        <li>
+                            <strong> Unapproved Tips: </strong> {{second_sim.unapproved_tips}}
+                        </li>
 
-                            </ul>
-        				</div>
-        			</div>
+                    </ul>
+                </div>
+            </div>
 
-        		</div>
-        	</div>
-        </section>
-        <!--================End Work Area =================-->
+        </div>
+    </div>
+</section>
+<!--================End Work Area =================-->
 
 
 
 {% endblock %}
-
-
-
-

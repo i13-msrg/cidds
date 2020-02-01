@@ -5,60 +5,58 @@
 
 
 
-        <!--================Work Area =================-->
-        <section class="work_area p_120">
-        	<div class="container">
-        		<div class="main_title">
-        			<h2>Simulation details</h2>
-        			<p>The details of the selected simulation are:</p>
-        		</div>
-        		<div class="work_inner row">
-        			<div class="col-lg-12">
-        				<div class="work_item">
-        					<img width="500" height="300" src="{{ sim.image.url }}"/>
-        					<a href="#"><h4>{{sim.reference}}</h4></a>
-{#        					<p>Feature 1</p>#}
-                            <ul>
+<!--================Work Area =================-->
+<section class="work_area p_120">
+    <div class="container">
+        <div class="main_title">
+            <h2>Simulation details</h2>
+            <p>The details of the selected simulation are:</p>
+        </div>
+        <div class="work_inner row">
+            <div class="col-lg-12">
+                <div class="work_item">
+                    <img width="500" height="300" src="{{ sim.image.url }}" />
+                    <a href="#">
+                        <h4>{{sim.reference}}</h4>
+                    </a>
+                    {#        					<p>Feature 1</p>#}
+                    <ul>
 
-                                 <li>
-                                    <strong> Processes: </strong> {{sim.num_process}}
-                                </li>
-                                <li>
-                                    <strong> Transactions: </strong> {{sim.transactions}}
-                                </li>
-                                <li>
-                                    <strong> Alpha: </strong> {{sim.alpha}}
-                                </li>
+                        <li>
+                            <strong> Processes: </strong> {{sim.num_process}}
+                        </li>
+                        <li>
+                            <strong> Transactions: </strong> {{sim.transactions}}
+                        </li>
+                        <li>
+                            <strong> Alpha: </strong> {{sim.alpha}}
+                        </li>
 
-                                <li>
-                                    <strong> Lambda: </strong> {{sim.randomness}}
-                                </li>
+                        <li>
+                            <strong> Lambda: </strong> {{sim.randomness}}
+                        </li>
 
-                                <li>
-                                    <strong> Tip Selection: </strong> {{sim.algorithm}}
-                                </li>
+                        <li>
+                            <strong> Tip Selection: </strong> {{sim.algorithm}}
+                        </li>
 
-                                <li>
-                                    <strong>Time Units: </strong> {{sim.time_units}}
-                                </li>
+                        <li>
+                            <strong>Time Units: </strong> {{sim.time_units}}
+                        </li>
 
-                                <li>
-                                    <strong> Unapproved Tips: </strong> {{sim.unapproved_tips}}
-                                </li>
+                        <li>
+                            <strong> Unapproved Tips: </strong> {{sim.unapproved_tips}}
+                        </li>
 
-                            </ul>
-        				</div>
-        			</div>
-                    
-        		</div>
-        	</div>
-        </section>
-        <!--================End Work Area =================-->
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+<!--================End Work Area =================-->
 
 
 
 {% endblock %}
-
-
-
-

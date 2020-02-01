@@ -3,78 +3,81 @@
 
 {% block content %}
 
-        <!--================Home Banner Area =================-->
-        <section class="home_banner_area">
-            <div class="banner_inner">
-				<div class="container">
-					<div class="row">
-						<div class="col-lg-5">
-							<div class="banner_content">
-								<h2>Configurable and Interactive Digital Distributed Ledger <br />Simulation framework!</h2>
-								<p></p>
-                                {% if user.is_authenticated %}
+<!--================Home Banner Area =================-->
+<section class="home_banner_area">
+	<div class="banner_inner">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-5">
+					<div class="banner_content">
+						<h2>Configurable and Interactive Digital Distributed Ledger <br />Simulation framework!</h2>
+						<p></p>
+						{% if user.is_authenticated %}
 
-								<a class="banner_btn" href="{% url 'startsim' %}">Run Simulations</a>
+						<a class="banner_btn" href="{% url 'startsim' %}">Run Simulations</a>
 
-                                 {% else %}
-                                  <a class="banner_btn" href="{% url 'login' %}">Get Started</a>
+						{% else %}
+						<a class="banner_btn" href="{% url 'login' %}">Get Started</a>
 
-                                {% endif %}
+						{% endif %}
 
-								<a class="banner_btn2" href="https://github.com/i13-msrg/cidds">Download</a>
-							</div>
-						</div>
-						<div class="col-lg-7">
-							<div class="home_left_img">
-								<img class="img-fluid" src="{% static "/img/banner/home-left-1.png"%}" alt="">
-							</div>
-						</div>
+						<a class="banner_btn2" href="https://github.com/i13-msrg/cidds">Download</a>
 					</div>
 				</div>
-            </div>
-        </section>
-        <!--================End Home Banner Area =================-->
-        
-        <!--================Work Area =================-->
-        <section class="work_area p_120">
-        	<div class="container">
-        		<div class="main_title">
-        			<h2>Features of the Simulator</h2>
-        			<p>
-CIDDS lets the users to create DAGs and compare them. This can be used to study and analyze the different properties of the DAG!
-</p>
-        		</div>
-        		<div class="work_inner row">
-        			<div class="col-lg-4">
-        				<div class="work_item">
-        					<i class="lnr lnr-screen"></i>
-        					<a href="#"><h4>Visual</h4></a>
-        					<p>Smaller DAGs are represented visually</p>
-        				</div>
-        			</div>
-        			<div class="col-lg-4">
-        				<div class="work_item">
-        					<i class="lnr lnr-code"></i>
-        					<a href="#"><h4>Interactive</h4></a>
-        					<p>The User enters the values and can interatct with the DAG</p>
-        				</div>
-        			</div>
-        			<div class="col-lg-4">
-        				<div class="work_item">
-        					<i class="lnr lnr-clock"></i>
-        					<a href="#"><h4> Powerful</h4></a>
-        					<p>Can simulate large DAGs with thousands of nodes</p>
-        				</div>
-        			</div>
-        		</div>
-        	</div>
-        </section>
-        <!--================End Work Area =================-->
-        
+				<div class="col-lg-7">
+					<div class="home_left_img">
+						<img class="img-fluid" src="{% static "/img/banner/home-left-1.png"%}" alt="">
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!--================End Home Banner Area =================-->
 
-        
+<!--================Work Area =================-->
+<section class="work_area p_120">
+	<div class="container">
+		<div class="main_title">
+			<h2>Features of the Simulator</h2>
+			<p>
+				CIDDS lets the users to create DAGs and compare them. This can be used to study and analyze the different
+				properties of the DAG!
+			</p>
+		</div>
+		<div class="work_inner row">
+			<div class="col-lg-4">
+				<div class="work_item">
+					<i class="lnr lnr-screen"></i>
+					<a href="#">
+						<h4>Visual</h4>
+					</a>
+					<p>Smaller DAGs are represented visually</p>
+				</div>
+			</div>
+			<div class="col-lg-4">
+				<div class="work_item">
+					<i class="lnr lnr-code"></i>
+					<a href="#">
+						<h4>Interactive</h4>
+					</a>
+					<p>The User enters the values and can interatct with the DAG</p>
+				</div>
+			</div>
+			<div class="col-lg-4">
+				<div class="work_item">
+					<i class="lnr lnr-clock"></i>
+					<a href="#">
+						<h4> Powerful</h4>
+					</a>
+					<p>Can simulate large DAGs with thousands of nodes</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!--================End Work Area =================-->
+
+
+
 {% endblock %}
-
-
-        
-
