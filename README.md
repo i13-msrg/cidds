@@ -107,7 +107,9 @@ python manage.py collectstatic
 ## Accessing CIDDS online 
 
 CIDDS can be accessed online using the following link:
-http://131.159.52.52:8080
+http://131.159.52.52:8080 
+
+( Update : This link is not valid anymore, please run the application locally ) 
 
 ## Inspirations from
 
